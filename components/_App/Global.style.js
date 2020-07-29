@@ -44,6 +44,23 @@ a, a:hover, a:focus, a:active  {
 text-decoration: none !important;
 }
 
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #9a9a9a none;
+  }
+  *::-webkit-scrollbar {
+    width: 6px;
+    color: aqua;
+  }
+  *::-webkit-scrollbar-track {
+    background: hidden;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: hidden;
+    border-radius: 20px;
+    border: 3px solid #751fff;
+  }
+
 `;
 
 export default GlobalStyle;
