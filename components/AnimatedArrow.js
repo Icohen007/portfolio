@@ -6,6 +6,7 @@ bottom: 30px;
 left: 50%;
 transform: translate(-50%, -50%);
 cursor: pointer;
+padding: 20px;
 
 span {
 display: block;

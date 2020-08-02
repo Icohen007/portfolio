@@ -10,11 +10,16 @@ const StyledTechCard = styled.div`
   width: 120px;
   height: 120px;
   padding: 5px;
-  margin: 5px;
+  //margin: 5px;
   transition: .75s ease-in;
   background: white;
   border-radius: 50%;
   box-shadow: inset 0 4px 5px 0 rgba(0,0,0,.14), inset 0 1px 10px 0 rgba(0,0,0,.12), inset 0 2px 4px -1px rgba(0,0,0,.3);
+  
+  @media only screen and (max-width: 768px) {
+  width: 80px;
+  height: 80px;
+  }
 
   &:hover .img-wrapper {
   filter: blur(2px);
@@ -54,6 +59,10 @@ const StyledTechCard = styled.div`
     padding: 5rem;
     font-weight: bold;
     user-select: none;
+      @media only screen and (max-width: 768px) {
+font-size: 12rem;
+  }
+    
   }
 `;
 
