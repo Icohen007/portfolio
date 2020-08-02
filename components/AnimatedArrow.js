@@ -50,9 +50,9 @@ transform: rotate(45deg) translate(20px, 20px);
 
 `;
 
-function AnimatedArrow() {
+function AnimatedArrow({ onClick }) {
   return (
-    <StyledAnimatedArrow>
+    <StyledAnimatedArrow onClick={onClick}>
       <span />
       <span />
       <span />

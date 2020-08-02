@@ -9,6 +9,7 @@ html {
   width: 100%;
   font-family: 'Inter', sans-serif !important;
   font-size: 1px;
+  scroll-behavior: smooth;
 }
 
 *, *:before, *:after {

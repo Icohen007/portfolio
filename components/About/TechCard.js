@@ -3,25 +3,25 @@ import styled from 'styled-components';
 
 const StyledTechCard = styled.div`
   display: flex;
+  overflow: hidden;
+  position: relative;
   justify-content: center;
   align-items: center;
-  transition: .75s;
-  position: relative;
-  background: #fff;
-  overflow: hidden;
-  border-radius: 50%;
   width: 120px;
   height: 120px;
   padding: 5px;
   margin: 5px;
+  transition: .75s ease-in;
+  background: white;
+  border-radius: 50%;
   box-shadow: inset 0 4px 5px 0 rgba(0,0,0,.14), inset 0 1px 10px 0 rgba(0,0,0,.12), inset 0 2px 4px -1px rgba(0,0,0,.3);
 
   &:hover .img-wrapper {
   filter: blur(2px);
   }
   
-    &:hover .description {
-  opacity: 1
+  &:hover .description {
+  opacity: 1;
   }
 
   .img-wrapper {
