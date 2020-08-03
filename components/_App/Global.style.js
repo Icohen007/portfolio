@@ -44,7 +44,6 @@ margin: 0;
 a, a:hover, a:focus, a:active  {
 text-decoration: none !important;
 }
-
   * {
     scrollbar-width: thin;
     scrollbar-color: #9a9a9a none;

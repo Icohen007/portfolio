@@ -21,11 +21,11 @@ const StyledTechCard = styled.div`
   height: 80px;
   }
 
-  &:hover .img-wrapper {
+  &.reveal .img-wrapper, &:hover .img-wrapper {
   filter: blur(2px);
   }
   
-  &:hover .description {
+  &.reveal .description, &:hover .description {
   opacity: 1;
   }
 
@@ -66,8 +66,8 @@ font-size: 12rem;
   }
 `;
 
-const TechCard = ({ imageSrc, text }) => (
-  <StyledTechCard>
+const TechCard = ({ imageSrc, text, className }) => (
+  <StyledTechCard className={className}>
     <div className="img-wrapper">
       <img alt={text} src={`/devIcons/${imageSrc}`} />
     </div>

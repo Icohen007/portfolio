@@ -15,6 +15,10 @@ const theme = {
     black: '#222',
     orange: '#fca92e',
   },
+  link: {
+    blue: '#3B68B5',
+    green: '#37bc9b',
+  },
 };
 
 export default class MyApp extends App {

@@ -4,7 +4,7 @@ import useInView from 'react-cool-inview';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
 import ParticlesConfig from '../../lib/particlesConfig';
-import AnimatedArrow from '../AnimatedArrow';
+import AnimatedArrow from './AnimatedArrow';
 
 function Intro({ onScrollClick }) {
   const typedRef = useRef(null);

@@ -1,4 +1,5 @@
 import React, {
+  useCallback,
   useEffect, useMemo, useRef, useState,
 } from 'react';
 import styled from 'styled-components';
@@ -9,6 +10,7 @@ import TechCard from './TechCard';
 import { techCards } from '../../lib/data';
 import { TECH_TYPE } from '../../lib/consts';
 import { useMobile } from '../../lib/queries';
+import ShinyLink from '../Shared/ShinyLink.style';
 
 const Container = styled.section`
   min-height: 120vh;
@@ -36,15 +38,21 @@ const UnderLine = styled.div`
 `;
 
 const AboutText = styled.div`
-font-size: 16rem;
+font-size: 18rem;
 color: ${({ theme }) => theme.font.black};
 white-space: pre-wrap;
 text-align: left;
+font-family: 'Source Sans Pro', sans-serif;
+max-width: 900rem;
+border-radius: 15rem;
+padding: 5rem;
+background: rgba(255,255,255,.4);
+box-shadow: 0px 0px 10px 5px rgba(176,176,176,1);
 `;
 
 const AboutDetailsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 100rem;
 `;
 
@@ -81,7 +89,7 @@ const TechButton = styled.div`
   color: ${(props) => (props.active ? 'rgb(0,49,125,0.9)' : '#fff4f4')};
   font-weight: bold;
   background: rgba(0,49,125,0.3);
-  background: ${(props) => (props.active ? 'rgb(255,244,244,0.7)' : 'rgba(0,49,125,0.3)')};
+  background: ${(props) => (props.active ? 'rgb(255,244,244,0.7)' : 'rgba(0,49,125,0.4)')};
   cursor:pointer;
   font-size:14rem;
   text-transform:uppercase;
@@ -90,6 +98,11 @@ const TechButton = styled.div`
   border-radius: 5px;
   padding: 2px 8px;
   margin: 10px;
+  user-select: none;
+  
+  &:hover {
+    background: ${(props) => (props.active ? 'rgb(255,244,244,0.7)' : 'rgba(0,49,125,0.6)')};
+  }
 `;
 
 const TabIndicator = styled.div`
@@ -97,7 +110,7 @@ const TabIndicator = styled.div`
   width: 0px;
   height: 5px;
   background: rgb(0,49,125,0.9);
-  bottom: -4px;
+  bottom: 0;
   left: 0px ;
   border-radius:5px;
   transition:all 600ms ease-in-out;
@@ -107,20 +120,71 @@ display: none;
 `;
 
 const TechCardContainer = styled.div`
-//display: flex;
-//flex-wrap: wrap;
-//justify-content: center;
 margin-top: 40rem;
 
-span {
-div {
-margin: 0px auto;
-}
+span > div {
+
+margin: 0 auto;
+
 }
 
 li {
 list-style: none;
 }
+`;
+
+const Switch = styled.div`
+display: inline-flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(270deg, rgb(120 0 133 / 0.6) 0%, rgb(52 1 49 / 0.6) 100%);
+padding: 5rem 8rem;
+border-radius: 10rem;
+color: #ffa543;
+font-weight: bold;
+margin-top: 5rem;
+
+span {
+padding-right: 5rem;
+user-select: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.switch:after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+
+input {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type='checkbox']:checked + .switch:after {
+  transform: translateX(20px);
+}
+
+input[type='checkbox']:checked + .switch {
+  background-color: #ffa543;
+}
+
 `;
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
@@ -131,6 +195,7 @@ const Grid = makeResponsive(measureItems(CSSGrid), {
 const About = React.forwardRef((props, ref) => {
   const isMobile = useMobile();
   const [selectedTechType, setSelectedTechType] = useState(TECH_TYPE.ALL);
+  const [revealMode, setRevealMode] = useState(false);
   const markerRef = useRef(null);
   const allRef = useRef(null);
   const techCardComponents = useMemo(() => techCards
@@ -138,11 +203,12 @@ const About = React.forwardRef((props, ref) => {
     .map((techObject) => (
       <li key={techObject.imageSrc} itemHeight={isMobile ? 80 : 120}>
         <TechCard
+          className={revealMode ? 'reveal' : ''}
           imageSrc={techObject.imageSrc}
           text={techObject.text}
         />
       </li>
-    )), [selectedTechType]);
+    )), [selectedTechType, revealMode]);
 
   const clickHandler = (type) => (e) => {
     setSelectedTechType(type);
@@ -154,6 +220,10 @@ const About = React.forwardRef((props, ref) => {
     allRef.current.click();
   }, []);
 
+  const switchHandler = useCallback(() => {
+    setRevealMode((mode) => !mode);
+  }, [revealMode]);
+
   return (
     <Container ref={ref}>
       <AboutContainer>
@@ -161,34 +231,85 @@ const About = React.forwardRef((props, ref) => {
         <UnderLine />
         <AboutDetailsContainer>
           <AboutText>
-            I’m Itamar, a Full Stack Web Developer at Taboola and Bachelor of Electrical Engineering at Tel Aviv University.
-            I have a strong passion for web development and design which influences my professional work, as well as my side projects.
+            I’m Itamar, a Full Stack Web Developer at Taboola and Bachelor of Electrical Engineering at Tel
+            Aviv University.
+            I have a strong passion for web development and design which influences my professional work, as
+            well as my side projects.
             I'm able to work in the 3 major areas of web development: frontend, backend, and the database.
           </AboutText>
           <Links>
-            <div> adsd</div>
-            <div> adsd</div>
-            <div> adsd</div>
-            <div> adsd</div>
+            <ShinyLink> GitHub </ShinyLink>
+            <a> Linkdien</a>
+            <a> adsd</a>
+            <a> adsd</a>
           </Links>
         </AboutDetailsContainer>
         <div>
-          <h2> Skill Set </h2>
+          <h2 style={{ fontFamily: 'Luckiest Guy', letterSpacing: 4 }}> Skills </h2>
+          <h3> Here is my Tech Stack, can you guess some by the logo ?</h3>
           <TechButtons>
-            <TechButton ref={allRef} active={selectedTechType === TECH_TYPE.ALL} onClick={clickHandler(TECH_TYPE.ALL)}>All</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.LANGUAGES} onClick={clickHandler(TECH_TYPE.LANGUAGES)}>Languages</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.FRONTEND} onClick={clickHandler(TECH_TYPE.FRONTEND)}>Frontend</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.BACKEND} onClick={clickHandler(TECH_TYPE.BACKEND)}>Backend</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.DATABASE} onClick={clickHandler(TECH_TYPE.DATABASE)}>Database</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.TESTING} onClick={clickHandler(TECH_TYPE.TESTING)}>Testing</TechButton>
-            <TechButton active={selectedTechType === TECH_TYPE.TOOLS} onClick={clickHandler(TECH_TYPE.TOOLS)}>Tools</TechButton>
+            <TechButton
+              ref={allRef}
+              active={selectedTechType === TECH_TYPE.ALL}
+              onClick={clickHandler(TECH_TYPE.ALL)}
+            >
+              All
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.LANGUAGES}
+              onClick={clickHandler(TECH_TYPE.LANGUAGES)}
+            >
+              Languages
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.FRONTEND}
+              onClick={clickHandler(TECH_TYPE.FRONTEND)}
+            >
+              Frontend
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.BACKEND}
+              onClick={clickHandler(TECH_TYPE.BACKEND)}
+            >
+              Backend
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.DATABASE}
+              onClick={clickHandler(TECH_TYPE.DATABASE)}
+            >
+              Database
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.TESTING}
+              onClick={clickHandler(TECH_TYPE.TESTING)}
+            >
+              Testing
+            </TechButton>
+            <TechButton
+              active={selectedTechType === TECH_TYPE.TOOLS}
+              onClick={clickHandler(TECH_TYPE.TOOLS)}
+            >
+              Tools
+            </TechButton>
             <TabIndicator ref={markerRef} />
           </TechButtons>
+          <Switch>
+            <span> Lazy Mode</span>
+            <input
+              id="toggle"
+              type="checkbox"
+              onChange={switchHandler}
+              checked={revealMode}
+            />
+            <label
+              htmlFor="toggle"
+              className="switch"
+            />
+          </Switch>
         </div>
         <TechCardContainer>
           <Grid
             component="div"
-            // columns={5}
             columnWidth={isMobile ? 80 : 120}
             gutterWidth={10}
             gutterHeight={10}
