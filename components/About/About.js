@@ -11,6 +11,7 @@ import { techCards } from '../../lib/data';
 import { TECH_TYPE } from '../../lib/consts';
 import { useMobile } from '../../lib/queries';
 import ShinyLink from '../Shared/ShinyLink.style';
+import AnimatedCard from './AnimatedCard';
 
 const Container = styled.section`
   min-height: 120vh;
@@ -24,17 +25,26 @@ const Container = styled.section`
   justify-content: center;
 `;
 
-const AboutTitle = styled.h2`
-font-size: 30rem;
+const SectionTitle = styled.h2`
+display: inline-block;
+font-size: 36rem;
 color: #2b2b2b;
 `;
 
+const SubSectionTitle = styled.h3`
+display: inline-block;
+font-size: 26rem;
+color: #2b2b2b;
+font-family: 'Chewy', cursive;
+letter-spacing: 1rem;
+`;
+
 const UnderLine = styled.div`
-    background: #823b00;
+    background: #c15c00;
     height: 4rem;
     border-radius: 20%;
-    margin: 2rem auto 0 auto;
-    width: 60rem;
+    margin: 1rem auto 0 auto;
+    width: 80%;
 `;
 
 const AboutText = styled.div`
@@ -82,14 +92,12 @@ justify-content: center;
 position: relative;
 flex-wrap: wrap;
 `;
-// rgb(0 49 125 / 90%)
-// rgb(255 244 244 / 70%)
+
 const TechButton = styled.div`
   text-align:center;
-  color: ${(props) => (props.active ? 'rgb(0,49,125,0.9)' : '#fff4f4')};
+  color: #fff4f4;
   font-weight: bold;
-  background: rgba(0,49,125,0.3);
-  background: ${(props) => (props.active ? 'rgb(255,244,244,0.7)' : 'rgba(0,49,125,0.4)')};
+  background: rgba(0,49,125,0.4);
   cursor:pointer;
   font-size:14rem;
   text-transform:uppercase;
@@ -100,8 +108,16 @@ const TechButton = styled.div`
   margin: 10px;
   user-select: none;
   
+  &.active-tech-button {
+  background: rgb(255,244,244,0.7);
+  color: rgb(0,49,125,0.9);
+  }
+  
   &:hover {
-    background: ${(props) => (props.active ? 'rgb(255,244,244,0.7)' : 'rgba(0,49,125,0.6)')};
+    background: rgba(0,49,125,0.6);
+    &.active-tech-button {
+    background: rgb(255,244,244,0.7);
+    }
   }
 `;
 
@@ -115,12 +131,12 @@ const TabIndicator = styled.div`
   border-radius:5px;
   transition:all 600ms ease-in-out;
         @media only screen and (max-width: 768px) {
-display: none;
+ display: none;
   } 
 `;
 
 const TechCardContainer = styled.div`
-margin-top: 40rem;
+margin: 40rem 0;
 
 span > div {
 
@@ -147,6 +163,7 @@ margin-top: 5rem;
 span {
 padding-right: 5rem;
 user-select: none;
+font-size: 14rem;
 }
 
 .switch {
@@ -182,13 +199,29 @@ input[type='checkbox']:checked + .switch:after {
 }
 
 input[type='checkbox']:checked + .switch {
-  background-color: #ffa543;
+  background-color: #0498df;
+}
+
+`;
+
+const AnimatedCardsContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+position: relative;
+width: 100%;
+margin: 20rem 0;
+
+@media only screen and (max-width: 1020px) {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 `;
 
 const Grid = makeResponsive(measureItems(CSSGrid), {
-  maxWidth: 1280,
+  maxWidth: 1200,
   minPadding: 20,
 });
 
@@ -197,7 +230,6 @@ const About = React.forwardRef((props, ref) => {
   const [selectedTechType, setSelectedTechType] = useState(TECH_TYPE.ALL);
   const [revealMode, setRevealMode] = useState(false);
   const markerRef = useRef(null);
-  const allRef = useRef(null);
   const techCardComponents = useMemo(() => techCards
     .filter((techObject) => selectedTechType === TECH_TYPE.ALL || techObject.type === selectedTechType)
     .map((techObject) => (
@@ -217,18 +249,34 @@ const About = React.forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    allRef.current.click();
+    const resizeListener = () => {
+      const element = document.querySelector('.active-tech-button');
+      markerRef.current.style.left = `${element.offsetLeft}px`;
+      markerRef.current.style.width = `${element.offsetWidth}px`;
+    };
+
+    window.addEventListener('resize', resizeListener);
+    window.addEventListener('load', resizeListener);
+
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+      window.addEventListener('load', resizeListener);
+    };
   }, []);
 
   const switchHandler = useCallback(() => {
     setRevealMode((mode) => !mode);
   }, [revealMode]);
 
+  const addActiveClassName = useCallback((selectedTech) => (selectedTech === selectedTechType ? 'active-tech-button' : ''), [selectedTechType]);
+
   return (
     <Container ref={ref}>
       <AboutContainer>
-        <AboutTitle> About </AboutTitle>
-        <UnderLine />
+        <SectionTitle>
+          About
+          <UnderLine />
+        </SectionTitle>
         <AboutDetailsContainer>
           <AboutText>
             I’m Itamar, a Full Stack Web Developer at Taboola and Bachelor of Electrical Engineering at Tel
@@ -238,55 +286,57 @@ const About = React.forwardRef((props, ref) => {
             I'm able to work in the 3 major areas of web development: frontend, backend, and the database.
           </AboutText>
           <Links>
-            <ShinyLink> GitHub </ShinyLink>
+            <ShinyLink href="#"> GitHub </ShinyLink>
             <a> Linkdien</a>
             <a> adsd</a>
             <a> adsd</a>
           </Links>
         </AboutDetailsContainer>
         <div>
-          <h2 style={{ fontFamily: 'Luckiest Guy', letterSpacing: 4 }}> Skills </h2>
+          <SubSectionTitle>
+            My Skills
+            <UnderLine />
+          </SubSectionTitle>
           <h3> Here is my Tech Stack, can you guess some by the logo ?</h3>
           <TechButtons>
             <TechButton
-              ref={allRef}
-              active={selectedTechType === TECH_TYPE.ALL}
+              className={addActiveClassName(TECH_TYPE.ALL)}
               onClick={clickHandler(TECH_TYPE.ALL)}
             >
               All
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.LANGUAGES}
+              className={addActiveClassName(TECH_TYPE.LANGUAGES)}
               onClick={clickHandler(TECH_TYPE.LANGUAGES)}
             >
               Languages
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.FRONTEND}
+              className={addActiveClassName(TECH_TYPE.FRONTEND)}
               onClick={clickHandler(TECH_TYPE.FRONTEND)}
             >
               Frontend
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.BACKEND}
+              className={addActiveClassName(TECH_TYPE.BACKEND)}
               onClick={clickHandler(TECH_TYPE.BACKEND)}
             >
               Backend
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.DATABASE}
+              className={addActiveClassName(TECH_TYPE.DATABASE)}
               onClick={clickHandler(TECH_TYPE.DATABASE)}
             >
               Database
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.TESTING}
+              className={addActiveClassName(TECH_TYPE.TESTING)}
               onClick={clickHandler(TECH_TYPE.TESTING)}
             >
               Testing
             </TechButton>
             <TechButton
-              active={selectedTechType === TECH_TYPE.TOOLS}
+              className={addActiveClassName(TECH_TYPE.TOOLS)}
               onClick={clickHandler(TECH_TYPE.TOOLS)}
             >
               Tools
@@ -323,7 +373,18 @@ const About = React.forwardRef((props, ref) => {
             {techCardComponents}
           </Grid>
         </TechCardContainer>
-
+        <div>
+          <SubSectionTitle>
+            Things I Care About
+            <UnderLine />
+          </SubSectionTitle>
+          <AnimatedCardsContainer>
+            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
+            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
+            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
+            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
+          </AnimatedCardsContainer>
+        </div>
       </AboutContainer>
     </Container>
   );
