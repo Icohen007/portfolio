@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledAnimatedArrow = styled.div`
 position: absolute;
-bottom: 30px;
+bottom: -30px;
 left: 50%;
 transform: translate(-50%, -50%);
 cursor: pointer;
@@ -17,6 +17,10 @@ border-right: 1px solid ${({ theme }) => theme.font.orange};
 transform: rotate(45deg) translate(0, -20px);
 animation: animate 2s infinite;
 
+    @media only screen and (max-width: 768px) {
+    width: 25px;
+    height: 25px;
+    }
 
 &:nth-child(2){
 animation-delay: -0.2s;

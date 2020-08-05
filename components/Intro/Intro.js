@@ -94,17 +94,25 @@ const FlexContainer = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
-    h1 {
-    color: ${({ theme }) => theme.font.white};
-    font-size: 50rem;
     font-family: 'Raleway', sans-serif;
+
+    h1 {
+    color: ${({theme}) => theme.font.white};
+    font-size: 50rem;
+    
+    @media only screen and (max-width: 768px) {
+    font-size: calc(15rem + 4vw);
+    }
     }
     
     .typed {
     color: ${({ theme }) => theme.font.white};
     margin: 15rem 0;
     font-size: 35rem;
+    
+        @media only screen and (max-width: 768px) {
+    font-size: calc(10rem + 4vw);
+    }
     }
     
     .typed-cursor {
@@ -126,6 +134,12 @@ const FloatingAvatar = styled.div`
   transform: translatey(0px);
   animation: float 5s ease-in-out infinite;
   margin-bottom: 10rem;
+  
+      @media only screen and (max-width: 768px) {
+    width: 150px;
+    height: 150px;
+    }
+  
   img { 
   width: 100%; 
   height: auto; 

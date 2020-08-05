@@ -7,14 +7,14 @@ import {
   CSSGrid, layout, makeResponsive, measureItems, enterExitStyle,
 } from 'react-stonecutter';
 import TechCard from './TechCard';
-import { techCards } from '../../lib/data';
+import { animatedCards, techCards } from '../../lib/data';
 import { TECH_TYPE } from '../../lib/consts';
 import { useMobile } from '../../lib/queries';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
 
 const Container = styled.section`
-  min-height: 120vh;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -141,7 +141,7 @@ margin: 40rem 0;
 span > div {
 
 margin: 0 auto;
-
+transition: height 1s ease-in-out;
 }
 
 li {
@@ -210,9 +210,10 @@ justify-content: space-evenly;
 flex-wrap: wrap;
 position: relative;
 width: 100%;
-margin: 20rem 0;
+margin-top: 60rem;
+padding: 0 20rem;
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 768px) {
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -379,10 +380,13 @@ const About = React.forwardRef((props, ref) => {
             <UnderLine />
           </SubSectionTitle>
           <AnimatedCardsContainer>
-            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
-            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
-            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
-            <AnimatedCard title="Design Patterns" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur distinctio et facilis, itaque tempora." imgSrc="design-patterns.svg" />
+            {animatedCards.map(({ title, text, imgSrc }) => (
+              <AnimatedCard
+                title={title}
+                text={text}
+                imgSrc={imgSrc}
+              />
+            ))}
           </AnimatedCardsContainer>
         </div>
       </AboutContainer>

@@ -5,8 +5,8 @@ position: relative;
 height: 250rem;
 background: #fff;
 display: flex;
-width: 380rem;
-margin: 30rem 15rem;
+width: 250rem;
+margin: 40rem 15rem;
 border-radius: 20px;
 
     .image-container {
@@ -20,7 +20,7 @@ border-radius: 20px;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #333;
+    background: linear-gradient(4deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);;
     z-index: 1;
     border-radius: 20px;
     
@@ -38,7 +38,7 @@ border-radius: 20px;
         width: 100%;
         text-align: center;
         font-size: 2.8em;
-        color: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.2);
         font-weight: 700;
         
       @media only screen and (max-width: 768px) {
@@ -61,14 +61,14 @@ border-radius: 20px;
       justify-content: center;
       align-items: center;
       position: absolute;
-      right: 0;
-      width: calc(100% - 75rem);
+      top: calc(50% - 75rem);
+      padding: 0 10rem;
       height: 100%;
-      padding: 20rem;
       
     @media only screen and (max-width: 768px) {
       width: 100%;
       position: relative;
+      padding: 20rem;
     }
       
       h3 {
@@ -89,8 +89,8 @@ border-radius: 20px;
 &:hover .image-container{
 width: 150rem;
 height: 150rem;
-left: -75rem;
-top: calc(50% - 75rem);
+left: calc(50% - 75rem);
+top: -75rem;
 transition: .5s ease-in-out;
 background: rgb(148 0 55 / 85%);
 
@@ -102,6 +102,7 @@ display: none;
       width: 100%;
       height: 200rem;
       left: 0;
+      top: 0;
     }
 
     img {
@@ -114,11 +115,15 @@ display: none;
 }
 `;
 
-function AnimatedCard({title, text, imgSrc}) {
+function AnimatedCard({ title, text, imgSrc }) {
   return (
     <StyledAnimatedCard>
       <div className="image-container">
-        <div className="image-text"> {title} </div>
+        <div className="image-text">
+          {' '}
+          {title}
+          {' '}
+        </div>
         <img src={`/codeIcons/${imgSrc}`} alt={title} />
       </div>
       <div className="content">
