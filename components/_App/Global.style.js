@@ -7,7 +7,7 @@ html {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Raleway', sans-serif; !important;
   font-size: 1px;
   scroll-behavior: smooth;
 }
@@ -44,6 +44,7 @@ margin: 0;
 a, a:hover, a:focus, a:active  {
 text-decoration: none !important;
 }
+
   * {
     scrollbar-width: thin;
     scrollbar-color: #9a9a9a none;

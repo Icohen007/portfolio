@@ -3,15 +3,19 @@ import styled from 'styled-components';
 import { animated, config, useSpring } from 'react-spring';
 import { useMediaQuery } from 'react-responsive';
 import Link from 'next/link';
+import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
 import BurgerButton from './BurgerButton';
 import MobileMenu from './MobileMenu';
 
-function scrollEventListener(setNavBarColor) {
+function scrollEventListener(setScrolled) {
   return () => {
     if (window.pageYOffset < 15) {
-      setNavBarColor('transparent');
+      setScrolled(false);
+      // setNavBarStyle({ color: 'transparent', borderBottom: '1px' });
     } else {
-      setNavBarColor('#272727ab');
+      // setNavBarStyle({color: '#272727ab', borderBottom: '1px solid');
+      setScrolled(true);
     }
   };
 }
@@ -19,11 +23,12 @@ function scrollEventListener(setNavBarColor) {
 const ResponsiveNavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  const [navBarColor, setNavBarColor] = useState('transparent');
+  const [navBarStyle, setNavBarStyle] = useState({ color: 'transparent', borderBottom: 'none' });
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollEventListener(setNavBarColor));
-    window.removeEventListener('scroll', scrollEventListener(setNavBarColor));
+    window.addEventListener('scroll', scrollEventListener(setScrolled));
+    window.removeEventListener('scroll', scrollEventListener(setScrolled));
   }, []);
 
   const barAnimation = useSpring({
@@ -58,14 +63,54 @@ const ResponsiveNavBar = () => {
         </NavBar>
       )
         : (
-          <NavBar style={barAnimation} navcolor={navBarColor}>
+          <NavBar style={barAnimation} scrolled={scrolled}>
             <FlexContainer>
               <NavLinks style={linkAnimation}>
-                <Link href="/movies"><a>Movies</a></Link>
-                <Link href="/shows"><a>TV Shows</a></Link>
+                <MainTitle>
+                  <p className="main-text">Itamar Cohen</p>
+                  <p className="sub-text">Full Stack Developer</p>
+                </MainTitle>
+                <Link href="#"><a className="text-link">About</a></Link>
+                <Link href="#"><a className="text-link">Portfolio</a></Link>
+                <Link href="#"><a className="text-link">Contact</a></Link>
               </NavLinks>
               <NavLinks style={linkAnimation}>
-                <Link href="/movies"><a>Movies</a></Link>
+                <a
+                  className="icon-link"
+                  href="https://github.com/Icohen007"
+                  target="_blank"
+                  title="GitHub"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub className="icon" />
+                </a>
+                <a
+                  className="icon-link"
+                  href="https://linkedin.com/in/itamar-cohen-007/"
+                  target="_blank"
+                  title="Linkedin"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="icon" />
+                </a>
+                <a
+                  className="icon-link"
+                  href="https://github.com/Icohen007"
+                  target="_blank"
+                  title="GitHub"
+                  rel="noopener noreferrer"
+                >
+                  <IoMdMail className="icon" />
+                </a>
+                <a
+                  className="icon-link"
+                  href="https://github.com/Icohen007"
+                  target="_blank"
+                  title="GitHub"
+                  rel="noopener noreferrer"
+                >
+                  <FaFileDownload className="icon" />
+                </a>
               </NavLinks>
             </FlexContainer>
           </NavBar>
@@ -81,11 +126,13 @@ const NavBar = styled(animated.nav)`
   width: 100%;
   top: 0;
   left: 0;
-  background: ${(props) => (props.navcolor || 'transparent')};
+  background: ${(props) => (props.scrolled ? '#272727ab' : 'transparent')};
+  border-bottom: ${(props) => (props.scrolled ? `1px solid ${props.theme.font.orange}` : 'none')};
   font-size: 16rem;
   z-index: 200;
   
-  transition: background 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  transition-property: background, border-bottom;
   
   @media only screen and (max-width: 768px) {
   background: rgba(0, 0, 0, 0.92);
@@ -93,13 +140,13 @@ const NavBar = styled(animated.nav)`
 `;
 
 const FlexContainer = styled.div`
-  max-width: 1400rem;
+  max-width: 100%;
   display: flex;
   align-items: center;
   margin: auto;
   padding: 0 20rem;;
   justify-content: space-between;
-  height: 65rem;
+  height: 60rem;
   z-index: 200
 `;
 
@@ -109,8 +156,10 @@ const NavLinks = styled(animated.ul)`
   margin: auto 0;
   display: flex;
   align-items: center;
+  padding: 0;
+  line-height: 1;
 
-  & a {
+  & .text-link {
     color: #dfe6e9;
     font-weight: 600;
     border-bottom: 1rem solid transparent;
@@ -123,10 +172,51 @@ const NavLinks = styled(animated.ul)`
       color: #adcdfd;
       border-bottom: 1rem solid #adcdfd;
     }
+    }
+    
+        
+    & .icon-link {
+    color: #dfe6e9;
+    margin: 0 5rem;
+    transition: all 300ms linear 0s;
+    text-decoration: none;
+    cursor: pointer;
+    
+    svg {
+    width: 25px;
+    height: 25px;
+    }
+
+    &:hover {
+      color: #c80404;
+    }
   }
+
 `;
 
 const BurgerWrapper = styled.div`
   margin: auto 0;
   user-select: none;
+`;
+
+const MainTitle = styled.div`
+ text-transform: uppercase;
+ padding-right: 20rem;
+ 
+ p {
+ margin: 0;
+ padding: 0;
+ line-height: 1.1;
+ font-family: 'Chewy', cursive;
+ }
+.main-text{
+  font-size: 25rem;
+  color: rgb(246, 245, 243);
+}
+
+.sub-text{
+  font-size: 15rem;
+  color: ${({ theme }) => theme.font.orange};
+  font-style: italic;
+}
 `;

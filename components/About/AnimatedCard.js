@@ -37,7 +37,7 @@ border-radius: 20px;
         left: 0;
         width: 100%;
         text-align: center;
-        font-size: 2.8em;
+        font-size: 32rem;
         color: rgba(255, 255, 255, 0.2);
         font-weight: 700;
         

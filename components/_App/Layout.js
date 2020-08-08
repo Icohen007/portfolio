@@ -12,7 +12,7 @@ function Layout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
         <title>Itamar Cohen</title>
       </Head>
       <ResponsiveNavBar />

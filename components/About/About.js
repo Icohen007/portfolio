@@ -12,6 +12,7 @@ import { TECH_TYPE } from '../../lib/consts';
 import { useMobile } from '../../lib/queries';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
+import StyledContainer from '../Container.style';
 
 const Container = styled.section`
   min-height: 100vh;
@@ -25,10 +26,15 @@ const Container = styled.section`
   justify-content: center;
 `;
 
-const SectionTitle = styled.h2`
+const SectionTitle = styled.h1`
 display: inline-block;
-font-size: 36rem;
+font-size: 60rem;
+font-family: Chewy,cursive;
 color: #2b2b2b;
+
+span {
+color: #c80404;
+}
 `;
 
 const SubSectionTitle = styled.h3`
@@ -37,10 +43,11 @@ font-size: 26rem;
 color: #2b2b2b;
 font-family: 'Chewy', cursive;
 letter-spacing: 1rem;
+margin-bottom: 20rem;
 `;
 
 const UnderLine = styled.div`
-    background: #c15c00;
+    background: ${({ theme }) => theme.font.orange};
     height: 4rem;
     border-radius: 20%;
     margin: 1rem auto 0 auto;
@@ -63,11 +70,11 @@ box-shadow: 0px 0px 10px 5px rgba(176,176,176,1);
 const AboutDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 100rem;
+  margin: 40rem 0;
 `;
 
-const AboutContainer = styled.div`
-  max-width: 1200rem;
+const AboutContainer = styled(StyledContainer)`
+  //max-width: 1200rem;
 `;
 
 const Links = styled.div`
@@ -210,7 +217,7 @@ justify-content: space-evenly;
 flex-wrap: wrap;
 position: relative;
 width: 100%;
-margin-top: 60rem;
+margin-top: 40rem;
 padding: 0 20rem;
 
 @media only screen and (max-width: 768px) {
@@ -275,7 +282,7 @@ const About = React.forwardRef((props, ref) => {
     <Container ref={ref}>
       <AboutContainer>
         <SectionTitle>
-          About
+          About <span>Me</span>
           <UnderLine />
         </SectionTitle>
         <AboutDetailsContainer>
