@@ -20,7 +20,7 @@ border-radius: 20px;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(4deg, rgba(51,51,51,1) 0%, rgba(85,85,85,1) 100%);;
+    background: linear-gradient(0deg,#000d13 20%,#004666 100%);
     z-index: 1;
     border-radius: 20px;
     
@@ -29,6 +29,7 @@ border-radius: 20px;
       width: 100%;
       height: 200rem;
       left: 0;
+      background: rgba(0,70,102, 1);
     }
     
         .image-text {
@@ -38,7 +39,7 @@ border-radius: 20px;
         width: 100%;
         text-align: center;
         font-size: 32rem;
-        color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.5);
         font-weight: 700;
         
       @media only screen and (max-width: 768px) {
@@ -92,7 +93,8 @@ height: 150rem;
 left: calc(50% - 75rem);
 top: -75rem;
 transition: .5s ease-in-out;
-background: rgb(148 0 55 / 85%);
+//background: rgb(148 0 55 / 85%);
+background: rgba(0,70,102,0.9);
 
 .image-text {
 display: none;
@@ -103,6 +105,7 @@ display: none;
       height: 200rem;
       left: 0;
       top: 0;
+      background: rgba(0,70,102,1);
     }
 
     img {

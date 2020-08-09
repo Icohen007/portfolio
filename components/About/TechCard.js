@@ -59,6 +59,7 @@ const StyledTechCard = styled.div`
     padding: 5rem;
     font-weight: bold;
     user-select: none;
+    font-family: Inter,sans-serif ;
       @media only screen and (max-width: 768px) {
 font-size: 12rem;
   }

@@ -65,7 +65,6 @@ function Intro({ onScrollClick }) {
         </div>
       </FlexContainer>
       <AnimatedArrow onClick={onScrollClick} />
-      <Triangle />
     </Container>
   );
 }

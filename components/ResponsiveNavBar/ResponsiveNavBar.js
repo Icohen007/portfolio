@@ -188,7 +188,7 @@ const NavLinks = styled(animated.ul)`
     }
 
     &:hover {
-      color: #c80404;
+      color: ${({ theme }) => theme.font.orange};
     }
   }
 

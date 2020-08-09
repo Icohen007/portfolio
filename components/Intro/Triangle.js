@@ -42,7 +42,7 @@ function Triangle(props) {
             viewBox="0 0 512 512"
             preserveAspectRatio="xMidYMid slice"
           >
-            <image width="512" height="512" xlinkHref="/RetinaWoodOver.webp" />
+            <image width="512" height="512" xlinkHref="/BrushedAlu171717.png" />
           </pattern>
         </defs>
         <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" className="shape-fill" fill="url(#imgpattern)" />
