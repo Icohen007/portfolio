@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Raleway', sans-serif; !important;
   font-size: 16rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

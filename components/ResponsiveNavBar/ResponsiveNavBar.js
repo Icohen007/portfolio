@@ -207,6 +207,7 @@ const MainTitle = styled.div`
  margin: 0;
  padding: 0;
  line-height: 1.1;
+ letter-spacing: 1px;
  font-family: 'Chewy', cursive;
  }
 .main-text{

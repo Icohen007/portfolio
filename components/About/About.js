@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import {
   CSSGrid, layout, makeResponsive, measureItems, enterExitStyle,
 } from 'react-stonecutter';
+import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
 import TechCard from './TechCard';
 import { animatedCards, techCards } from '../../lib/data';
 import { TECH_TYPE } from '../../lib/consts';
@@ -13,6 +15,7 @@ import { useMobile } from '../../lib/queries';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
 import StyledContainer from '../Container.style';
+import TaboolaSvg from '../TaboolaSVG';
 
 const Container = styled.section`
   min-height: 100vh;
@@ -59,17 +62,31 @@ font-size: 18rem;
 color: ${({ theme }) => theme.font.black};
 white-space: pre-wrap;
 text-align: left;
-font-family: 'Source Sans Pro', sans-serif;
-max-width: 900rem;
+font-family: 'Roboto', sans-serif;
+max-width: 1000rem;
 border-radius: 15rem;
-padding: 5rem;
-background: rgba(255,255,255,.4);
+padding: 10rem;
+background: rgba(255,240,212,.4);
+border: 1px ${({ theme }) => theme.font.orange} solid;
 box-shadow: 0px 0px 10px 5px rgba(176,176,176,1);
+p {
+margin: 0;
+padding: 0;
+}
+
+span{
+    border-radius: 5px;
+    padding: 2px 4px;
+    color: black;
+    font-weight: bold;
+    background: #ffa83bab;
+}
 `;
 
 const AboutDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 40rem 0;
 `;
 
@@ -80,10 +97,8 @@ const AboutContainer = styled(StyledContainer)`
 const Links = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: calc((100% - 63px) - 19.92px);
-  position: relative;
-  bottom: 10px;
+  margin-left: 20px;
+  text-align: left;
 `;
 
 const TechText = styled.div`
@@ -282,22 +297,88 @@ const About = React.forwardRef((props, ref) => {
     <Container ref={ref}>
       <AboutContainer>
         <SectionTitle>
-          About <span>Me</span>
+          About
+          {' '}
+          <span>Me</span>
           <UnderLine />
         </SectionTitle>
         <AboutDetailsContainer>
           <AboutText>
-            I’m Itamar, a Full Stack Web Developer at Taboola and Bachelor of Electrical Engineering at Tel
-            Aviv University.
+            <p>
+              I’m Itamar, a
+              {' '}
+              <span>Full Stack Web Developer</span>
+              {' '}
+              based in Israel.
+            </p>
+            <p>
+              I Have Bachelor of Electrical Engineering (Seriously?) at Tel Aviv University.
+            </p>
             I have a strong passion for web development and design which influences my professional work, as
             well as my side projects.
-            I'm able to work in the 3 major areas of web development: frontend, backend, and the database.
+            I'm able to work in the 3 major areas of web development:
+            {' '}
+            <span>Frontend</span>
+            ,
+            <span>Backend</span>
+            , and the
+            {' '}
+            <span>Database</span>
+            .
+            <p>
+              <br />
+              Currently Working as a Full Stack Web Developer at
+              <TaboolaSvg />
+            </p>
           </AboutText>
           <Links>
-            <ShinyLink href="#"> GitHub </ShinyLink>
-            <a> Linkdien</a>
-            <a> adsd</a>
-            <a> adsd</a>
+            <div>
+              <SubSectionTitle>
+                Links
+                <UnderLine />
+              </SubSectionTitle>
+            </div>
+            <ShinyLink
+              href="https://github.com/Icohen007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="icon-link" />
+              <span className="text-link">
+                GitHub
+              </span>
+            </ShinyLink>
+            <ShinyLink
+              href="https://linkedin.com/in/itamar-cohen-007/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="icon-link" />
+              <span className="text-link">
+                Linkedin
+              </span>
+            </ShinyLink>
+            <ShinyLink
+              href="https://github.com/Icohen007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoMdMail className="icon-link" />
+              <span className="text-link">
+                Mail
+              </span>
+            </ShinyLink>
+            <ShinyLink
+              className="icon-link"
+              href="https://github.com/Icohen007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFileDownload className="icon-link" />
+              <span className="text-link">
+                Resume
+              </span>
+            </ShinyLink>
           </Links>
         </AboutDetailsContainer>
         <div>

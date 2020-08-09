@@ -5,6 +5,7 @@ import Particles from 'react-particles-js';
 import styled from 'styled-components';
 import ParticlesConfig from '../../lib/particlesConfig';
 import AnimatedArrow from './AnimatedArrow';
+import Triangle from './Triangle';
 
 function Intro({ onScrollClick }) {
   const typedRef = useRef(null);
@@ -64,6 +65,7 @@ function Intro({ onScrollClick }) {
         </div>
       </FlexContainer>
       <AnimatedArrow onClick={onScrollClick} />
+      <Triangle />
     </Container>
   );
 }
@@ -97,7 +99,7 @@ const FlexContainer = styled.div`
     font-family: 'Raleway', sans-serif;
 
     h1 {
-    color: ${({theme}) => theme.font.white};
+    color: ${({ theme }) => theme.font.white};
     font-size: 50rem;
     
     @media only screen and (max-width: 768px) {
