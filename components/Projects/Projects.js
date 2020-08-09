@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import UnderLine from "../Shared/UnderLine.style";
+import UnderLine from '../Shared/UnderLine.style';
+import ProjectCard from './ProjectCard';
+import StyledContainer from '../Container.style';
 
 const SectionTitle = styled.h1`
 display: inline-block;
@@ -24,17 +26,34 @@ const Container = styled.section`
   text-align: center;
   display: flex;
   justify-content: center;
+  z-index: 0;
+`;
+
+const ProjectsContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+margin-top: 100rem;
 `;
 
 function Projects() {
   return (
     <Container>
-      <SectionTitle>
-        My
-        {' '}
-        <span>Projects</span>
-        <UnderLine />
-      </SectionTitle>
+      <StyledContainer>
+        <SectionTitle>
+          My
+          {' '}
+          <span>Projects</span>
+          <UnderLine />
+        </SectionTitle>
+        <ProjectsContainer>
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </ProjectsContainer>
+      </StyledContainer>
     </Container>
   );
 }

@@ -91,9 +91,9 @@ const About = React.forwardRef((props, ref) => (
   <Container ref={ref}>
     <AboutContainer>
       <SectionTitle>
-        About
+        <span>About</span>
         {' '}
-        <span>Me</span>
+        Me
         <UnderLine />
       </SectionTitle>
       <AboutDetailsContainer>
