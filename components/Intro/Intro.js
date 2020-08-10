@@ -3,9 +3,8 @@ import useTyped from 'use-typed';
 import useInView from 'react-cool-inview';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
-import ParticlesConfig from '../../lib/particlesConfig';
+import { particlesConfig } from '../../lib/config';
 import AnimatedArrow from './AnimatedArrow';
-import Triangle from './Triangle';
 
 function Intro({ onScrollClick }) {
   const typedRef = useRef(null);
@@ -51,7 +50,7 @@ function Intro({ onScrollClick }) {
   );
   return (
     <Container>
-      <Particles className="particles" params={ParticlesConfig} />
+      <Particles className="particles" params={particlesConfig} />
       <FlexContainer>
         <FloatingAvatar>
           <img src="/avatar.svg" alt="Itamar Avatar" />

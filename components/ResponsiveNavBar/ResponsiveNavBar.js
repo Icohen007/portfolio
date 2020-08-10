@@ -129,7 +129,7 @@ const NavBar = styled(animated.nav)`
   background: ${(props) => (props.scrolled ? '#272727ab' : 'transparent')};
   border-bottom: ${(props) => (props.scrolled ? `1px solid ${props.theme.font.orange}` : 'none')};
   font-size: 16rem;
-  z-index: 200;
+  z-index: 100;
   
   transition: all 0.3s ease-in;
   transition-property: background, border-bottom;
@@ -147,7 +147,7 @@ const FlexContainer = styled.div`
   padding: 0 20rem;;
   justify-content: space-between;
   height: 60rem;
-  z-index: 200
+  z-index: 100
 `;
 
 const NavLinks = styled(animated.ul)`

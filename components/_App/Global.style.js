@@ -62,6 +62,29 @@ text-decoration: none !important;
     border: 3px solid #751fff;
   }
 
+// FIXES:
+
+.rodal-close {
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    right: 24px;
+    border-radius: 50%;
+    outline: none;
+    
+    &:hover{
+      background: #ececec;
+    }
+}
+
+.rodal-dialog {
+  &::-webkit-scrollbar-thumb {
+    background-color: hidden;
+    border-radius: 20px;
+    border: 3px solid #0047d7;
+  }
+}
+
 `;
 
 export default GlobalStyle;
