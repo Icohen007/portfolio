@@ -2,6 +2,7 @@ import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../components/_App/Global.style';
 import Layout from '../components/_App/Layout';
+import 'rodal/lib/rodal.css';
 
 const theme = {
   primary: '#fff',

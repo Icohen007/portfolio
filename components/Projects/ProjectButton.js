@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const firstBorderColor = '#fff09b';
@@ -19,12 +18,12 @@ overflow:hidden;
 font-weight:bold;
 border-radius: 5px;
 background: rgb(0 0 0 / 0.5);
-transition: all .2s ease-in;
 border: none;
 outline: none;
 cursor: pointer;
 font-family: Raleway,sans-serif;
 font-size: 16rem;
+transition: all .2s ease-in-out;
 
 &:hover {
 letter-spacing:2px;
@@ -128,10 +127,10 @@ animation-delay: 1s;
 }
 `;
 
-function ProjectButton(props) {
+function ProjectButton({ onClick }) {
   return (
     <StyledProjectButton>
-      <button>
+      <button onClick={onClick}>
         <span />
         <span />
         <span />

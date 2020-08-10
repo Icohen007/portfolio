@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ProjectButton from './ProjectButton';
 
@@ -63,13 +63,13 @@ color: #FFF;
 }
 `;
 
-function ProjectCard(props) {
+function ProjectCard({ onClick }) {
   return (
     <StyledProjectCard>
       <div className="content">
         <h2>FlixTime</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur consequuntur exercitationem iusto laborum nostrum, odio odit qui veritatis voluptates.</p>
-        <ProjectButton />
+        <ProjectButton onClick={onClick} />
       </div>
     </StyledProjectCard>
   );
