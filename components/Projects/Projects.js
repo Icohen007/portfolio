@@ -1,9 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import UnderLine from '../Shared/UnderLine.style';
-import ProjectCard from './ProjectCard';
 import StyledContainer from '../Container.style';
-import ProjectContainer from "./ProjectContainer";
+import ProjectContainer from './ProjectContainer';
 
 const SectionTitle = styled.h1`
 display: inline-block;
