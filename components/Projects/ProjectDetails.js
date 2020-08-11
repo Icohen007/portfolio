@@ -1,5 +1,8 @@
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import React from 'react';
+import Ripples from 'react-ripples';
 import { slickSettings } from '../../lib/config';
 import ShinyLink from '../Shared/ShinyLink.style';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
@@ -15,7 +18,6 @@ const ProjectGrid = styled.div`
       @media (max-width: 1150px) {
       grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(4, auto);
-  gap: 1px 5px;
   grid-template-areas: "slider slider slider slider" "about tech-used tech-used tech-used" "key-features key-features key-features key-features" "buttons buttons buttons buttons";
       }
       
@@ -23,7 +25,6 @@ const ProjectGrid = styled.div`
         display: grid;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(5, auto);
-  gap: 1px 1px;
   grid-template-areas: "slider slider slider slider" "about about about about" "key-features key-features key-features key-features" "tech-used tech-used tech-used tech-used" "buttons buttons buttons buttons";
       }
 .about { grid-area: about; }
@@ -47,8 +48,13 @@ margin-bottom: 35rem;
 
 img.slider-image {
 height: 100%;
+max-height 450rem;
 border: 10px ridge #adadad;
 border-radius: 3px;
+
+  @media only screen and (max-width: 768px) {
+  border: none;
+  }
 }
 `;
 
@@ -57,16 +63,30 @@ margin-top: 20rem;
 padding: 20rem;
 width: 100%;
 text-align: center;
+
+.spacing {
+letter-spacing: 1px;
+}
+
+  @media only screen and (max-width: 768px) {
+  padding: 15rem 0;
+  }
 `;
 
 const AboutProject = styled.div`
 grid-area: about;
 text-align: left;
+  @media only screen and (max-width: 768px) {
+  padding: 0 15rem;
+  }
 `;
 
 const TechUsed = styled.div`
 grid-area: tech-used;
-
+margin-bottom: 15px;
+  @media only screen and (max-width: 768px) {
+  padding: 0 15rem;
+  }
 `;
 
 const TechUsedIcons = styled.div`
@@ -74,6 +94,10 @@ text-align: center;
 display: flex;
 justify-content: space-evenly;
 flex-wrap: wrap;
+
+  @media only screen and (max-width: 768px) {
+  padding: 0 15rem;
+  }
 
 span {
 display: flex;
@@ -95,6 +119,9 @@ display: block;
 const KeyFeatures = styled.div`
 grid-area: key-features;
 text-align: left;
+  @media only screen and (max-width: 768px) {
+  padding: 0 15rem;
+  }
 
 ul{
 padding: 0 10px;
@@ -105,15 +132,46 @@ padding: 5px 0;
 }
 `;
 
-const Buttons = styled.div`
+const ButtonsContainer = styled.div`
 grid-area: buttons;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 30rem;
+border-top: 1px solid;
+`;
+
+const Buttons = styled.div`
+width: 100%;
+max-width: 350rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+    padding: 0 15rem;
+`;
+
+const Button = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ bgColor }) => bgColor};
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 5rem 10rem;
+  border-radius: 4px;
+  transition: transform 0.1s linear 0s;
+  
+  span {
+  margin-right: 5px;
+  }
 `;
 
 // const SliderColumn = styled.div`
 // max-width: 800rem;
 // `;
 
-function ProjectDetails(props) {
+function ProjectDetails() {
   useLockBodyScroll();
 
   return (
@@ -124,9 +182,10 @@ function ProjectDetails(props) {
         rel="noopener noreferrer"
         size="30rem"
         center
+        style={{ marginBottom: '15rem' }}
       >
-        <span className="text-link">
-          FLIXTIME.NOW.SH
+        <span className="text-link spacing">
+          FLIXTIME
         </span>
       </ShinyLink>
       <ProjectGrid>
@@ -136,11 +195,10 @@ function ProjectDetails(props) {
         </AboutProject>
         <div className="slick-container">
           <Slider {...slickSettings}>
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 1" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 1" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 1" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 1" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 1" />
+            <img className="slider-image" src="/projects/flixtime-devices.webp" alt="screenshot 1" />
+            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 2" />
+            <img className="slider-image" src="/projects/flixtime-devices.webp" alt="screenshot 3" />
+            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 4" />
           </Slider>
         </div>
         <KeyFeatures>
@@ -168,7 +226,38 @@ function ProjectDetails(props) {
             </span>
           </TechUsedIcons>
         </TechUsed>
-        <Buttons />
+        <ButtonsContainer>
+          <Buttons>
+            <Ripples during={1000}>
+              <Button
+                href="https://github.com/Icohen007"
+                target="_blank"
+                rel="noopener noreferrer"
+                bgColor="#333333"
+              >
+                <span>
+                  Source Code
+                </span>
+                {' '}
+                <FaGithub />
+              </Button>
+            </Ripples>
+            <Ripples during={1000}>
+              <Button
+                href="https://flixtime.now.sh"
+                target="_blank"
+                rel="noopener noreferrer"
+                bgColor="#004681"
+              >
+                <span>
+                  Live Demo
+                </span>
+                {' '}
+                <FaExternalLinkAlt />
+              </Button>
+            </Ripples>
+          </Buttons>
+        </ButtonsContainer>
       </ProjectGrid>
     </ProjectDetailsContainer>
   );

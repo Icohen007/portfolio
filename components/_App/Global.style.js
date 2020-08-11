@@ -65,15 +65,19 @@ text-decoration: none !important;
 // FIXES:
 
 .rodal-close {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     top: 24px;
     right: 24px;
     border-radius: 50%;
     outline: none;
-    
+    font-weight: bold;
+    &:after, &:before{
+    background: #232222;
+    }
+       
     &:hover{
-      background: #ececec;
+      background: #c2c2c2;
     }
 }
 
@@ -84,6 +88,10 @@ text-decoration: none !important;
     border-radius: 20px;
     border: 3px solid #555555;
   }
+  @media only screen and (max-width: 768px) {
+  padding: 15rem 0;
+  }
+  
 }
 
 `;
