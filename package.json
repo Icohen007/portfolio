@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint:css":"stylelint './src/**/*.js'"
+    "lint:css": "stylelint ./**/*.js"
   },
   "dependencies": {
     "next": "latest",
