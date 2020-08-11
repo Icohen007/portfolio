@@ -51,7 +51,7 @@ text-decoration: none !important;
   }
   *::-webkit-scrollbar {
     width: 6px;
-    color: aqua;
+    color: #751fff;
   }
   *::-webkit-scrollbar-track {
     background: hidden;
@@ -78,10 +78,11 @@ text-decoration: none !important;
 }
 
 .rodal-dialog {
+  background:  url("/BrushedAluFAFAFA.png");
   &::-webkit-scrollbar-thumb {
     background-color: hidden;
     border-radius: 20px;
-    border: 3px solid #0047d7;
+    border: 3px solid #555555;
   }
 }
 

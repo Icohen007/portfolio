@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import Rodal from 'rodal';
 import ProjectCard from './ProjectCard';
 import ProjectDetails from './ProjectDetails';
 import ClientOnlyPortal from '../Shared/ClientOnlyPortal';
+import { useMobile } from '../../lib/queries';
 
-const customStyles = {
+const customStylesDesktop = {
   width: '90vw',
   height: '90vh',
   maxWidth: '1400rem',
@@ -13,8 +13,16 @@ const customStyles = {
   zIndex: 101,
 };
 
+const customStylesMobile = {
+  width: '100vw',
+  height: '100vh',
+  overflow: 'auto',
+  zIndex: 101,
+};
+
 function ProjectContainer() {
   const [modalState, setModalState] = useState('close');
+  const isMobile = useMobile();
   return (
     <>
       <ProjectCard onClick={() => setModalState('open')} />
@@ -25,7 +33,7 @@ function ProjectContainer() {
           onClose={() => setModalState('closing')}
           onAnimationEnd={() => modalState === 'closing' && setModalState('close')}
           closeOnEsc
-          customStyles={customStyles}
+          customStyles={isMobile ? customStylesMobile : customStylesDesktop}
         >
           <ProjectDetails />
         </Rodal>
