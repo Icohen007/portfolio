@@ -10,10 +10,10 @@ import SubSectionTitle from '../Shared/SubSectionTitle';
 
 const ProjectGrid = styled.div`
   display: grid;
-    grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(5, auto);
   gap: 1px 1px;
   grid-template-areas: "about slider slider slider" "key-features slider slider slider" "key-features tech-used tech-used tech-used" "key-features tech-used tech-used tech-used" "buttons buttons buttons buttons";
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
    
       @media (max-width: 1150px) {
       grid-template-columns: repeat(4, auto);
@@ -39,18 +39,18 @@ grid-area: tech-used;
  }
 
 .slick-container {
-min-height: 0; 
+grid-area: slider; 
+margin-bottom: 35rem;
+min-height: 0;
 min-width: 0;
 width: 100%;
-grid-area: slider;
-margin-bottom: 35rem;
 }
 
 img.slider-image {
-height: 100%;
-max-height 450rem;
 border: 10px ridge #adadad;
 border-radius: 3px;
+height: 100%;
+max-height: 450rem;
 
   @media only screen and (max-width: 768px) {
   border: none;
@@ -61,8 +61,8 @@ border-radius: 3px;
 const ProjectDetailsContainer = styled.div`
 margin-top: 20rem;
 padding: 20rem;
-width: 100%;
 text-align: center;
+width: 100%;
 
 .spacing {
 letter-spacing: 1px;
@@ -90,18 +90,18 @@ margin-bottom: 15px;
 `;
 
 const TechUsedIcons = styled.div`
-text-align: center;
 display: flex;
-justify-content: space-evenly;
 flex-wrap: wrap;
+justify-content: space-evenly;
+text-align: center;
 
   @media only screen and (max-width: 768px) {
   padding: 0 15rem;
   }
 
 span {
-display: flex;
 align-items: center;
+display: flex;
 flex-direction: column;
 font-family: 'Roboto', sans-serif;
 font-size:12px;
@@ -110,9 +110,9 @@ text-align: center;
 }
 
 img{
-width: 45px;
-height: 45px;
 display: block;
+height: 45px;
+width: 45px;
 }
 `;
 
@@ -133,33 +133,33 @@ padding: 5px 0;
 `;
 
 const ButtonsContainer = styled.div`
-grid-area: buttons;
-display: flex;
-justify-content: center;
 align-items: center;
-padding-top: 30rem;
 border-top: 1px solid;
+display: flex;
+grid-area: buttons;
+justify-content: center;
+padding-top: 30rem;
 `;
 
 const Buttons = styled.div`
-width: 100%;
-max-width: 350rem;
+align-items: center;
 display: flex;
 justify-content: space-between;
-align-items: center;
-    padding: 0 15rem;
+max-width: 350rem;
+padding: 0 15rem;
+    width: 100%;
 `;
 
 const Button = styled.a`
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
   background-color: ${({ bgColor }) => bgColor};
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  cursor: pointer;
-  padding: 5rem 10rem;
   border-radius: 4px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  padding: 5rem 10rem;
   transition: transform 0.1s linear 0s;
   
   span {
