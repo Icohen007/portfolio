@@ -17,10 +17,6 @@ svg {
     height: 60px;
 }
 
-//.shape-fill {
-//    fill: #000000;
-//}
-
 `;
 
 function Triangle(props) {

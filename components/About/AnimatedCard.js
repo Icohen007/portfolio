@@ -85,15 +85,12 @@ border-radius: 20px;
   height: auto;
   }
   
-}
-
-&:hover .image-container{
+&:hover .image-container {
 width: 150rem;
 height: 150rem;
 left: calc(50% - 75rem);
 top: -75rem;
 transition: .5s ease-in-out;
-//background: rgb(148 0 55 / 85%);
 background: rgba(0,70,102,0.9);
 
 .image-text {

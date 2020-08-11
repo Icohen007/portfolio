@@ -10,7 +10,6 @@ const StyledTechCard = styled.div`
   width: 120px;
   height: 120px;
   padding: 5px;
-  //margin: 5px;
   transition: .75s ease-in;
   background: white;
   border-radius: 50%;
@@ -20,16 +19,8 @@ const StyledTechCard = styled.div`
   width: 80px;
   height: 80px;
   }
-
-  &.reveal .img-wrapper, &:hover .img-wrapper {
-  filter: blur(2px);
-  }
   
-  &.reveal .description, &:hover .description {
-  opacity: 1;
-  }
-
-  .img-wrapper {
+    .img-wrapper {
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -64,6 +55,14 @@ const StyledTechCard = styled.div`
 font-size: 12rem;
   }
     
+  }
+
+  &.reveal .img-wrapper, &:hover .img-wrapper {
+  filter: blur(2px);
+  }
+  
+  &.reveal .description, &:hover .description {
+  opacity: 1;
   }
 `;
 

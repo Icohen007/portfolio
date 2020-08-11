@@ -59,7 +59,6 @@ const AboutDetailsContainer = styled.div`
 `;
 
 const AboutContainer = styled(StyledContainer)`
-  //max-width: 1200rem;
 `;
 
 const Links = styled.div`

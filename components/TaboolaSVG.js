@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const StyledTaboolaSvg = styled.svg`
  width: 80px;
- //height: 20px;
  vertical-align: middle;
  margin-left: 6px;
 `;
