@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledInputField = styled.div`
-  width: 50%;
+  width: 100%;
   height: 54rem;
   position: relative;
   overflow: hidden;
-  margin: 20rem auto 0;
+  margin-top: 20rem;
 
   input {
     width: 100%;
@@ -18,16 +18,17 @@ const StyledInputField = styled.div`
     font-family: Roboto, sans-serif;
     font-size: 16rem;
 
-    &:focus + .label-name .placeholder-name,
-    &:valid + .label-name .placeholder-name  {
+    &.not-empty + .label-name .placeholder-name,
+    &:focus + .label-name .placeholder-name
+    {
       transform: translateY(-150%);
       font-size: 14rem;
       color: #5fa8d3;
     }
 
     &:focus + .label-name:after,
-    &:valid + .label-name:after,
-    &.error + .label-name:after{
+    &.error + .label-name:after,
+    &.not-empty + .label-name:after {
     transform: translateX(0%);
     }
     
@@ -79,15 +80,23 @@ const StyledInputField = styled.div`
   }
 `;
 
-const InputField = React.forwardRef(({
-  type, name, placeholder, error,
-}, ref) => (
+const InputField = ({
+  type, name, placeholder, onChange, value = '', error,
+}) => (
   <StyledInputField>
-    <input autoComplete="off" ref={ref} type={type} name={name} required className={error ? 'error' : ''} />
+    <input
+      name={name}
+      type={type}
+      onChange={onChange}
+      value={value}
+      className={`${value ? 'not-empty' : ''} ${error ? 'error' : ''}`}
+      autoComplete="off"
+      // required
+    />
     <label htmlFor={name} className={`label-name ${error ? 'error' : ''}`}>
       <span className="placeholder-name">{placeholder}</span>
     </label>
   </StyledInputField>
-));
+);
 
 export default InputField;
