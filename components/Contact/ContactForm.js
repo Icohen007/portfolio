@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 import Lottie from 'react-lottie';
 import InputField from './InputField';
 import useForm from '../../hooks/useForm';
@@ -42,7 +43,8 @@ textarea{
     &::placeholder{
     font-size: 12px;
     }
-    &:focus{
+    &:focus,
+    &.not-empty{
          border: 2px solid #5fa8d3;
     }
     
@@ -93,6 +95,7 @@ const SubmitButton = styled.button`
    background: white;
    margin-top: 20rem;
    cursor: pointer;
+   outline: none;
    
    &:after {
       content: " ";
@@ -126,8 +129,20 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 
-& > div {
-margin: 0 !important;
+.lottie-container {
+max-width: 400px;
+width: 100%;
+padding: 0 20rem;
+}
+
+@media only screen and (max-width: 1024px) {
+flex-direction: column;
+
+.lottie-container {
+margin: 30rem 0;
+padding: 0;
+}
+
 }
 `;
 
@@ -168,7 +183,9 @@ const ContactForm = () => {
           value={values.name}
           error={!!errors.name}
         />
-        {errors.name && <span className="error-label">{errors.name}</span>}
+        <Fade bottom when={!!errors.name}>
+          <span className="error-label">{errors.name || 'error-placeholder'}</span>
+        </Fade>
 
         <InputField
           name="email"
@@ -177,7 +194,9 @@ const ContactForm = () => {
           value={values.email}
           error={!!errors.email}
         />
-        {errors.email && <span className="error-label">{errors.email}</span>}
+        <Fade bottom when={!!errors.email}>
+          <span className="error-label">{errors.email || 'error-placeholder'}</span>
+        </Fade>
         <TextAreaTitle className={`${values.message ? 'not-empty' : ''} ${errors.message ? 'error' : ''} ${textAreaFocused ? 'focus' : ''}`}> Message </TextAreaTitle>
         <textarea
           name="message"
@@ -189,14 +208,17 @@ const ContactForm = () => {
           onFocus={() => setTextAreaFocused(true)}
           onBlur={() => setTextAreaFocused(false)}
         />
-        {errors.message && <span className="error-label">{errors.message}</span>}
+        <Fade bottom when={!!errors.message}>
+          <span className="error-label">{errors.message || 'error-placeholder'}</span>
+        </Fade>
         <SubmitButton type="submit">Submit</SubmitButton>
       </StyledContactForm>
+      <div style={{maxWidth: 400}}>
       <Lottie
         options={defaultOptions}
-        height={400}
-        width={400}
+        // height={400}
       />
+      </div>
     </ContactFormContainer>
   );
 };

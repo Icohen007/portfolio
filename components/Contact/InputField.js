@@ -17,6 +17,7 @@ const StyledInputField = styled.div`
     outline: none;
     font-family: Roboto, sans-serif;
     font-size: 16rem;
+    background: transparent;
 
     &.not-empty + .label-name .placeholder-name,
     &:focus + .label-name .placeholder-name

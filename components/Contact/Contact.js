@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import StyledContainer from '../Container.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import ContactForm from './ContactForm';
-import UnderLine from "../Shared/UnderLine.style";
+import UnderLine from '../Shared/UnderLine.style';
 
 const Container = styled.section`
   min-height: 70vh;
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 100rem 15rem;
+  padding: 100rem 40rem;
   background:  #ffffff;
   text-align: center;
   display: flex;
@@ -31,10 +31,14 @@ z-index: 0;
 
 p {
 text-transform: uppercase;
-font-size: 250rem;
+font-size: calc(20vw + 10rem);
 font-family: Roboto, sans-serif;
 margin: 0;
 padding: 0;
+
+@media only screen and (max-width: 768px) {
+display: none;
+}
 }
 `;
 

@@ -15,13 +15,13 @@ const ProjectGrid = styled.div`
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(5, auto);
    
-      @media (max-width: 1150px) {
+      @media only screen and  (max-width: 1150px) {
       grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(4, auto);
   grid-template-areas: "slider slider slider slider" "about tech-used tech-used tech-used" "key-features key-features key-features key-features" "buttons buttons buttons buttons";
       }
       
-      @media (max-width: 980px) {
+      @media only screen and  (max-width: 980px) {
         display: grid;
   grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(5, auto);
