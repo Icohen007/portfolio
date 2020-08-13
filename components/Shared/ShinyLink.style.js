@@ -30,6 +30,11 @@ const ShinyLink = styled.a`
       background-position: 0;
       color: ${({ theme }) => theme.link.green}; // compatibility
     } 
+    
+    @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    margin-left: 15rem;
+    }
 `;
 
 export default ShinyLink;

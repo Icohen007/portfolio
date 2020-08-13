@@ -56,16 +56,33 @@ const AboutDetailsContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 40rem 0;
+  
+  @media only screen and (max-width: 768px) {
+  flex-direction: column;
+  }
 `;
 
 const AboutContainer = styled(StyledContainer)`
 `;
 
-const Links = styled.div`
+const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
   text-align: left;
+  
+      @media only screen and (max-width: 768px) {
+  margin-left: 0;
+  margin-top: 20rem;
+  }
+`;
+
+const Links = styled.div`
+  display: flex;
+  flex-direction: column;
+    @media only screen and (max-width: 768px) {
+  flex-direction: row;
+  }
 `;
 
 const AnimatedCardsContainer = styled.div`
@@ -124,55 +141,57 @@ const About = React.forwardRef((props, ref) => (
             <TaboolaSvg />
           </p>
         </AboutText>
-        <Links>
+        <LinksContainer>
           <div style={{ alignSelf: 'center' }}>
             <SubSectionTitle>
               Links
               <UnderLine />
             </SubSectionTitle>
           </div>
-          <ShinyLink
-            href="https://github.com/Icohen007"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="icon-link" />
-            <span className="text-link">
-              GitHub
-            </span>
-          </ShinyLink>
-          <ShinyLink
-            href="https://linkedin.com/in/itamar-cohen-007/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className="icon-link" />
-            <span className="text-link">
-              Linkedin
-            </span>
-          </ShinyLink>
-          {/* <ShinyLink */}
-          {/*  href="https://github.com/Icohen007" */}
-          {/*  target="_blank" */}
-          {/*  rel="noopener noreferrer" */}
-          {/* > */}
-          {/*  <IoMdMail className="icon-link" /> */}
-          {/*  <span className="text-link"> */}
-          {/*    Mail */}
-          {/*  </span> */}
-          {/* </ShinyLink> */}
-          <ShinyLink
-            className="icon-link"
-            href="https://github.com/Icohen007"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFileDownload className="icon-link" />
-            <span className="text-link">
-              Resume
-            </span>
-          </ShinyLink>
-        </Links>
+          <Links>
+            <ShinyLink
+              href="https://github.com/Icohen007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="icon-link" />
+              <span className="text-link">
+                GitHub
+              </span>
+            </ShinyLink>
+            <ShinyLink
+              href="https://linkedin.com/in/itamar-cohen-007/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="icon-link" />
+              <span className="text-link">
+                Linkedin
+              </span>
+            </ShinyLink>
+            {/* <ShinyLink */}
+            {/*  href="https://github.com/Icohen007" */}
+            {/*  target="_blank" */}
+            {/*  rel="noopener noreferrer" */}
+            {/* > */}
+            {/*  <IoMdMail className="icon-link" /> */}
+            {/*  <span className="text-link"> */}
+            {/*    Mail */}
+            {/*  </span> */}
+            {/* </ShinyLink> */}
+            <ShinyLink
+              className="icon-link"
+              href="https://github.com/Icohen007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFileDownload className="icon-link" />
+              <span className="text-link">
+                Resume
+              </span>
+            </ShinyLink>
+          </Links>
+        </LinksContainer>
       </AboutDetailsContainer>
       <TechSection />
       <div>
