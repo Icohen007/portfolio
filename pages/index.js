@@ -3,6 +3,7 @@ import Intro from '../components/Intro/Intro';
 import About from '../components/About/About';
 import Projects from '../components/Projects/Projects';
 import Contact from '../components/Contact/Contact';
+import Footer from '../components/Footer/Footer';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -15,6 +16,7 @@ const Home = () => {
       <About ref={aboutRef} />
       <Projects />
       <Contact />
+      <Footer />
     </>
   );
 };

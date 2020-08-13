@@ -178,6 +178,7 @@ const TechButton = styled.div`
   padding: 2px 8px;
   margin: 10px;
   user-select: none;
+  letter-spacing: 1px;
   
   &.active-tech-button {
   background: rgb(255,244,244,0.7);

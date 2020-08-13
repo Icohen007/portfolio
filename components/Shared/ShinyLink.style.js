@@ -13,7 +13,7 @@ const ShinyLink = styled.a`
     background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all .8s;
+    transition: all .5s;
     margin-bottom: 3px;
     text-align: center;
     
