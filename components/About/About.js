@@ -108,7 +108,7 @@ const About = () => {
   const { aboutRef } = useContext(ScrollContext);
 
   return (
-    <Container ref={aboutRef}>
+    <Container id="about" ref={aboutRef}>
       <AboutContainer>
         <SectionTitle>
           <span>About</span>

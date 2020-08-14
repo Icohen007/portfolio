@@ -8,28 +8,53 @@ import BurgerButton from './BurgerButton';
 import MobileMenu from './MobileMenu';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 
-function scrollEventListener(setScrolled) {
-  return () => {
-    if (window.pageYOffset < 15) {
-      setScrolled(false);
-    } else {
-      setScrolled(true);
-    }
-  };
-}
+const scrollEventListener = (setScrollHeight) => () => {
+  setScrollHeight(window.pageYOffset);
+};
+
+const NAVIGATION_BAR_SCROLL_HEIGHT = 15;
 
 const ResponsiveNavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollHeight, setScrollHeight] = useState(false);
+  const [activeNav, setActiveNav] = useState('intro');
+
   const {
     introRef, aboutRef, projectsRef, contactRef,
   } = useContext(ScrollContext);
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollEventListener(setScrolled));
-    window.removeEventListener('scroll', scrollEventListener(setScrolled));
+    window.addEventListener('scroll', scrollEventListener(setScrollHeight));
+    return () => window.removeEventListener('scroll', scrollEventListener(setScrollHeight));
   }, []);
+
+  useEffect(() => {
+    const intro = document.querySelector('#intro').offsetTop;
+    const about = document.querySelector('#about').offsetTop;
+    const projects = document.querySelector('#projects').offsetTop;
+    const contact = document.querySelector('#contact').offsetTop;
+
+    const scrollHeightTemp = scrollHeight + 20;
+
+    let activeNavTemp = 'intro';
+
+    if (scrollHeightTemp > intro) {
+      activeNavTemp = 'intro';
+    }
+    if (scrollHeightTemp > about) {
+      activeNavTemp = 'about';
+    }
+    if (scrollHeightTemp > projects) {
+      activeNavTemp = 'projects';
+    }
+    if (scrollHeightTemp > contact
+        || document.body.scrollHeight === scrollHeight + window.innerHeight) {
+      activeNavTemp = 'contact';
+    }
+
+    setActiveNav(activeNavTemp);
+  }, [scrollHeight]);
 
   const barAnimation = useSpring({
     from: { transform: 'translate3d(0, -100rem, 0)' },
@@ -63,16 +88,16 @@ const ResponsiveNavBar = () => {
         </NavBar>
       )
         : (
-          <NavBar style={barAnimation} scrolled={scrolled}>
+          <NavBar style={barAnimation} scrolled={scrollHeight > NAVIGATION_BAR_SCROLL_HEIGHT}>
             <FlexContainer>
               <NavLinks style={linkAnimation}>
                 <MainTitle onClick={() => scrollToRef(introRef)}>
                   <p className="main-text">Itamar Cohen</p>
                   <p className="sub-text">Full Stack Developer</p>
                 </MainTitle>
-                <div className="text-link" onClick={() => scrollToRef(aboutRef)}>About</div>
-                <div className="text-link" onClick={() => scrollToRef(projectsRef)}>Projects</div>
-                <div className="text-link" onClick={() => scrollToRef(contactRef)}>Contact</div>
+                <div className={`text-link ${activeNav === 'about' ? 'active' : ''}`} onClick={() => scrollToRef(aboutRef)}>About</div>
+                <div className={`text-link ${activeNav === 'projects' ? 'active' : ''}`} onClick={() => scrollToRef(projectsRef)}>Projects</div>
+                <div className={`text-link ${activeNav === 'contact' ? 'active' : ''}`} onClick={() => scrollToRef(contactRef)}>Contact</div>
               </NavLinks>
               <NavLinks style={linkAnimation}>
                 <a
@@ -162,15 +187,21 @@ const NavLinks = styled(animated.ul)`
   & .text-link {
     color: #dfe6e9;
     font-weight: 600;
-    border-bottom: 1rem solid transparent;
     margin: 0 15rem;
-    transition: all 300ms linear 0s;
+    transition: all 300ms ease-in-out 0s;
     text-decoration: none;
     cursor: pointer;
+    font-size: 18rem;
 
     &:hover {
-      color: #adcdfd;
-      border-bottom: 1rem solid #adcdfd;
+      color: #ff6e00;
+    }
+    
+    &.active {
+      color: #ff6e00;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2px 6px;
+      border-radius: 4px; 
     }
     }
     
@@ -188,7 +219,7 @@ const NavLinks = styled(animated.ul)`
     }
 
     &:hover {
-      color: ${({ theme }) => theme.font.orange};
+      color: ${({theme}) => theme.font.orange};
     }
   }
 

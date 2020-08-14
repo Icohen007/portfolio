@@ -56,7 +56,7 @@ function Contact() {
   const { contactRef } = useContext(ScrollContext);
 
   return (
-    <Container ref={contactRef}>
+    <Container id="contact" ref={contactRef}>
       <UnderLay>
         <p>Say</p>
         {' '}

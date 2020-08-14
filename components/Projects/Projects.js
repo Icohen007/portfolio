@@ -42,7 +42,7 @@ function Projects() {
   const { projectsRef } = useContext(ScrollContext);
 
   return (
-    <Container ref={projectsRef}>
+    <Container id="projects" ref={projectsRef}>
       <StyledContainer>
         <SectionTitle>
           My

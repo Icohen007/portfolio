@@ -52,7 +52,7 @@ function Intro() {
     },
   );
   return (
-    <Container ref={introRef}>
+    <Container id="intro" ref={introRef}>
       <Particles className="particles" params={particlesConfig} />
       <FlexContainer>
         <FloatingAvatar>
