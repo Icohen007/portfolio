@@ -1,12 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import useTyped from 'use-typed';
 import useInView from 'react-cool-inview';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
 import { particlesConfig } from '../../lib/config';
 import AnimatedArrow from './AnimatedArrow';
+import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 
-function Intro({ onScrollClick }) {
+function Intro() {
+  const { aboutRef, introRef } = useContext(ScrollContext);
+
   const typedRef = useRef(null);
   useTyped(typedRef, {
     strings: [
@@ -49,7 +52,7 @@ function Intro({ onScrollClick }) {
     },
   );
   return (
-    <Container>
+    <Container ref={introRef}>
       <Particles className="particles" params={particlesConfig} />
       <FlexContainer>
         <FloatingAvatar>
@@ -63,7 +66,7 @@ function Intro({ onScrollClick }) {
           <span className="typed" ref={typedRef} />
         </div>
       </FlexContainer>
-      <AnimatedArrow onClick={onScrollClick} />
+      <AnimatedArrow onClick={() => scrollToRef(aboutRef)} />
     </Container>
   );
 }

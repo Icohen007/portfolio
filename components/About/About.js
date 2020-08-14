@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
@@ -12,6 +12,7 @@ import UnderLine from '../Shared/UnderLine.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import SubSectionTitle from '../Shared/SubSectionTitle';
 import TechSection from './TechSection';
+import { ScrollContext } from '../../hooks/ScrollProvider';
 
 const Container = styled.section`
   min-height: 100vh;
@@ -103,115 +104,119 @@ padding: 0 20rem;
 
 `;
 
-const About = React.forwardRef((props, ref) => (
-  <Container ref={ref}>
-    <AboutContainer>
-      <SectionTitle>
-        <span>About</span>
-        {' '}
-        Me
-        <UnderLine />
-      </SectionTitle>
-      <AboutDetailsContainer>
-        <AboutText>
-          <p>
-            I’m Itamar, a
-            {' '}
-            <span>Full Stack Web Developer</span>
-            {' '}
-            based in Israel.
-          </p>
-          <p>
-            I Have Bachelor of Electrical Engineering (Seriously?) at Tel Aviv University.
-          </p>
-          I have a strong passion for web development and design which influences my professional work, as
-          well as my side projects.
-          I'm able to work in the 3 major areas of web development:
+const About = () => {
+  const { aboutRef } = useContext(ScrollContext);
+
+  return (
+    <Container ref={aboutRef}>
+      <AboutContainer>
+        <SectionTitle>
+          <span>About</span>
           {' '}
-          <span>Frontend</span>
-          ,
-          <span>Backend</span>
-          , and the
-          {' '}
-          <span>Database</span>
-          .
-          <p>
-            <br />
-            Currently Working as a Full Stack Web Developer at
-            <TaboolaSvg />
-          </p>
-        </AboutText>
-        <LinksContainer>
-          <div style={{ alignSelf: 'center' }}>
-            <SubSectionTitle>
-              Links
-              <UnderLine />
-            </SubSectionTitle>
-          </div>
-          <Links>
-            <ShinyLink
-              href="https://github.com/Icohen007"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="icon-link" />
-              <span className="text-link">
-                GitHub
-              </span>
-            </ShinyLink>
-            <ShinyLink
-              href="https://linkedin.com/in/itamar-cohen-007/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin className="icon-link" />
-              <span className="text-link">
-                Linkedin
-              </span>
-            </ShinyLink>
-            {/* <ShinyLink */}
-            {/*  href="https://github.com/Icohen007" */}
-            {/*  target="_blank" */}
-            {/*  rel="noopener noreferrer" */}
-            {/* > */}
-            {/*  <IoMdMail className="icon-link" /> */}
-            {/*  <span className="text-link"> */}
-            {/*    Mail */}
-            {/*  </span> */}
-            {/* </ShinyLink> */}
-            <ShinyLink
-              className="icon-link"
-              href="https://github.com/Icohen007"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFileDownload className="icon-link" />
-              <span className="text-link">
-                Resume
-              </span>
-            </ShinyLink>
-          </Links>
-        </LinksContainer>
-      </AboutDetailsContainer>
-      <TechSection />
-      <div>
-        <SubSectionTitle>
-          Things I Care About
+          Me
           <UnderLine />
-        </SubSectionTitle>
-        <AnimatedCardsContainer>
-          {animatedCards.map(({ title, text, imgSrc }) => (
-            <AnimatedCard
-              title={title}
-              text={text}
-              imgSrc={imgSrc}
-            />
-          ))}
-        </AnimatedCardsContainer>
-      </div>
-      <Triangle />
-    </AboutContainer>
-  </Container>
-));
+        </SectionTitle>
+        <AboutDetailsContainer>
+          <AboutText>
+            <p>
+              I’m Itamar, a
+              {' '}
+              <span>Full Stack Web Developer</span>
+              {' '}
+              based in Israel.
+            </p>
+            <p>
+              I Have Bachelor of Electrical Engineering (Seriously?) at Tel Aviv University.
+            </p>
+            I have a strong passion for web development and design which influences my professional work, as
+            well as my side projects.
+            I'm able to work in the 3 major areas of web development:
+            {' '}
+            <span>Frontend</span>
+            ,
+            <span>Backend</span>
+            , and the
+            {' '}
+            <span>Database</span>
+            .
+            <p>
+              <br />
+              Currently Working as a Full Stack Web Developer at
+              <TaboolaSvg />
+            </p>
+          </AboutText>
+          <LinksContainer>
+            <div style={{ alignSelf: 'center' }}>
+              <SubSectionTitle>
+                Links
+                <UnderLine />
+              </SubSectionTitle>
+            </div>
+            <Links>
+              <ShinyLink
+                href="https://github.com/Icohen007"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub className="icon-link" />
+                <span className="text-link">
+                  GitHub
+                </span>
+              </ShinyLink>
+              <ShinyLink
+                href="https://linkedin.com/in/itamar-cohen-007/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="icon-link" />
+                <span className="text-link">
+                  Linkedin
+                </span>
+              </ShinyLink>
+              {/* <ShinyLink */}
+              {/*  href="https://github.com/Icohen007" */}
+              {/*  target="_blank" */}
+              {/*  rel="noopener noreferrer" */}
+              {/* > */}
+              {/*  <IoMdMail className="icon-link" /> */}
+              {/*  <span className="text-link"> */}
+              {/*    Mail */}
+              {/*  </span> */}
+              {/* </ShinyLink> */}
+              <ShinyLink
+                className="icon-link"
+                href="https://github.com/Icohen007"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFileDownload className="icon-link" />
+                <span className="text-link">
+                  Resume
+                </span>
+              </ShinyLink>
+            </Links>
+          </LinksContainer>
+        </AboutDetailsContainer>
+        <TechSection />
+        <div>
+          <SubSectionTitle>
+            Things I Care About
+            <UnderLine />
+          </SubSectionTitle>
+          <AnimatedCardsContainer>
+            {animatedCards.map(({ title, text, imgSrc }) => (
+              <AnimatedCard
+                title={title}
+                text={text}
+                imgSrc={imgSrc}
+              />
+            ))}
+          </AnimatedCardsContainer>
+        </div>
+        <Triangle />
+      </AboutContainer>
+    </Container>
+  );
+};
 
 export default About;

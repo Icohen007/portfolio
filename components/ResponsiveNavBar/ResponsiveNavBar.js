@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { animated, config, useSpring } from 'react-spring';
 import { useMediaQuery } from 'react-responsive';
-import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import BurgerButton from './BurgerButton';
 import MobileMenu from './MobileMenu';
+import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 
 function scrollEventListener(setScrolled) {
   return () => {
     if (window.pageYOffset < 15) {
       setScrolled(false);
-      // setNavBarStyle({ color: 'transparent', borderBottom: '1px' });
     } else {
-      // setNavBarStyle({color: '#272727ab', borderBottom: '1px solid');
       setScrolled(true);
     }
   };
@@ -23,8 +21,10 @@ function scrollEventListener(setScrolled) {
 const ResponsiveNavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  const [navBarStyle, setNavBarStyle] = useState({ color: 'transparent', borderBottom: 'none' });
   const [scrolled, setScrolled] = useState(false);
+  const {
+    introRef, aboutRef, projectsRef, contactRef,
+  } = useContext(ScrollContext);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollEventListener(setScrolled));
@@ -66,13 +66,13 @@ const ResponsiveNavBar = () => {
           <NavBar style={barAnimation} scrolled={scrolled}>
             <FlexContainer>
               <NavLinks style={linkAnimation}>
-                <MainTitle>
+                <MainTitle onClick={() => scrollToRef(introRef)}>
                   <p className="main-text">Itamar Cohen</p>
                   <p className="sub-text">Full Stack Developer</p>
                 </MainTitle>
-                <Link href="#"><a className="text-link">About</a></Link>
-                <Link href="#"><a className="text-link">Portfolio</a></Link>
-                <Link href="#"><a className="text-link">Contact</a></Link>
+                <div className="text-link" onClick={() => scrollToRef(aboutRef)}>About</div>
+                <div className="text-link" onClick={() => scrollToRef(projectsRef)}>Projects</div>
+                <div className="text-link" onClick={() => scrollToRef(contactRef)}>Contact</div>
               </NavLinks>
               <NavLinks style={linkAnimation}>
                 <a
@@ -202,6 +202,7 @@ const BurgerWrapper = styled.div`
 const MainTitle = styled.div`
  text-transform: uppercase;
  padding-right: 20rem;
+ cursor: pointer;
  
  p {
  margin: 0;

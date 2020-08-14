@@ -1,8 +1,10 @@
 import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../components/_App/Global.style';
+import ResponsiveNavBar from '../components/ResponsiveNavBar/ResponsiveNavBar';
 import Layout from '../components/_App/Layout';
 import 'rodal/lib/rodal.css';
+import ScrollProvider from '../hooks/ScrollProvider';
 
 const theme = {
   primary: '#fff',
@@ -30,7 +32,10 @@ export default class MyApp extends App {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Layout>
-          <Component {...pageProps} />
+          <ScrollProvider>
+            <ResponsiveNavBar />
+            <Component {...pageProps} />
+          </ScrollProvider>
         </Layout>
       </ThemeProvider>
     );

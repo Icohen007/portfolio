@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import StyledContainer from '../Container.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import ContactForm from './ContactForm';
 import UnderLine from '../Shared/UnderLine.style';
+import { ScrollContext } from '../../hooks/ScrollProvider';
 
 const Container = styled.section`
   min-height: 70vh;
@@ -51,9 +52,11 @@ font-size: 20rem;
 }
 `;
 
-function Contact(props) {
+function Contact() {
+  const { contactRef } = useContext(ScrollContext);
+
   return (
-    <Container>
+    <Container ref={contactRef}>
       <UnderLay>
         <p>Say</p>
         {' '}

@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import HeadContent from './HeadContent';
-import ResponsiveNavBar from '../ResponsiveNavBar/ResponsiveNavBar';
 
 function Layout({ children }) {
   return (
@@ -17,7 +16,6 @@ function Layout({ children }) {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <title>Itamar Cohen - Full Stack Web Developer</title>
       </Head>
-      <ResponsiveNavBar />
       {children}
     </>
   );

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { useContext } from 'react';
 import UnderLine from '../Shared/UnderLine.style';
 import StyledContainer from '../Container.style';
 import ProjectContainer from './ProjectContainer';
+import { ScrollContext } from '../../hooks/ScrollProvider';
 
 const SectionTitle = styled.h1`
 display: inline-block;
@@ -37,8 +39,10 @@ margin-top: 100rem;
 `;
 
 function Projects() {
+  const { projectsRef } = useContext(ScrollContext);
+
   return (
-    <Container>
+    <Container ref={projectsRef}>
       <StyledContainer>
         <SectionTitle>
           My
