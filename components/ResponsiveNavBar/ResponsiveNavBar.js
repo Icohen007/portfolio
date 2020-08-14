@@ -74,6 +74,10 @@ const ResponsiveNavBar = () => {
       {isMobile ? (
         <NavBar style={barAnimation}>
           <FlexContainer>
+            <MainTitle onClick={() => scrollToRef(introRef)}>
+              <p className="main-text">Itamar Cohen</p>
+              <p className="sub-text">Full Stack Developer</p>
+            </MainTitle>
             <BurgerWrapper>
               <BurgerButton
                 openNav={openNav}
@@ -219,7 +223,7 @@ const NavLinks = styled(animated.ul)`
     }
 
     &:hover {
-      color: ${({theme}) => theme.font.orange};
+      color: ${({ theme }) => theme.font.orange};
     }
   }
 

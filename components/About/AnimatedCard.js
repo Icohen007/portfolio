@@ -9,6 +9,13 @@ width: 250rem;
 margin: 40rem 15rem;
 border-radius: 20px;
 
+  @media only screen and (max-width: 768px) {
+  max-width: 300rem;
+  flex-direction: column;
+  height: auto;
+  margin: 20rem 0;
+  }
+
     .image-container {
     display: flex;
     justify-content: center;
@@ -79,11 +86,7 @@ border-radius: 20px;
       
     }
 
-  @media only screen and (max-width: 768px) {
-  max-width: 300rem;
-  flex-direction: column;
-  height: auto;
-  }
+
   
 &:hover .image-container {
 width: 150rem;

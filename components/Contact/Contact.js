@@ -17,6 +17,10 @@ const Container = styled.section`
   display: flex;
   justify-content: center;
   z-index: 1;
+  
+  @media only screen and (max-width: 768px) {
+      padding: 60rem 40rem 20rem;
+      }
 `;
 
 const UnderLay = styled.div`

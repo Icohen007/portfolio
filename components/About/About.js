@@ -56,7 +56,7 @@ const AboutDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40rem 0;
+  margin: 40rem 0 20rem 0;
   
   @media only screen and (max-width: 768px) {
   flex-direction: column;

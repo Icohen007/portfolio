@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 
-const useForm = (callback, validate) => {
+const useForm = (onSubmit, validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const hasErrors = useMemo(() => Object.keys(errors).length !== 0, [errors]);
 
   useEffect(() => {
-    if (!hasErrors && submitted) {
-      callback(values);
+    if (!hasErrors && submitting) {
+      onSubmit(values);
+      setSubmitting(false);
     }
   }, [submitted, errors]);
 
@@ -24,6 +26,7 @@ const useForm = (callback, validate) => {
     }
     setErrors(validate(values));
     setSubmitted(true);
+    setSubmitting(true);
   };
 
   const handleChange = (event) => {
