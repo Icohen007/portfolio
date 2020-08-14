@@ -47,6 +47,28 @@ color: white;
  font-size: 18rem;
  color: rgb(97, 218, 251);
  vertical-align: middle;
+ transform: scale(1) rotate(0deg);
+ animation: 3s infinite react-animate ease-in-out;
+ 
+ @keyframes react-animate {
+ 0% {
+ transform: scale(1) rotate(0deg);
+ }
+ 
+  25% {
+ transform: scale(1.2) rotate(180deg);
+ }
+ 
+  50% {
+ transform: scale(1) rotate(360deg);
+ 
+ }
+ 
+   100% {
+ transform: scale(1) rotate(360deg);
+ 
+ }
+ }
 }
 
 span {
