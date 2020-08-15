@@ -1,75 +1,169 @@
-import React from 'react';
 import styled from 'styled-components';
+import { useCallback, useContext} from 'react';
+import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
+import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 
-import { useSpring, animated } from 'react-spring';
-import Link from 'next/link';
+const StyledMobileMenu = styled.div`
 
-const MobileMenu = ({ toggleNav, openNav }) => {
-  const { open } = useSpring({ open: openNav ? 0 : 1 });
-
-  if (openNav) {
-    return (
-      <CollapseWrapper style={{
-        transform: open.interpolate({
-          range: [0, 0.2, 0.3, 1],
-          output: [0, -20, 0, -200],
-        }).interpolate((openValue) => `translate3d(0, ${openValue}rem, 0`),
-      }}
-      >
-        <NavLinks>
-          <li>
-            <Link href="/"><span onClick={toggleNav}>Home</span></Link>
-          </li>
-          <li>
-            <Link href="/movies"><span onClick={toggleNav}>Movies</span></Link>
-          </li>
-          <li>
-            <Link href="/shows"><span onClick={toggleNav}>TV Shows</span></Link>
-          </li>
-        </NavLinks>
-      </CollapseWrapper>
-    );
-  }
-  return null;
-};
-
-export default MobileMenu;
-
-const CollapseWrapper = styled(animated.div)`
-  background: rgba(0, 0, 0, 0.92);
+.prevent-clicks {
+  content: ' ';
   position: fixed;
-  top: 45rem;
-  left: 0;
+  top: 0;
   right: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.navigation-menu {
+  content: ' ';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 330px;
+  background: rgba(0,0,0,0.97);
+  height: 100vh;
+  transform: skewX(0deg) translate(100%,0);
+  transform-origin: top right;
+  transition: all .2s ease-in;
   z-index: 100;
-`;
-
-const NavLinks = styled.ul`
-  list-style-type: none;
-  padding: 0 15rem;
-  margin: 5rem;
-
-  & li {
-    text-align: center;
-    transition: all 300ms linear 0s;
-    padding: 5rem 0;
-    
-    :not(:last-child) {
-    border-bottom: rgba(108,108,108,0.2) solid 1rem;
+  
+  &.active {
+  transform: skewX(8deg) translate(0,0);
+  
+  li {
+  opacity: 1;
+  transform: translate(0,0);
+  transition: transform .2s ease-in 0s, opacity .2s ease-in 0s;
+  
+    &:nth-child(1) {
+    transition-delay: .2s;
     }
-  }
+    
+    &:nth-child(2) {
+      transition-delay: .4s;
+    }
+    &:nth-child(3) {
+      transition-delay: .6s;
+    }
+    &:nth-child(4) {
+      transition-delay: .8s;
+    }
+    
+    &:nth-child(5) {
+      transition-delay: 1s;
+    }
 
-  & span {
-    font-size: 14rem;
-    line-height: 2;
+&:hover {
+color: ${({ theme }) => theme.font.orange}}
+}
+
+}
+}
+  
+  ul {
+  position: fixed;
+  right: 90px;
+  top: 120px;
+  transform: skewX(-8deg);
+  transform-origin: top left;
+  text-align: right;
+  
+   li {
+  position: relative;
+  font-size: 32rem;
+  color: white;
+  margin-bottom: 12rem;
+  opacity: 0;
+  transform: translate(0, 10px);
+  transition: all .0s ease-in .3s;
+  list-style: none;
+  font-family: impact,sans-serif;
+  cursor: pointer;
+}
+}
+}
+
+.icons {
+    & .icon-link {
     color: #dfe6e9;
-    text-transform: uppercase;
+    margin: 0 5rem;
     text-decoration: none;
     cursor: pointer;
+    
+    svg {
+    width: 30px;
+    height: 30px;
+    }
 
     &:hover {
-      color: #adcdfd;
-      border-bottom: 1rem solid #adcdfd;
+      color: ${({ theme }) => theme.font.orange};
     }
   }
+}
 `;
+
+function MobileMenu({ openNav, toggleNav }) {
+  const {
+    introRef, aboutRef, projectsRef, contactRef,
+  } = useContext(ScrollContext);
+
+  const scrollAndToggle = useCallback((ref) => () => {
+    scrollToRef(ref);
+    toggleNav();
+  }, [toggleNav]);
+
+  return (
+    <StyledMobileMenu>
+      {openNav && <div onClick={(e) => { e.stopPropagation(); toggleNav(); }} className="prevent-clicks" />}
+      <div onClick={(e) => e.stopPropagation()} className={`navigation-menu ${openNav ? 'active' : ''}`}>
+        <ul>
+          <li onClick={scrollAndToggle(introRef)}>HOME</li>
+          <li onClick={scrollAndToggle(aboutRef)}>ABOUT</li>
+          <li onClick={scrollAndToggle(projectsRef)}>PROJECTS</li>
+          <li onClick={scrollAndToggle(contactRef)}>CONTACT</li>
+          <li className="icons">
+            <a
+              className="icon-link"
+              href="https://github.com/Icohen007"
+              target="_blank"
+              title="GitHub"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="icon" />
+            </a>
+            <a
+              className="icon-link"
+              href="https://linkedin.com/in/itamar-cohen-007/"
+              target="_blank"
+              title="Linkedin"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="icon" />
+            </a>
+            <a
+              className="icon-link"
+              href="https://github.com/Icohen007"
+              target="_blank"
+              title="GitHub"
+              rel="noopener noreferrer"
+            >
+              <IoMdMail className="icon" />
+            </a>
+            <a
+              className="icon-link"
+              href="https://github.com/Icohen007"
+              target="_blank"
+              title="GitHub"
+              rel="noopener noreferrer"
+            >
+              <FaFileDownload className="icon" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </StyledMobileMenu>
+  );
+}
+
+export default MobileMenu;

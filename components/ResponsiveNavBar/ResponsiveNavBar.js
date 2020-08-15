@@ -69,6 +69,7 @@ const ResponsiveNavBar = () => {
   });
 
   const toggleNav = () => setOpenNav((open) => !open);
+
   return (
     <>
       {isMobile ? (

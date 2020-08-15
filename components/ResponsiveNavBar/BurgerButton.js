@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BurgerButton = ({ openNav, toggleNav }) => (
-  <Wrapper onClick={toggleNav}>
+  <Wrapper onClick={(e) => { e.stopPropagation(); toggleNav(); }}>
     <div className={openNav ? 'open' : ''}>
       <span>&nbsp;</span>
       <span>&nbsp;</span>
@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   padding-top: 7rem;
   cursor: pointer;
   display: block;
+  z-index: 101;
 
   & span {
     background: #fdcb6e;
