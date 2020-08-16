@@ -77,7 +77,6 @@ const Container = styled.section`
   position: relative;
   background: rgb(5,26,74);
   background: linear-gradient(180deg, rgba(5,26,74,1) 0%, rgba(11,6,36,1) 100%);
-  scroll-snap-align: start;
 
   .particles {
     position: absolute;

@@ -165,9 +165,10 @@ align-items: center;
 display: flex;
 flex-direction: column;
 font-family: 'Roboto', sans-serif;
-font-size:12px;
-font-weight:700;
+font-size: 12rem;
+font-weight: 700;
 text-align: center;
+padding: 10rem;
 
 span {
 padding-top: 2rem;
@@ -211,7 +212,7 @@ function ProjectDetails({
         rel="noopener noreferrer"
         size="30rem"
         center
-        style={{ marginBottom: '15rem' }}
+        style={{ marginBottom: '15rem', textTransform: 'uppercase' }}
       >
         <span className="text-link spacing">
           {title}

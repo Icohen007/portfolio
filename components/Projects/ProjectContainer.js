@@ -26,7 +26,12 @@ function ProjectContainer({ projectData }) {
   const isMobile = useMobile();
   return (
     <>
-      <ProjectCard onClick={() => setModalState('open')} />
+      <ProjectCard
+        title={projectData.title}
+        subTitle={projectData.subTitle}
+        previewImage={projectData.previewImage}
+        onClick={() => setModalState('open')}
+      />
       {(modalState === 'open' || modalState === 'closing') && (
       <ClientOnlyPortal selector="#__next">
         <Rodal

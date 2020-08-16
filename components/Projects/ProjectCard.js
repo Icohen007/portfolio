@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import ProjectButton from './ProjectButton';
 
@@ -9,11 +8,14 @@ height: 300rem;
 display: flex;
 justify-content: center;
 align-items: center;
-background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(/projects/flixtime-showcase.webp) center center no-repeat;
+background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${({ previewImage }) => previewImage}) center center no-repeat;
 background-size: cover;
 
 margin: 40rem;
 
+@media only screen and (max-width: 768px) {
+    margin: 40rem 20rem;
+}
 &:before{
 content: ' ';
 position: absolute;
@@ -33,6 +35,10 @@ right: -2px;
 bottom: -2px;
 z-index: -2;
 filter: blur(30px);
+
+@media only screen and (max-width: 768px) {
+  filter: blur(20px);
+}
 }
 
 &:nth-child(1):before, 
@@ -72,12 +78,14 @@ p {
 }
 `;
 
-function ProjectCard({ onClick }) {
+function ProjectCard({
+  title, subTitle, previewImage, onClick,
+}) {
   return (
-    <StyledProjectCard>
+    <StyledProjectCard previewImage={previewImage}>
       <div className="content">
-        <h2>FlixTime</h2>
-        <p>All your Favorite movies and TV Shows with a beautiful design</p>
+        <h2>{title}</h2>
+        <p>{subTitle}</p>
         <ProjectButton onClick={onClick} />
       </div>
     </StyledProjectCard>

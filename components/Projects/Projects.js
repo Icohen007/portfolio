@@ -29,8 +29,6 @@ const Container = styled.section`
   display: flex;
   justify-content: center;
   z-index: 0;
-  scroll-snap-align: start;
-  scroll-margin-top: 100px;
 `;
 
 const ProjectsContainer = styled.div`
