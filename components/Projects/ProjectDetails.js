@@ -94,27 +94,13 @@ const TechUsedIcons = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
+align-items: center;
 text-align: center;
+padding: 5rem;
 
   @media only screen and (max-width: 768px) {
   padding: 0 15rem;
   }
-
-span {
-align-items: center;
-display: flex;
-flex-direction: column;
-font-family: 'Roboto', sans-serif;
-font-size:12px;
-font-weight:700;
-text-align: center;
-}
-
-img{
-display: block;
-height: 45px;
-width: 45px;
-}
 `;
 
 const KeyFeatures = styled.div`
@@ -166,13 +152,55 @@ const Button = styled.a`
   span {
   margin-right: 5px;
   }
+  
+  &:hover{
+    background-color: ${({ bgHoverColor }) => bgHoverColor};
+  }
+  
+  
 `;
+
+const StyledTechUsedIcon = styled.div`
+align-items: center;
+display: flex;
+flex-direction: column;
+font-family: 'Roboto', sans-serif;
+font-size:12px;
+font-weight:700;
+text-align: center;
+
+span {
+padding-top: 2rem;
+}
+
+
+img{
+display: block;
+height: 45px;
+width: 45px;
+}
+`;
+
+const TechUsedIcon = ({ iconSrc, iconTitle }) => (
+  <StyledTechUsedIcon>
+    <img src={iconSrc} alt={iconTitle} />
+    <span>{iconTitle}</span>
+  </StyledTechUsedIcon>
+);
 
 // const SliderColumn = styled.div`
 // max-width: 800rem;
 // `;
 
-function ProjectDetails() {
+function ProjectDetails({
+  title,
+  about,
+  sliderImages,
+  keyFeatures,
+  techUsedIcons,
+  sourceCodeLink,
+  liveDemoLink,
+}) {
   useLockBodyScroll();
 
   return (
@@ -186,55 +214,55 @@ function ProjectDetails() {
         style={{ marginBottom: '15rem' }}
       >
         <span className="text-link spacing">
-          FLIXTIME
+          {title}
         </span>
       </ShinyLink>
       <ProjectGrid>
         <AboutProject>
           <SubSectionTitle>About</SubSectionTitle>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dignissimos earum excepturi, expedita hic labore maiores quidem quo quos repudiandae similique unde vel. Laboriosam, placeat.</p>
+          <p>
+            {about}
+          </p>
         </AboutProject>
         <div className="slick-container">
           <Slider {...slickSettings}>
-            <img className="slider-image" src="/projects/flixtime-devices.webp" alt="screenshot 1" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 2" />
-            <img className="slider-image" src="/projects/flixtime-devices.webp" alt="screenshot 3" />
-            <img className="slider-image" src="/projects/flixtime-showcase.webp" alt="screenshot 4" />
+            {sliderImages.map(({ imgAlt, imgSrc }) => (
+              <img
+                className="slider-image"
+                key={imgSrc}
+                src={imgSrc}
+                alt={imgAlt}
+              />
+            )) }
           </Slider>
         </div>
         <KeyFeatures>
           <SubSectionTitle>Key Features</SubSectionTitle>
           <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dignissimos earum excepturi, expedita hic labore maiores quidem quo quos repudiandae similique unde vel. Laboriosam, placeat.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dignissimos earum excepturi, expedita hic labore maiores quidem quo quos repudiandae similique unde vel. Laboriosam, placeat.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, dignissimos earum excepturi, expedita hic labore maiores quidem quo quos repudiandae similique unde vel. Laboriosam, placeat.</li>
+            {keyFeatures.map((keyFeature, index) => <li key={index}>{keyFeature}</li>)}
           </ul>
         </KeyFeatures>
         <TechUsed>
           <SubSectionTitle>Tech Used</SubSectionTitle>
           <TechUsedIcons>
-            <span>
-              <img src="/devIcons/next-js.svg" />
-              Next.js
-            </span>
-            <span>
-              <img src="/devIcons/react.svg" />
-              React
-            </span>
-            <span>
-              <img src="/devIcons/css-in-js.png" />
-              CSS-in-JS
-            </span>
+            {techUsedIcons.map(({ iconSrc, iconTitle }) => (
+              <TechUsedIcon
+                key={iconSrc}
+                iconSrc={iconSrc}
+                iconTitle={iconTitle}
+              />
+            ))}
           </TechUsedIcons>
         </TechUsed>
         <ButtonsContainer>
           <Buttons>
             <Ripples during={1000}>
               <Button
-                href="https://github.com/Icohen007"
+                href={sourceCodeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                bgColor="#333333"
+                bgColor="hsl(0, 0%, 20%)"
+                bgHoverColor="hsl(0, 0%, 10%)"
               >
                 <span>
                   Source Code
@@ -245,10 +273,11 @@ function ProjectDetails() {
             </Ripples>
             <Ripples during={1000}>
               <Button
-                href="https://flixtime.now.sh"
+                href={liveDemoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                bgColor="#004681"
+                bgColor="hsl(207,100%,25%)"
+                bgHoverColor="hsl(207,100%,20%)"
               >
                 <span>
                   Live Demo

@@ -21,7 +21,7 @@ const customStylesMobile = {
   zIndex: 101,
 };
 
-function ProjectContainer() {
+function ProjectContainer({ projectData }) {
   const [modalState, setModalState] = useState('close');
   const isMobile = useMobile();
   return (
@@ -36,7 +36,7 @@ function ProjectContainer() {
           closeOnEsc
           customStyles={isMobile ? customStylesMobile : customStylesDesktop}
         >
-          <ProjectDetails />
+          <ProjectDetails {...projectData} />
         </Rodal>
       </ClientOnlyPortal>
       )}

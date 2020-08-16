@@ -4,6 +4,7 @@ import UnderLine from '../Shared/UnderLine.style';
 import StyledContainer from '../Container.style';
 import ProjectContainer from './ProjectContainer';
 import { ScrollContext } from '../../hooks/ScrollProvider';
+import { projects } from '../../lib/data';
 
 const SectionTitle = styled.h1`
 display: inline-block;
@@ -53,10 +54,7 @@ function Projects() {
           <UnderLine />
         </SectionTitle>
         <ProjectsContainer>
-          <ProjectContainer />
-          <ProjectContainer />
-          <ProjectContainer />
-          <ProjectContainer />
+          {projects.map((projectData, index) => <ProjectContainer key={index} projectData={projectData} />)}
         </ProjectsContainer>
       </StyledContainer>
     </Container>
