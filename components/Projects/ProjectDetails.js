@@ -61,6 +61,7 @@ max-height: 450rem;
 const ProjectDetailsContainer = styled.div`
 margin-top: 20rem;
 padding: 20rem;
+padding-bottom: 15rem;
 text-align: center;
 width: 100%;
 

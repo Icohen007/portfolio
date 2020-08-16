@@ -7,7 +7,8 @@ import { useMobile } from '../../lib/queries';
 
 const customStylesDesktop = {
   width: '90vw',
-  height: '90vh',
+  height: 'fit-content',
+  maxHeight: '93vh',
   maxWidth: '1400rem',
   overflow: 'auto',
   zIndex: 101,

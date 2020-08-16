@@ -60,6 +60,15 @@ background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
 padding: 20rem;
 color: #FFF;
 
+h2 {
+font-size: 24rem;
+letter-spacing: 2px;
+}
+
+p {
+    font-family: Inter,sans-serif;
+    font-size: 16rem;
+}
 }
 `;
 
@@ -68,7 +77,7 @@ function ProjectCard({ onClick }) {
     <StyledProjectCard>
       <div className="content">
         <h2>FlixTime</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur consequuntur exercitationem iusto laborum nostrum, odio odit qui veritatis voluptates.</p>
+        <p>All your Favorite movies and TV Shows with a beautiful design</p>
         <ProjectButton onClick={onClick} />
       </div>
     </StyledProjectCard>
