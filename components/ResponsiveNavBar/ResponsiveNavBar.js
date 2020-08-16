@@ -37,10 +37,10 @@ const ResponsiveNavBar = () => {
     if (scrollHeightTemp > about) {
       activeNavTemp = 'about';
     }
-    if (scrollHeightTemp > projects) {
+    if (scrollHeightTemp > (projects - 100)) {
       activeNavTemp = 'projects';
     }
-    if (scrollHeightTemp > contact
+    if (scrollHeightTemp > (contact - 200)
         || document.body.scrollHeight === scrollHeight + window.innerHeight) {
       activeNavTemp = 'contact';
     }
