@@ -168,7 +168,7 @@ const TechButton = styled.div`
   text-align:center;
   color: #fff4f4;
   font-weight: bold;
-  background: rgba(0,49,125,0.4);
+  background: rgba(0,49,125,0.5);
   cursor:pointer;
   font-size:14rem;
   text-transform:uppercase;
@@ -181,14 +181,14 @@ const TechButton = styled.div`
   letter-spacing: 1px;
   
   &.active-tech-button {
-  background: rgb(255,244,244,0.7);
-  color: rgb(0,49,125,0.9);
+  background: white;
+  color: rgb(0,49,125,1);
   }
   
   &:hover {
-    background: rgba(0,49,125,0.6);
+    background: rgba(0,49,125,0.7);
     &.active-tech-button {
-    background: rgb(255,244,244,0.7);
+    background: white;
     }
   }
 `;
@@ -197,7 +197,7 @@ const TabIndicator = styled.div`
   position:absolute;
   width: 0px;
   height: 5px;
-  background: rgb(0,49,125,0.9);
+  background: rgb(0,49,125, 1);
   bottom: 0;
   left: 0px ;
   border-radius:5px;

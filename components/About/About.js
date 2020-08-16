@@ -20,7 +20,7 @@ const Container = styled.section`
   overflow: hidden;
   position: relative;
   padding: 100rem 15rem;
-  background:  url("/RetinaWoodOver.webp");
+  background:  url("/BrushedAluFAFAFA.png");
   text-align: center;
   display: flex;
   justify-content: center;
@@ -35,12 +35,12 @@ font-family: 'Roboto', sans-serif;
 max-width: 1000rem;
 border-radius: 15rem;
 padding: 10rem;
-background: rgba(255,240,212,.4);
 border: 1px ${({ theme }) => theme.font.orange} solid;
 box-shadow: 0px 0px 10px 5px rgba(176,176,176,1);
 p {
 margin: 0;
 padding: 0;
+line-height: 1.5;
 }
 
 span{
@@ -126,11 +126,18 @@ const About = () => {
               based in Israel.
             </p>
             <p>
-              I Have Bachelor of Electrical Engineering (Seriously?) at Tel Aviv University.
+              I have a Bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
             </p>
-            I have a strong passion for web development and design which influences my professional work, as
-            well as my side projects.
-            I'm able to work in the 3 major areas of web development:
+            <p>
+              I have a strong passion for web development and design which influences my professional work & my side projects.
+            </p>
+            <p>
+              I&apos;m always ready to challenge myself and explore new areas of work.
+            </p>
+            <p>
+              I never stop learning and for me, each new project is another adventure.
+            </p>
+            I&apos;m able to work in the 3 major areas of web development:
             {' '}
             <span>Frontend</span>
             ,
@@ -141,8 +148,8 @@ const About = () => {
             .
             <p>
               <br />
-              Currently Working as a Full Stack Web Developer at
-              <TaboolaSvg />
+              Currently working as a Full Stack Web Developer at
+              <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola"><TaboolaSvg /></a>
             </p>
           </AboutText>
           <LinksContainer>

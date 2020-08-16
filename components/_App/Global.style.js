@@ -10,6 +10,7 @@ html {
   font-family: 'Raleway', sans-serif !important;
   font-size: 1px;
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 *, *:before, *:after {
