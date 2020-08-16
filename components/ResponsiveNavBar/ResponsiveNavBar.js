@@ -7,27 +7,19 @@ import { IoMdMail } from 'react-icons/io';
 import BurgerButton from './BurgerButton';
 import MobileMenu from './MobileMenu';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
-
-const scrollEventListener = (setScrollHeight) => () => {
-  setScrollHeight(window.pageYOffset);
-};
+import useScrollHeight from '../../hooks/useScrollHeight';
 
 const NAVIGATION_BAR_SCROLL_HEIGHT = 15;
 
 const ResponsiveNavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  const [scrollHeight, setScrollHeight] = useState(false);
+  const { scrollHeight } = useScrollHeight();
   const [activeNav, setActiveNav] = useState('intro');
 
   const {
     introRef, aboutRef, projectsRef, contactRef,
   } = useContext(ScrollContext);
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollEventListener(setScrollHeight));
-    return () => window.removeEventListener('scroll', scrollEventListener(setScrollHeight));
-  }, []);
 
   useEffect(() => {
     const intro = document.querySelector('#intro').offsetTop;
