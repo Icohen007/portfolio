@@ -213,6 +213,7 @@ const About = () => {
           <AnimatedCardsContainer>
             {animatedCards.map(({ title, text, imgSrc }) => (
               <AnimatedCard
+                key={imgSrc}
                 title={title}
                 text={text}
                 imgSrc={imgSrc}

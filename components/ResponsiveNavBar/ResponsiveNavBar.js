@@ -143,7 +143,8 @@ const ResponsiveNavBar = () => {
 
 export default ResponsiveNavBar;
 
-const NavBar = styled(animated.nav)`
+// filter non-standard props
+const NavBar = styled(({ scrolled, ...props }) => <animated.nav {...props} />)`
   position: fixed;
   width: 100%;
   top: 0;
