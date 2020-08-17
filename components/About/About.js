@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import Bounce from 'react-reveal/Bounce';
+import Zoom from 'react-reveal/Zoom';
+import LightSpeed from 'react-reveal/LightSpeed';
+import Slide from 'react-reveal/Slide';
 import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { IoMdMail } from 'react-icons/io';
 import { animatedCards } from '../../lib/data';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
@@ -13,6 +16,7 @@ import SectionTitle from '../Shared/SectionTitle.style';
 import SubSectionTitle from '../Shared/SubSectionTitle';
 import TechSection from './TechSection';
 import { ScrollContext } from '../../hooks/ScrollProvider';
+import { useMobile } from '../../lib/queries';
 
 const Container = styled.section`
   min-height: 100vh;
@@ -106,119 +110,150 @@ padding: 0 20rem;
 
 const About = () => {
   const { aboutRef } = useContext(ScrollContext);
-
+  const isMobile = useMobile();
   return (
     <Container id="about" ref={aboutRef}>
       <AboutContainer>
         <SectionTitle>
-          <span>About</span>
-          {' '}
-          Me
-          <UnderLine />
-        </SectionTitle>
-        <AboutDetailsContainer>
-          <AboutText>
-            <p>
-              I’m Itamar, a
+          <Bounce left>
+            <div>
+              <span>About</span>
               {' '}
-              <span>Full Stack Web Developer</span>
-              {' '}
-              based in Israel.
-            </p>
-            <p>
-              I have a Bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
-            </p>
-            <p>
-              I have a strong passion for web development and design which influences my professional work & my side projects.
-            </p>
-            <p>
-              I&apos;m always ready to challenge myself and explore new areas of work.
-            </p>
-            <p>
-              I never stop learning and for me, each new project is another adventure.
-            </p>
-            I&apos;m able to work in the 3 major areas of web development:
-            {' '}
-            <span>Frontend</span>
-            ,
-            <span>Backend</span>
-            , and the
-            {' '}
-            <span>Database</span>
-            .
-            <p>
-              <br />
-              Currently working as a Full Stack Web Developer at
-              <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola"><TaboolaSvg /></a>
-            </p>
-          </AboutText>
-          <LinksContainer>
-            <div style={{ alignSelf: 'center' }}>
-              <SubSectionTitle>
-                Links
-                <UnderLine />
-              </SubSectionTitle>
+              Me
             </div>
-            <Links>
-              <ShinyLink
-                href="https://github.com/Icohen007"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="icon-link" />
-                <span className="text-link">
-                  GitHub
-                </span>
-              </ShinyLink>
-              <ShinyLink
-                href="https://linkedin.com/in/itamar-cohen-007/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="icon-link" />
-                <span className="text-link">
-                  Linkedin
-                </span>
-              </ShinyLink>
-              {/* <ShinyLink */}
-              {/*  href="https://github.com/Icohen007" */}
-              {/*  target="_blank" */}
-              {/*  rel="noopener noreferrer" */}
-              {/* > */}
-              {/*  <IoMdMail className="icon-link" /> */}
-              {/*  <span className="text-link"> */}
-              {/*    Mail */}
-              {/*  </span> */}
-              {/* </ShinyLink> */}
-              <ShinyLink
-                className="icon-link"
-                href="https://github.com/Icohen007"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFileDownload className="icon-link" />
-                <span className="text-link">
-                  Resume
-                </span>
-              </ShinyLink>
-            </Links>
-          </LinksContainer>
-        </AboutDetailsContainer>
-        <TechSection />
+          </Bounce>
+          <Bounce left delay={200}>
+            <UnderLine />
+          </Bounce>
+        </SectionTitle>
+        <Zoom delay={600}>
+          <AboutDetailsContainer>
+            <AboutText>
+              <p>
+                I’m Itamar, a
+                {' '}
+                <span>Full Stack Web Developer</span>
+                {' '}
+                based in Israel.
+              </p>
+              <p>
+                I have a Bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
+              </p>
+              <p>
+                I have a strong passion for web development and design which influences my professional work & my side projects.
+              </p>
+              <p>
+                I&apos;m always ready to challenge myself and explore new areas of work.
+              </p>
+              <p>
+                I never stop learning and for me, each new project is another adventure.
+              </p>
+              I&apos;m able to work in the 3 major areas of web development:
+              {' '}
+              <span>Frontend</span>
+              ,
+              <span>Backend</span>
+              , and the
+              {' '}
+              <span>Database</span>
+              .
+              <p>
+                <br />
+                Currently working as a Full Stack Web Developer at
+                <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola"><TaboolaSvg /></a>
+              </p>
+            </AboutText>
+            <LinksContainer>
+              <div style={{ alignSelf: 'center' }}>
+                <SubSectionTitle>
+                  Links
+                  <UnderLine />
+                </SubSectionTitle>
+              </div>
+              <Links>
+                <ShinyLink
+                  href="https://github.com/Icohen007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub className="icon-link" />
+                  <span className="text-link">
+                    GitHub
+                  </span>
+                </ShinyLink>
+                <ShinyLink
+                  href="https://linkedin.com/in/itamar-cohen-007/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin className="icon-link" />
+                  <span className="text-link">
+                    Linkedin
+                  </span>
+                </ShinyLink>
+                {/* <ShinyLink */}
+                {/*  href="https://github.com/Icohen007" */}
+                {/*  target="_blank" */}
+                {/*  rel="noopener noreferrer" */}
+                {/* > */}
+                {/*  <IoMdMail className="icon-link" /> */}
+                {/*  <span className="text-link"> */}
+                {/*    Mail */}
+                {/*  </span> */}
+                {/* </ShinyLink> */}
+                <ShinyLink
+                  className="icon-link"
+                  href="https://github.com/Icohen007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFileDownload className="icon-link" />
+                  <span className="text-link">
+                    Resume
+                  </span>
+                </ShinyLink>
+              </Links>
+            </LinksContainer>
+          </AboutDetailsContainer>
+        </Zoom>
+        <LightSpeed delay={600}>
+          <TechSection />
+        </LightSpeed>
         <div>
           <SubSectionTitle>
-            Things I Care About
-            <UnderLine />
+            <Bounce left>
+              Things I Care About
+            </Bounce>
+            <Bounce left delay={200}>
+              <UnderLine />
+            </Bounce>
           </SubSectionTitle>
           <AnimatedCardsContainer>
-            {animatedCards.map(({ title, text, imgSrc }) => (
-              <AnimatedCard
-                key={imgSrc}
-                title={title}
-                text={text}
-                imgSrc={imgSrc}
-              />
-            ))}
+            {animatedCards.map(({ title, text, imgSrc }, index) => {
+              if (isMobile) {
+                return (
+                  <Slide left={index % 2 === 0} right={index % 2 !== 0}>
+                    <AnimatedCard
+                      key={imgSrc}
+                      title={title}
+                      text={text}
+                      imgSrc={imgSrc}
+                    />
+                  </Slide>
+                );
+              }
+
+              return (
+                <Slide bottom delay={(index + 1) * 100}>
+                  <AnimatedCard
+                    key={imgSrc}
+                    title={title}
+                    text={text}
+                    imgSrc={imgSrc}
+                  />
+                </Slide>
+              );
+            })}
           </AnimatedCardsContainer>
         </div>
         <Triangle />

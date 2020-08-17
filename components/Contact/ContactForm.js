@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 import Lottie from 'react-lottie';
 import InputField from './InputField';
 import useForm from '../../hooks/useForm';
@@ -176,49 +177,57 @@ const ContactForm = () => {
   return (
     <ContactFormContainer>
       <StyledContactForm onSubmit={handleSubmit}>
-        <InputField
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          value={values.name}
-          error={!!errors.name}
-        />
+        <Fade bottom delay={200}>
+          <InputField
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+            value={values.name}
+            error={!!errors.name}
+          />
+        </Fade>
         <Fade bottom when={!!errors.name}>
           <span className="error-label">{errors.name || 'error-placeholder'}</span>
         </Fade>
-
-        <InputField
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          value={values.email}
-          error={!!errors.email}
-        />
+        <Fade bottom delay={400}>
+          <InputField
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={values.email}
+            error={!!errors.email}
+          />
+        </Fade>
         <Fade bottom when={!!errors.email}>
           <span className="error-label">{errors.email || 'error-placeholder'}</span>
         </Fade>
-        <TextAreaTitle className={`${values.message ? 'not-empty' : ''} ${errors.message ? 'error' : ''} ${textAreaFocused ? 'focus' : ''}`}> Message </TextAreaTitle>
-        <textarea
-          name="message"
-          placeholder="Your Message..."
-          maxLength="550"
-          value={values.message || ''}
-          onChange={handleChange}
-          className={`${values.message ? 'not-empty' : ''} ${errors.message ? 'error' : ''}`}
-          onFocus={() => setTextAreaFocused(true)}
-          onBlur={() => setTextAreaFocused(false)}
-        />
+        <Fade bottom delay={600}>
+          <TextAreaTitle className={`${values.message ? 'not-empty' : ''} ${errors.message ? 'error' : ''} ${textAreaFocused ? 'focus' : ''}`}> Message </TextAreaTitle>
+          <textarea
+            name="message"
+            placeholder="Your Message..."
+            maxLength="550"
+            value={values.message || ''}
+            onChange={handleChange}
+            className={`${values.message ? 'not-empty' : ''} ${errors.message ? 'error' : ''}`}
+            onFocus={() => setTextAreaFocused(true)}
+            onBlur={() => setTextAreaFocused(false)}
+          />
+        </Fade>
         <Fade bottom when={!!errors.message}>
           <span className="error-label">{errors.message || 'error-placeholder'}</span>
         </Fade>
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <Fade bottom delay={700}>
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </Fade>
       </StyledContactForm>
-      <div style={{maxWidth: 400}}>
-      <Lottie
-        options={defaultOptions}
-        // height={400}
-      />
-      </div>
+      <Slide right delay={400}>
+        <div style={{ maxWidth: 400 }}>
+          <Lottie
+            options={defaultOptions}
+          />
+        </div>
+      </Slide>
     </ContactFormContainer>
   );
 };

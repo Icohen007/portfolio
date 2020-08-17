@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Tada from 'react-reveal/Tada';
 import ProjectButton from './ProjectButton';
 
 const StyledProjectCard = styled.div`
@@ -41,25 +42,35 @@ filter: blur(30px);
 }
 }
 
-&:nth-child(1):before, 
-&:nth-child(1):after {
+&.primary:before,
+&.primary:after {
 background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
 }
 
-&:nth-child(2):before, 
-&:nth-child(2):after {
+&.secondary:before,
+&.secondary:after {
 background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
 }
-
-&:nth-child(3):before, 
-&:nth-child(3):after {
-background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
-}
-
-&:nth-child(4):before, 
-&:nth-child(4):after {
-background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
-}
+//
+//&:nth-child(1):before, 
+//&:nth-child(1):after {
+//background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+//}
+//
+//&:nth-child(2):before, 
+//&:nth-child(2):after {
+//background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
+//}
+//
+//&:nth-child(3):before, 
+//&:nth-child(3):after {
+//background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
+//}
+//
+//&:nth-child(4):before, 
+//&:nth-child(4):after {
+//background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+//}
 
 
 .content {
@@ -79,16 +90,20 @@ p {
 `;
 
 function ProjectCard({
-  title, subTitle, previewImage, onClick,
+  title, subTitle, previewImage, onClick, className,
 }) {
   return (
-    <StyledProjectCard previewImage={previewImage}>
-      <div className="content">
-        <h2>{title}</h2>
-        <p>{subTitle}</p>
-        <ProjectButton onClick={onClick} />
-      </div>
-    </StyledProjectCard>
+
+      <StyledProjectCard className={className} previewImage={previewImage}>
+        <Tada>
+        <div className="content">
+          <h2>{title}</h2>
+          <p>{subTitle}</p>
+          <ProjectButton onClick={onClick} />
+        </div>
+        </Tada>
+      </StyledProjectCard>
+
   );
 }
 

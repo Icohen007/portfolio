@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import Bounce from 'react-reveal/Bounce';
+import Fade from 'react-reveal/Fade';
 import StyledContainer from '../Container.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import ContactForm from './ContactForm';
@@ -68,12 +70,18 @@ function Contact() {
       </UnderLay>
       <StyledContainer>
         <SectionTitle>
-          Let&apos;s
-          {' '}
-          <span>Talk</span>
-          <UnderLine />
+          <Bounce left>
+            <div>
+              Let&apos;s
+              {' '}
+              <span>Talk</span>
+            </div>
+          </Bounce>
+          <Bounce left delay={200}>
+            <UnderLine />
+          </Bounce>
         </SectionTitle>
-        <SubTitle>Got an awesome idea? Let's have a chat!</SubTitle>
+        <SubTitle><Fade bottom delay={200}>Got an awesome idea? Let&apos;s have a chat!</Fade></SubTitle>
         <ContactForm />
       </StyledContainer>
     </Container>

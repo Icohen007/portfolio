@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Rodal from 'rodal';
+import Tada from 'react-reveal/Tada';
 import ProjectCard from './ProjectCard';
 import ProjectDetails from './ProjectDetails';
 import ClientOnlyPortal from '../Shared/ClientOnlyPortal';
@@ -21,7 +22,7 @@ const customStylesMobile = {
   zIndex: 101,
 };
 
-function ProjectContainer({ projectData }) {
+function ProjectContainer({ projectData, projectCardClassName }) {
   const [modalState, setModalState] = useState('close');
   const isMobile = useMobile();
   return (
@@ -31,6 +32,7 @@ function ProjectContainer({ projectData }) {
         subTitle={projectData.subTitle}
         previewImage={projectData.previewImage}
         onClick={() => setModalState('open')}
+        className={projectCardClassName}
       />
       {(modalState === 'open' || modalState === 'closing') && (
       <ClientOnlyPortal selector="#__next">
