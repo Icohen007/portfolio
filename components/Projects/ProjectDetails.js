@@ -60,10 +60,13 @@ max-height: 450rem;
 
 const ProjectDetailsContainer = styled.div`
 margin-top: 20rem;
-padding: 20rem;
-padding-bottom: 15rem;
+padding: 20rem 20rem 15rem 20rem;
 text-align: center;
 width: 100%;
+
+p {
+margin-top: 0;
+}
 
 .spacing {
 letter-spacing: 1px;
@@ -111,10 +114,14 @@ text-align: left;
   }
 
 ul{
-padding: 0 10px;
+padding: 0 10rem;
+margin: 0;
+  @media only screen and (max-width: 768px) {
+  padding: 0 0 0 25rem;
+  }
 
 li {
-padding: 5px 0;
+padding: 5rem 0;
 }
 }
 `;

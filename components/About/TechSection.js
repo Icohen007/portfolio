@@ -18,6 +18,10 @@ const Grid = makeResponsive(measureItems(CSSGrid), {
   minPadding: 20,
 });
 
+const MOBILE_TECH_CARD_SIZE = 80;
+
+const DESKTOP_TECH_CARD_SIZE = 100;
+
 function TechSection() {
   const isMobile = useMobile();
   const [selectedTechType, setSelectedTechType] = useState(TECH_TYPE.ALL);
@@ -26,7 +30,7 @@ function TechSection() {
   const techCardComponents = useMemo(() => techCards
     .filter((techObject) => (selectedTechType === TECH_TYPE.ALL || techObject.type === selectedTechType))
     .map((techObject) => (
-      <li key={techObject.imageSrc} itemHeight={isMobile ? 80 : 120}>
+      <li key={techObject.imageSrc} itemHeight={isMobile ? MOBILE_TECH_CARD_SIZE : DESKTOP_TECH_CARD_SIZE}>
         <TechCard
           className={revealMode ? 'reveal' : ''}
           imageSrc={techObject.imageSrc}
@@ -133,7 +137,7 @@ function TechSection() {
       <TechCardContainer>
         <Grid
           component="div"
-          columnWidth={isMobile ? 80 : 120}
+          columnWidth={isMobile ? MOBILE_TECH_CARD_SIZE : DESKTOP_TECH_CARD_SIZE}
           gutterWidth={10}
           gutterHeight={10}
           layout={layout.pinterest}

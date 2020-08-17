@@ -54,7 +54,7 @@ span{
 
 const AboutDetailsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin: 40rem 0 20rem 0;
   

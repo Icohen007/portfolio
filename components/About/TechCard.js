@@ -7,8 +7,8 @@ const StyledTechCard = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   padding: 5px;
   transition: .75s ease-in;
   background: white;
