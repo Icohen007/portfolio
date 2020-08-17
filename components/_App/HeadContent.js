@@ -3,6 +3,7 @@ const HeadContent = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charSet="utf-8" />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Itamar Cohen's Full Stack Developer portfolio. I am a detail-oriented developer that loves to research solve problems with code." />
 
     {/* <meta property="og:url" content="https://flixtime.now.sh" /> */}
     <meta property="og:type" content="website" />

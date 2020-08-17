@@ -12,8 +12,10 @@ function Intro() {
   const typedRef = useRef(null);
   useTyped(typedRef, {
     strings: [
-      "I'm a Full Stack developer",
-      'Love to Code and Design',
+      "I'm a Full Stack Developer",
+      'Love to code and design',
+      'I build quality software solutions',
+      "I'm detail-oriented and mission-driven",
     ],
     typeSpeed: 60,
     backSpeed: 40,
@@ -34,7 +36,9 @@ function Intro() {
             Hello, I&apos;m
             <ColoredText> Itamar Cohen </ColoredText>
           </h1>
-          <span className="typed" ref={typedRef} />
+          <div className="typed-container">
+            <span className="typed" ref={typedRef} />
+          </div>
         </div>
       </FlexContainer>
       <AnimatedArrow onClick={() => scrollToRef(aboutRef)} />
@@ -77,6 +81,10 @@ const FlexContainer = styled.div`
     @media only screen and (max-width: 768px) {
     font-size: calc(15rem + 4vw);
     }
+    }
+    
+    .typed-container{
+    height: 80rem;
     }
     
     .typed {
