@@ -53,11 +53,8 @@ text-decoration: none !important;
     width: 6px;
     color: #751fff;
   }
-  *::-webkit-scrollbar-track {
-    background: hidden;
-  }
+  
   *::-webkit-scrollbar-thumb {
-    background-color: hidden;
     border-radius: 20px;
     border: 3px solid #751fff;
   }
@@ -84,7 +81,6 @@ text-decoration: none !important;
 .rodal-dialog {
   background:  url("/BrushedAluFAFAFA.png");
   &::-webkit-scrollbar-thumb {
-    background-color: hidden;
     border-radius: 20px;
     border: 3px solid #555555;
   }
@@ -93,7 +89,6 @@ text-decoration: none !important;
   }
   
 }
-
 `;
 
 export default GlobalStyle;

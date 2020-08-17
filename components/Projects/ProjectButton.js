@@ -130,7 +130,7 @@ animation-delay: 1s;
 function ProjectButton({ onClick }) {
   return (
     <StyledProjectButton>
-      <button onClick={onClick}>
+      <button type="button" onClick={onClick}>
         <span />
         <span />
         <span />

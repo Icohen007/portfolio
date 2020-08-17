@@ -28,9 +28,13 @@ function TechSection() {
   const [revealMode, setRevealMode] = useState(false);
   const markerRef = useRef(null);
   const techCardComponents = useMemo(() => techCards
-    .filter((techObject) => (selectedTechType === TECH_TYPE.ALL || techObject.type === selectedTechType))
+    .filter((techObject) => (selectedTechType === TECH_TYPE.ALL
+        || techObject.type === selectedTechType))
     .map((techObject) => (
-      <li key={techObject.imageSrc} itemHeight={isMobile ? MOBILE_TECH_CARD_SIZE : DESKTOP_TECH_CARD_SIZE}>
+      <li
+        key={techObject.imageSrc}
+        itemHeight={isMobile ? MOBILE_TECH_CARD_SIZE : DESKTOP_TECH_CARD_SIZE}
+      >
         <TechCard
           className={revealMode ? 'reveal' : ''}
           imageSrc={techObject.imageSrc}
@@ -74,7 +78,12 @@ function TechSection() {
           My Skills
           <UnderLine />
         </SubSectionTitle>
-        <h3> Here is my Tech Stack, can you guess some by the logo ?</h3>
+        <h3>
+          Can you identify some of my
+          <b>tech stack</b>
+          {' '}
+          by the logo?
+        </h3>
         <TechButtons>
           <TechButton
             className={addActiveClassName(TECH_TYPE.ALL)}
@@ -154,13 +163,6 @@ function TechSection() {
   );
 }
 
-const TechText = styled.div`
-font-size: 16rem;
-color: ${({ theme }) => theme.font.black};
-white-space: pre-wrap;
-text-align: center;
-`;
-
 const TechButtons = styled.nav`
 display: flex;
 justify-content: center;
@@ -199,11 +201,11 @@ const TechButton = styled.div`
 
 const TabIndicator = styled.div`
   position:absolute;
-  width: 0px;
+  width: 0;
   height: 5px;
   background: rgb(0,49,125, 1);
   bottom: 0;
-  left: 0px ;
+  left: 0;
   border-radius:5px;
   transition:all 600ms ease-in-out;
         @media only screen and (max-width: 768px) {

@@ -247,7 +247,7 @@ function ProjectDetails({
         <KeyFeatures>
           <SubSectionTitle>Key Features</SubSectionTitle>
           <ul>
-            {keyFeatures.map((keyFeature, index) => <li key={index}>{keyFeature}</li>)}
+            {keyFeatures.map((keyFeature) => <li key={keyFeature}>{keyFeature}</li>)}
           </ul>
         </KeyFeatures>
         <TechUsed>

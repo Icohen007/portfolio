@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Rodal from 'rodal';
-import Tada from 'react-reveal/Tada';
 import ProjectCard from './ProjectCard';
 import ProjectDetails from './ProjectDetails';
 import ClientOnlyPortal from '../Shared/ClientOnlyPortal';

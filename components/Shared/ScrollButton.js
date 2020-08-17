@@ -30,7 +30,7 @@ width: 100%;
 }
 `;
 
-function ScrollButton(props) {
+function ScrollButton() {
   const { introRef } = useContext(ScrollContext);
   const { scrollHeight } = useScrollHeight();
 

@@ -1,6 +1,5 @@
 import React, { useContext, useRef } from 'react';
 import useTyped from 'use-typed';
-import useInView from 'react-cool-inview';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
 import { particlesConfig } from '../../lib/config';
@@ -23,34 +22,6 @@ function Intro() {
     smartBackspace: true,
   });
 
-  const {
-    ref: viewRef, inView, scrollDirection, entry, observe, unobserve,
-  } = useInView(
-    {
-      threshold: 0.95,
-      onChange: ({
-        inView, scrollDirection, entry, observe, unobserve,
-      }) => {
-        console.log('change', {
-          inView, scrollDirection, entry, observe, unobserve,
-        });
-      },
-      onEnter: ({
-        scrollDirection, entry, observe, unobserve,
-      }) => {
-        console.log('enter', {
-          scrollDirection, entry, observe, unobserve,
-        });
-      },
-      onLeave: ({
-        scrollDirection, entry, observe, unobserve,
-      }) => {
-        console.log('leave', {
-          scrollDirection, entry, observe, unobserve,
-        });
-      },
-    },
-  );
   return (
     <Container id="intro" ref={introRef}>
       <Particles className="particles" params={particlesConfig} />
@@ -60,7 +31,7 @@ function Intro() {
         </FloatingAvatar>
         <div>
           <h1>
-            Hello, I'm
+            Hello, I&apos;m
             <ColoredText> Itamar Cohen </ColoredText>
           </h1>
           <span className="typed" ref={typedRef} />
@@ -133,7 +104,7 @@ const FloatingAvatar = styled.div`
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 5px 15px 0px rgba(255,255,255,0.3);
+  box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3);
   transform: translatey(0px);
   animation: float 5s ease-in-out infinite;
   margin-bottom: 10rem;
@@ -149,9 +120,9 @@ const FloatingAvatar = styled.div`
   }
   
 @keyframes float { 
-  0% { box-shadow: 0 5px 15px 0px rgba(255,255,255,0.3); transform: translatey(0px); } 
-  50% { box-shadow: 0 10px 15px 0px rgba(255,255,255,0.2); transform: translatey(-15px); } 
-  100% { box-shadow: 0 5px 15px 0px rgba(255,255,255,0.3); transform: translatey(0px); } 
+  0% { box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3); transform: translatey(0px); } 
+  50% { box-shadow: 0 10px 15px 0 rgba(255,255,255,0.2); transform: translatey(-15px); } 
+  100% { box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3); transform: translatey(0px); } 
 }
 `;
 

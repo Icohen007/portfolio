@@ -6,7 +6,7 @@ const StyledTaboolaSvg = styled.svg`
  margin-left: 6px;
 `;
 
-function TaboolaSvg(props) {
+function TaboolaSvg() {
   return (
     <StyledTaboolaSvg x="0px" y="0px" viewBox="0 0 723.02 175.14" fill="#054164">
       <g>

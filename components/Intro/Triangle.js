@@ -19,7 +19,7 @@ svg {
 
 `;
 
-function Triangle(props) {
+function Triangle() {
   return (
     <StyledTriangle>
       <svg

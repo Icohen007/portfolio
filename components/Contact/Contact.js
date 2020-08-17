@@ -81,7 +81,9 @@ function Contact() {
             <UnderLine />
           </Bounce>
         </SectionTitle>
-        <SubTitle><Fade bottom delay={200}>Got an awesome idea? Let&apos;s have a chat!</Fade></SubTitle>
+        <SubTitle>
+          <Fade bottom delay={200}>Got an awesome idea? Let&apos;s have a chat!</Fade>
+        </SubTitle>
         <ContactForm />
       </StyledContainer>
     </Container>

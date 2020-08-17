@@ -93,17 +93,15 @@ function ProjectCard({
   title, subTitle, previewImage, onClick, className,
 }) {
   return (
-
-      <StyledProjectCard className={className} previewImage={previewImage}>
-        <Tada>
+    <StyledProjectCard className={className} previewImage={previewImage}>
+      <Tada>
         <div className="content">
           <h2>{title}</h2>
           <p>{subTitle}</p>
           <ProjectButton onClick={onClick} />
         </div>
-        </Tada>
-      </StyledProjectCard>
-
+      </Tada>
+    </StyledProjectCard>
   );
 }
 

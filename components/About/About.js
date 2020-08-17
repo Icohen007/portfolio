@@ -40,7 +40,7 @@ max-width: 1000rem;
 border-radius: 15rem;
 padding: 10rem;
 border: 1px ${({ theme }) => theme.font.orange} solid;
-box-shadow: 0px 0px 10px 5px rgba(176,176,176,1);
+box-shadow: 0 0 10px 5px rgba(176,176,176,1);
 p {
 margin: 0;
 padding: 0;
@@ -137,10 +137,11 @@ const About = () => {
                 based in Israel.
               </p>
               <p>
-                I have a Bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
+                I have a bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
               </p>
               <p>
-                I have a strong passion for web development and design which influences my professional work & my side projects.
+                I have a strong passion for web development and design which
+                influences my professional work & my side projects.
               </p>
               <p>
                 I&apos;m always ready to challenge myself and explore new areas of work.
@@ -160,7 +161,7 @@ const About = () => {
               <p>
                 <br />
                 Currently working as a Full Stack Web Developer at
-                <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola"><TaboolaSvg /></a>
+                <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola" aria-label="Taboola"><TaboolaSvg /></a>
               </p>
             </AboutText>
             <LinksContainer>

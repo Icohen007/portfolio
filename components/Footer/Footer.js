@@ -83,7 +83,7 @@ align-items: center;
 flex-direction: column;
 `;
 
-function Footer(props) {
+function Footer() {
   return (
     <Container>
       <FooterContainer>

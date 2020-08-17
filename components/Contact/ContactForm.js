@@ -24,6 +24,10 @@ justify-content: center;
 max-width: 500rem;
 width: 100%;
 
+.react-reveal {
+width: 100%;
+}
+
 .error-label {
 font-size: 12rem;
 color: #c20000;
@@ -94,9 +98,9 @@ const SubmitButton = styled.button`
    transition: all 150ms ease-in-out;
    z-index: 1;
    background: white;
-   margin-top: 20rem;
    cursor: pointer;
    outline: none;
+   margin: 20rem auto;
    
    &:after {
       content: " ";
@@ -167,7 +171,6 @@ function validate(values) {
 }
 
 const ContactForm = () => {
-  // const { handleSubmit, register, errors } = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
   const onSubmit = (values) => console.log(values);
   const {
     values, errors, handleChange, handleSubmit,

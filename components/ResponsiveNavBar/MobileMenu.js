@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useCallback, useContext} from 'react';
+import { useCallback, useContext } from 'react';
 import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
