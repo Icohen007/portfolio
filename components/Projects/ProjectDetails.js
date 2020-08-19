@@ -80,7 +80,11 @@ letter-spacing: 1px;
 const AboutProject = styled.div`
 grid-area: about;
 text-align: left;
+
+p {
 font-weight: 500;
+padding-right: 10rem;
+}
   @media only screen and (max-width: 768px) {
   padding: 0 15rem;
   }
@@ -143,7 +147,11 @@ display: flex;
 justify-content: space-between;
 max-width: 350rem;
 padding: 0 15rem;
-    width: 100%;
+width: 100%;
+
+&.one-button{
+justify-content: center;
+}
 `;
 
 const Button = styled.a`
@@ -206,6 +214,7 @@ function ProjectDetails({
   techUsedIcons,
   sourceCodeLink,
   liveDemoLink,
+  liveSiteLink,
 }) {
   useLockBodyScroll();
 
@@ -261,7 +270,8 @@ function ProjectDetails({
           </TechUsedIcons>
         </TechUsed>
         <ButtonsContainer>
-          <Buttons>
+          <Buttons className={(liveSiteLink && !sourceCodeLink) ? 'one-button' : ''}>
+            {sourceCodeLink && (
             <Ripples during={1000}>
               <Button
                 href={sourceCodeLink}
@@ -277,6 +287,8 @@ function ProjectDetails({
                 <FaGithub />
               </Button>
             </Ripples>
+            )}
+            {liveDemoLink && (
             <Ripples during={1000}>
               <Button
                 href={liveDemoLink}
@@ -292,6 +304,24 @@ function ProjectDetails({
                 <FaExternalLinkAlt />
               </Button>
             </Ripples>
+            )}
+            {liveSiteLink && (
+            <Ripples during={1000}>
+              <Button
+                href={liveSiteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                bgColor="hsl(127,100%,25%)"
+                bgHoverColor="hsl(127,100%,20%)"
+              >
+                <span>
+                  Live Site
+                </span>
+                {' '}
+                <FaExternalLinkAlt />
+              </Button>
+            </Ripples>
+            )}
           </Buttons>
         </ButtonsContainer>
       </ProjectGrid>

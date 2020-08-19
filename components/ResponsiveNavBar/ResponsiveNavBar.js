@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { animated, config, useSpring } from 'react-spring';
 import { useMediaQuery } from 'react-responsive';
-import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import BurgerButton from './BurgerButton';
 import MobileMenu from './MobileMenu';
@@ -117,22 +117,22 @@ const ResponsiveNavBar = () => {
                 </a>
                 <a
                   className="icon-link"
-                  href="https://github.com/Icohen007"
+                  href="mailto:blabla@gmail.com?subject=Hey, I visited in your Portfolio&body=Hey Itamar, "
                   target="_blank"
-                  title="GitHub"
+                  title="Mail"
                   rel="noopener noreferrer"
                 >
                   <IoMdMail className="icon" />
                 </a>
-                <a
-                  className="icon-link"
-                  href="https://github.com/Icohen007"
-                  target="_blank"
-                  title="GitHub"
-                  rel="noopener noreferrer"
-                >
-                  <FaFileDownload className="icon" />
-                </a>
+                {/*<a*/}
+                {/*  className="icon-link"*/}
+                {/*  href="https://github.com/Icohen007"*/}
+                {/*  target="_blank"*/}
+                {/*  title="GitHub"*/}
+                {/*  rel="noopener noreferrer"*/}
+                {/*>*/}
+                {/*  <FaFileDownload className="icon" />*/}
+                {/*</a>*/}
               </NavLinks>
             </FlexContainer>
           </NavBar>

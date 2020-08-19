@@ -33,7 +33,7 @@ function Intro() {
         <FloatingAvatar>
           <img src="/avatar.svg" alt="Itamar Avatar" />
         </FloatingAvatar>
-        <div>
+        <IntroText>
           <h1>
             Hello, I&apos;m
             <ColoredText> Itamar Cohen </ColoredText>
@@ -41,7 +41,7 @@ function Intro() {
           <div className="typed-container">
             <span className="typed" ref={typedRef} />
           </div>
-        </div>
+        </IntroText>
       </FlexContainer>
       <AnimatedArrow onClick={() => scrollToRef(aboutRef)} />
     </Container>
@@ -82,14 +82,8 @@ const Container = styled.section`
   }
 `;
 
-const FlexContainer = styled.div`
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
+const IntroText = styled.div`
+z-index: 1;
 
     h1 {
     color: ${({ theme }) => theme.font.white};
@@ -118,6 +112,16 @@ const FlexContainer = styled.div`
       color: ${({ theme }) => theme.font.white};
       font-size: 25rem;
     }
+`;
+
+const FlexContainer = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
 `;
 
 const ColoredText = styled.span`

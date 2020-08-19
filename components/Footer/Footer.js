@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-  FaFileDownload, FaGithub, FaLinkedin, FaReact,
+  FaGithub, FaLinkedin, FaReact,
 } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 
@@ -108,22 +108,22 @@ function Footer() {
           </a>
           <a
             className="icon-link"
-            href="https://github.com/Icohen007"
+            href="mailto:blabla@gmail.com?subject=Hey, I visited in your Portfolio&body=Hey Itamar, "
             target="_blank"
-            title="GitHub"
+            title="Mail"
             rel="noopener noreferrer"
           >
             <IoMdMail className="icon" />
           </a>
-          <a
-            className="icon-link"
-            href="https://github.com/Icohen007"
-            target="_blank"
-            title="GitHub"
-            rel="noopener noreferrer"
-          >
-            <FaFileDownload className="icon" />
-          </a>
+          {/*<a*/}
+          {/*  className="icon-link"*/}
+          {/*  href="https://github.com/Icohen007"*/}
+          {/*  target="_blank"*/}
+          {/*  title="GitHub"*/}
+          {/*  rel="noopener noreferrer"*/}
+          {/*>*/}
+          {/*  <FaFileDownload className="icon" />*/}
+          {/*</a>*/}
         </FooterIcons>
         <Footertext>
           © Made by

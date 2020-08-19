@@ -4,7 +4,8 @@ import Bounce from 'react-reveal/Bounce';
 import Zoom from 'react-reveal/Zoom';
 import LightSpeed from 'react-reveal/LightSpeed';
 import Slide from 'react-reveal/Slide';
-import { FaFileDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { IoMdMail } from 'react-icons/io';
 import { animatedCards } from '../../lib/data';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
@@ -192,27 +193,27 @@ const About = () => {
                     Linkedin
                   </span>
                 </ShinyLink>
+                <ShinyLink
+                  href="mailto:blabla@gmail.com?subject=Hey, I visited in your Portfolio&body=Hey Itamar, "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IoMdMail className="icon-link" />
+                  <span className="text-link">
+                    Mail
+                  </span>
+                </ShinyLink>
                 {/* <ShinyLink */}
+                {/*  className="icon-link" */}
                 {/*  href="https://github.com/Icohen007" */}
                 {/*  target="_blank" */}
                 {/*  rel="noopener noreferrer" */}
                 {/* > */}
-                {/*  <IoMdMail className="icon-link" /> */}
+                {/*  <FaFileDownload className="icon-link" /> */}
                 {/*  <span className="text-link"> */}
-                {/*    Mail */}
+                {/*    Resume */}
                 {/*  </span> */}
                 {/* </ShinyLink> */}
-                <ShinyLink
-                  className="icon-link"
-                  href="https://github.com/Icohen007"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFileDownload className="icon-link" />
-                  <span className="text-link">
-                    Resume
-                  </span>
-                </ShinyLink>
               </Links>
             </LinksContainer>
           </AboutDetailsContainer>
