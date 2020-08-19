@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { particlesConfig } from '../../lib/config';
 import AnimatedArrow from './AnimatedArrow';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
+import introDynamicText from '../../lib/introDynamicText';
 
 function Intro() {
   const { aboutRef, introRef } = useContext(ScrollContext);
@@ -28,6 +29,7 @@ function Intro() {
     <Container id="intro" ref={introRef}>
       <Particles className="particles" params={particlesConfig} />
       <FlexContainer>
+        <FloatingText>{introDynamicText()}</FloatingText>
         <FloatingAvatar>
           <img src="/avatar.svg" alt="Itamar Avatar" />
         </FloatingAvatar>
@@ -61,7 +63,22 @@ const Container = styled.section`
     canvas {
       height: 100vh !important;
       z-index: 0;
+        @media only screen and (max-width: 768px) and (orientation:landscape) {
+          height: 170vh !important;
+        }
+        
+             @media only screen and (max-width: 1100px) and (orientation:landscape) {
+          height: 200vh !important;
+        }
     }
+  }
+  
+  @media only screen and (max-width: 768px) and (orientation:landscape) {
+  height: 170vh;
+  }
+  
+         @media only screen and (max-width: 1100px) and (orientation:landscape) {
+    height: 200vh;
   }
 `;
 
@@ -114,7 +131,7 @@ const FloatingAvatar = styled.div`
   overflow: hidden;
   box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3);
   transform: translatey(0px);
-  animation: float 5s ease-in-out infinite;
+  animation: float-avatar 5s ease-in-out infinite;
   margin-bottom: 10rem;
   
       @media only screen and (max-width: 768px) {
@@ -127,10 +144,29 @@ const FloatingAvatar = styled.div`
   height: auto; 
   }
   
-@keyframes float { 
+@keyframes float-avatar { 
   0% { box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3); transform: translatey(0px); } 
   50% { box-shadow: 0 10px 15px 0 rgba(255,255,255,0.2); transform: translatey(-15px); } 
   100% { box-shadow: 0 5px 15px 0 rgba(255,255,255,0.3); transform: translatey(0px); } 
+}
+`;
+
+const FloatingText = styled.div`
+color: #fff2aa;
+font-weight: 600;
+font-size: 26rem;
+animation: float-text 5s ease-in-out infinite;
+margin-bottom: 6rem;
+text-align: center;
+
+  @media only screen and (max-width: 768px) {
+      font-size: 18rem;
+    }
+
+@keyframes float-text { 
+  0% {  transform: translatey(0px); } 
+  50% {  transform: translatey(-15px); } 
+  100% {  transform: translatey(0px); } 
 }
 `;
 

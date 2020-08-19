@@ -233,9 +233,8 @@ const About = () => {
             {animatedCards.map(({ title, text, imgSrc }, index) => {
               if (isMobile) {
                 return (
-                  <Slide left={index % 2 === 0} right={index % 2 !== 0}>
+                  <Slide key={imgSrc} left={index % 2 === 0} right={index % 2 !== 0}>
                     <AnimatedCard
-                      key={imgSrc}
                       title={title}
                       text={text}
                       imgSrc={imgSrc}
@@ -245,9 +244,8 @@ const About = () => {
               }
 
               return (
-                <Slide bottom delay={(index + 1) * 100}>
+                <Slide key={imgSrc} bottom delay={(index + 1) * 100}>
                   <AnimatedCard
-                    key={imgSrc}
                     title={title}
                     text={text}
                     imgSrc={imgSrc}

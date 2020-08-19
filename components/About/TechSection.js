@@ -79,10 +79,7 @@ function TechSection() {
           <UnderLine />
         </SubSectionTitle>
         <h3>
-          Can you identify some of my
-          <b>tech stack</b>
-          {' '}
-          by the logo?
+          Can you identify some of my tech stack by the logo?
         </h3>
         <TechButtons>
           <TechButton

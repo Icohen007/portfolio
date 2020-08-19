@@ -18,8 +18,8 @@ transform: rotate(45deg) translate(0, -20px);
 animation: animate 2s infinite;
 
     @media only screen and (max-width: 768px) {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     }
 
 &:nth-child(2){
