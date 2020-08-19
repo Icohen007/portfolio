@@ -47,7 +47,7 @@ border-radius: 20px;
         text-align: center;
         font-size: 32rem;
         color: rgba(255, 255, 255, 0.5);
-        font-weight: 700;
+        font-weight: 500;
         
       @media only screen and (max-width: 768px) {
         display: none;
@@ -123,9 +123,7 @@ function AnimatedCard({ title, text, imgSrc }) {
     <StyledAnimatedCard>
       <div className="image-container">
         <div className="image-text">
-          {' '}
           {title}
-          {' '}
         </div>
         <img src={`/codeIcons/${imgSrc}`} alt={title} />
       </div>

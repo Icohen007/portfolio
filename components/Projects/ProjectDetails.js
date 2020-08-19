@@ -80,6 +80,7 @@ letter-spacing: 1px;
 const AboutProject = styled.div`
 grid-area: about;
 text-align: left;
+font-weight: 500;
   @media only screen and (max-width: 768px) {
   padding: 0 15rem;
   }
@@ -116,6 +117,7 @@ text-align: left;
 ul{
 padding: 0 10rem;
 margin: 0;
+font-weight: 500;
   @media only screen and (max-width: 768px) {
   padding: 0 0 0 25rem;
   }
@@ -195,10 +197,6 @@ const TechUsedIcon = ({ iconSrc, iconTitle }) => (
     <span>{iconTitle}</span>
   </StyledTechUsedIcon>
 );
-
-// const SliderColumn = styled.div`
-// max-width: 800rem;
-// `;
 
 function ProjectDetails({
   title,

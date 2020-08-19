@@ -153,7 +153,7 @@ const FloatingAvatar = styled.div`
 
 const FloatingText = styled.div`
 color: #fff2aa;
-font-weight: 600;
+font-weight: 500;
 font-size: 26rem;
 animation: float-text 5s ease-in-out infinite;
 margin-bottom: 6rem;

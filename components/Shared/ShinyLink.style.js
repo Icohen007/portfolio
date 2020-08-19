@@ -6,7 +6,7 @@ const ShinyLink = styled.a`
     align-items: center;
     justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
     cursor: pointer;
-    font-weight: 800;
+    font-weight: 600;
     font-size: ${({ size = '20rem' }) => size};
     background-image: linear-gradient(to right, ${({ theme }) => theme.link.green} ,${({ theme }) => theme.link.green} 50%, ${({ theme }) => theme.link.blue} 50%);
     background-position: 100%;
