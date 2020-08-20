@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
-import StyledContainer from '../Container.style';
+import StyledContainer from '../Shared/Container.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import ContactForm from './ContactForm';
 import UnderLine from '../Shared/UnderLine.style';

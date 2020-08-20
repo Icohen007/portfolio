@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { useContext } from 'react';
 import Bounce from 'react-reveal/Bounce';
 import UnderLine from '../Shared/UnderLine.style';
-import StyledContainer from '../Container.style';
+import StyledContainer from '../Shared/Container.style';
 import ProjectContainer from './ProjectContainer';
 import { ScrollContext } from '../../hooks/ScrollProvider';
 import { projects } from '../../lib/data';

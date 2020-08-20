@@ -7,17 +7,17 @@ import Slide from 'react-reveal/Slide';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { animatedCards } from '../../lib/data';
+import { ScrollContext } from '../../hooks/ScrollProvider';
+import { useMobile } from '../../lib/queries';
 import ShinyLink from '../Shared/ShinyLink.style';
 import AnimatedCard from './AnimatedCard';
-import StyledContainer from '../Container.style';
-import TaboolaSvg from '../TaboolaSVG';
+import StyledContainer from '../Shared/Container.style';
 import Triangle from '../Intro/Triangle';
 import UnderLine from '../Shared/UnderLine.style';
 import SectionTitle from '../Shared/SectionTitle.style';
 import SubSectionTitle from '../Shared/SubSectionTitle';
 import TechSection from './TechSection';
-import { ScrollContext } from '../../hooks/ScrollProvider';
-import { useMobile } from '../../lib/queries';
+import TaboolaSvg from './TaboolaSVG';
 
 const Container = styled.section`
   min-height: 100vh;
