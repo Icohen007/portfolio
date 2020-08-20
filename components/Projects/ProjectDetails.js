@@ -2,7 +2,6 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import React from 'react';
-import Ripples from 'react-ripples';
 import { slickSettings } from '../../lib/config';
 import ShinyLink from '../Shared/ShinyLink.style';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
@@ -272,7 +271,6 @@ function ProjectDetails({
         <ButtonsContainer>
           <Buttons className={(liveSiteLink && !sourceCodeLink) ? 'one-button' : ''}>
             {sourceCodeLink && (
-            <Ripples during={1000}>
               <Button
                 href={sourceCodeLink}
                 target="_blank"
@@ -286,10 +284,8 @@ function ProjectDetails({
                 {' '}
                 <FaGithub />
               </Button>
-            </Ripples>
             )}
             {liveDemoLink && (
-            <Ripples during={1000}>
               <Button
                 href={liveDemoLink}
                 target="_blank"
@@ -303,10 +299,8 @@ function ProjectDetails({
                 {' '}
                 <FaExternalLinkAlt />
               </Button>
-            </Ripples>
             )}
             {liveSiteLink && (
-            <Ripples during={1000}>
               <Button
                 href={liveSiteLink}
                 target="_blank"
@@ -320,7 +314,6 @@ function ProjectDetails({
                 {' '}
                 <FaExternalLinkAlt />
               </Button>
-            </Ripples>
             )}
           </Buttons>
         </ButtonsContainer>
