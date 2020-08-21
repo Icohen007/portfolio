@@ -44,6 +44,7 @@ textarea{
     width: 100%;
     outline: none;
     font-size: 16rem;
+    background: rgba(255, 255, 255, 0.1);
     
     &::placeholder{
     font-size: 12px;
