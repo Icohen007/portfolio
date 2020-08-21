@@ -20,7 +20,6 @@ import TechSection from './TechSection';
 import TaboolaSvg from './TaboolaSVG';
 
 const Container = styled.section`
-  min-height: 100vh;
   width: 100%;
   overflow: hidden;
   position: relative;

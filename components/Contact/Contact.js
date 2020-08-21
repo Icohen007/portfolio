@@ -9,7 +9,6 @@ import UnderLine from '../Shared/UnderLine.style';
 import { ScrollContext } from '../../hooks/ScrollProvider';
 
 const Container = styled.section`
-  min-height: 70vh;
   width: 100%;
   overflow: hidden;
   position: relative;
