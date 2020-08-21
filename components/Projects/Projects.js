@@ -6,7 +6,6 @@ import StyledContainer from '../Shared/Container.style';
 import ProjectContainer from './ProjectContainer';
 import { ScrollContext } from '../../hooks/ScrollProvider';
 import { projects } from '../../lib/data';
-import { useMobile } from '../../lib/queries';
 
 const SectionTitle = styled.h1`
 display: inline-block;
@@ -41,16 +40,8 @@ flex-wrap: wrap;
 margin-top: 100rem;
 `;
 
-const getProjectCardClassName = (isMobile, index) => {
-  if (isMobile) {
-    return index % 2 !== 0 ? 'primary' : 'secondary';
-  }
-  return (index % 4 === 2 || index % 4 === 3) ? 'secondary' : 'primary';
-};
-
 function Projects() {
   const { projectsRef } = useContext(ScrollContext);
-  const isMobile = useMobile();
   return (
     <Container id="projects" ref={projectsRef}>
       <StyledContainer>
@@ -69,8 +60,7 @@ function Projects() {
         <ProjectsContainer>
           {projects.map((projectData, index) => (
             <ProjectContainer
-              key={index}
-              projectCardClassName={getProjectCardClassName(isMobile, index + 1)}
+              key={projectData.title + index}
               projectData={projectData}
             />
           ))}

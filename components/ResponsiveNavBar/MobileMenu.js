@@ -21,7 +21,7 @@ const StyledMobileMenu = styled.div`
   top: 0;
   right: 0;
   width: 330px;
-  background: rgba(0,0,0,0.97);
+  background: rgba(0,0,0,0.92);
   height: 100vh;
   transform: skewX(0deg) translate(100%,0);
   transform-origin: top right;

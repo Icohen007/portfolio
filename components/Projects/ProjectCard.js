@@ -42,36 +42,27 @@ filter: blur(30px);
 }
 }
 
-&.primary:before,
-&.primary:after {
+@media only screen and (min-width: 769px) {
+&:nth-child(4n+1):before, &:nth-child(4n+4):before,
+&:nth-child(4n+1):after, &:nth-child(4n+4):after {
 background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
 }
 
-&.secondary:before,
-&.secondary:after {
+&:nth-child(4n+2):before, &:nth-child(4n+3):before,
+&:nth-child(4n+2):after, &:nth-child(4n+3):after {
 background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
 }
-//
-//&:nth-child(1):before, 
-//&:nth-child(1):after {
-//background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
-//}
-//
-//&:nth-child(2):before, 
-//&:nth-child(2):after {
-//background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
-//}
-//
-//&:nth-child(3):before, 
-//&:nth-child(3):after {
-//background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
-//}
-//
-//&:nth-child(4):before, 
-//&:nth-child(4):after {
-//background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
-//}
+}
 
+@media only screen and (max-width: 768px) {
+&:nth-child(odd):before, &:nth-child(odd):after {
+background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+}
+
+&:nth-child(even):before, &:nth-child(even):after {
+background: linear-gradient(235deg, #ff6f00, #010615, #ff003b);
+}
+}
 
 .content {
 padding: 20rem;
@@ -90,10 +81,10 @@ p {
 `;
 
 function ProjectCard({
-  title, subTitle, previewImage, onClick, className,
+  title, subTitle, previewImage, onClick
 }) {
   return (
-    <StyledProjectCard className={className} previewImage={previewImage}>
+    <StyledProjectCard previewImage={previewImage}>
       <Tada>
         <div className="content">
           <h2>{title}</h2>

@@ -21,7 +21,7 @@ const customStylesMobile = {
   zIndex: 101,
 };
 
-function ProjectContainer({ projectData, projectCardClassName }) {
+function ProjectContainer({ projectData }) {
   const [modalState, setModalState] = useState('close');
   const isMobile = useMobile();
   return (
@@ -31,7 +31,6 @@ function ProjectContainer({ projectData, projectCardClassName }) {
         subTitle={projectData.subTitle}
         previewImage={projectData.previewImage}
         onClick={() => setModalState('open')}
-        className={projectCardClassName}
       />
       {(modalState === 'open' || modalState === 'closing') && (
       <ClientOnlyPortal selector="#__next">
