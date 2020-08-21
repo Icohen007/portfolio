@@ -33,7 +33,6 @@ const ShinyLink = styled.a`
     
     @media only screen and (max-width: 768px) {
     flex-direction: column;
-    margin-left: 15rem;
     }
 `;
 

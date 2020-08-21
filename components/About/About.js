@@ -89,6 +89,13 @@ const Links = styled.div`
     @media only screen and (max-width: 768px) {
   flex-direction: row;
   }
+  
+  @media only screen and (max-width: 768px) {
+  a:not(:first-child) {
+  margin-left: 15rem;
+  }
+    
+  }
 `;
 
 const AnimatedCardsContainer = styled.div`

@@ -23,7 +23,7 @@ visibility: visible;
 }
 
 width: 60px;
-z-index: 101;
+z-index: 100;
 
 img{
 width: 100%;

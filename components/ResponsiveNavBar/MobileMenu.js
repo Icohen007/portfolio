@@ -80,6 +80,7 @@ color: ${({ theme }) => theme.font.orange}}
   list-style: none;
   font-family: impact,sans-serif;
   cursor: pointer;
+  font-weight: 400;
 }
 }
 }
