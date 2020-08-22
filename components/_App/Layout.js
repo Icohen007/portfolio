@@ -14,7 +14,6 @@ function Layout({ children }) {
         <link rel="stylesheet" type="text/css" media="print" onLoad="this.media='all';this.onload=null;" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /></noscript>
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax" /></noscript>
-
         <title>Itamar Cohen - Full Stack Web Developer</title>
       </Head>
       {children}
