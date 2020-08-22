@@ -73,6 +73,10 @@ const Container = styled.section`
     }
   }
   
+  @media only screen and (max-width: 500px) {
+  transition: height 99999s;
+  }
+  
   @media only screen and (max-width: 768px) and (orientation:landscape) {
   height: 170vh;
   }
