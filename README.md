@@ -1,6 +1,7 @@
 # Itamar Cohen's Portfolio
 
 This the repository for https://itamarcohen.vercel.app
+
 [![GitHub issues](https://img.shields.io/github/issues/Icohen007/portfolio)](https://github.com/Icohen007/portfolio/issues) [![Uptime Robot](https://img.shields.io/uptimerobot/ratio/7/m784352489-f7ec45d48a0aa4ee2b70754c)](https://itamarcohen.vercel.app)
 
 
