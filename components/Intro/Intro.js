@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import useTyped from 'use-typed';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
@@ -24,6 +24,16 @@ function Intro() {
     backDelay: 1500,
     smartBackspace: true,
   });
+
+  useEffect(() => {
+    const appHeight = () => {
+      const doc = document.documentElement;
+      doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+    };
+    window.addEventListener('resize', appHeight);
+    appHeight();
+    return () => window.removeEventListener('resize', appHeight);
+  }, []);
 
   return (
     <Container id="intro" ref={introRef}>
@@ -54,6 +64,10 @@ const Container = styled.section`
   position: relative;
   background: rgb(5,26,74);
   background: linear-gradient(180deg, rgba(5,26,74,1) 0%, rgba(11,6,36,1) 100%);
+  
+  @media only screen and (max-width: 768px) {
+  height: var(--app-height);
+  }
 
   .particles {
     position: absolute;
