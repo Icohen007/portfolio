@@ -22,12 +22,23 @@ const MOBILE_TECH_CARD_SIZE = 80;
 
 const DESKTOP_TECH_CARD_SIZE = 100;
 
+const shuffle = (array) => {
+  const newArray = [...array];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+const getCards = (selectedTechType, cards) => (selectedTechType === TECH_TYPE.ALL ? cards : shuffle(cards));
+
 function TechSection() {
   const isMobile = useMobile();
   const [selectedTechType, setSelectedTechType] = useState(TECH_TYPE.ALL);
   const [revealMode, setRevealMode] = useState(false);
   const markerRef = useRef(null);
-  const techCardComponents = useMemo(() => techCards
+  const techCardComponents = useMemo(() => (getCards(selectedTechType, techCards)
     .filter((techObject) => (selectedTechType === TECH_TYPE.ALL
         || techObject.type === selectedTechType))
     .map((techObject) => (
@@ -41,7 +52,7 @@ function TechSection() {
           text={techObject.text}
         />
       </li>
-    )), [selectedTechType, revealMode]);
+    ))), [selectedTechType, revealMode]);
 
   const clickHandler = (type) => (e) => {
     setSelectedTechType(type);
