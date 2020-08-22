@@ -125,7 +125,7 @@ function AnimatedCard({ title, text, imgSrc }) {
         <div className="image-text">
           {title}
         </div>
-        <img src={`/codeIcons/${imgSrc}`} alt={title} />
+        <img src={`/codeIcons/${imgSrc}`} alt={title} loading="lazy" />
       </div>
       <div className="content">
         <div>
