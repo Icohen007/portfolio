@@ -69,7 +69,7 @@ font-size: 12rem;
 const TechCard = ({ imageSrc, text, className }) => (
   <StyledTechCard className={className}>
     <div className="img-wrapper">
-      <img alt={text} src={`/devIcons/${imageSrc}`} loading="lazy" />
+      <img alt={text} src={`/devIcons/${imageSrc}`} />
     </div>
     <div className="description">
       <span>{text}</span>
