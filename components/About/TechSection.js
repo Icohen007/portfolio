@@ -31,14 +31,13 @@ const shuffle = (array) => {
   return newArray;
 };
 
-const getCards = (selectedTechType, cards) => (selectedTechType === TECH_TYPE.ALL ? cards : shuffle(cards));
-
 function TechSection() {
   const isMobile = useMobile();
+  const [data, setData] = useState(techCards);
   const [selectedTechType, setSelectedTechType] = useState(TECH_TYPE.ALL);
   const [revealMode, setRevealMode] = useState(false);
   const markerRef = useRef(null);
-  const techCardComponents = useMemo(() => (getCards(selectedTechType, techCards)
+  const techCardComponents = useMemo(() => (data
     .filter((techObject) => (selectedTechType === TECH_TYPE.ALL
         || techObject.type === selectedTechType))
     .map((techObject) => (
@@ -55,6 +54,7 @@ function TechSection() {
     ))), [selectedTechType, revealMode]);
 
   const clickHandler = (type) => (e) => {
+    setData((type === TECH_TYPE.ALL ? techCards : shuffle(techCards)));
     setSelectedTechType(type);
     markerRef.current.style.left = `${e.target.offsetLeft}px`;
     markerRef.current.style.width = `${e.target.offsetWidth}px`;
