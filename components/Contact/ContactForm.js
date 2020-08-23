@@ -2,19 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
-import Lottie from 'react-lottie';
 import InputField from './InputField';
 import useForm from '../../hooks/useForm';
-import animationData from '../../lib/lotties/developer.json';
-
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-};
 
 const StyledContactForm = styled.form`
 display: flex;
@@ -235,9 +224,7 @@ const ContactForm = () => {
       </StyledContactForm>
       <Slide right delay={400}>
         <div style={{ maxWidth: 400 }}>
-          <Lottie
-            options={defaultOptions}
-          />
+          <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_WdTEui.json" background="transparent" speed="1" loop autoplay />
         </div>
       </Slide>
     </ContactFormContainer>
