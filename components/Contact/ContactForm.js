@@ -172,7 +172,15 @@ function validate(values) {
 }
 
 const ContactForm = () => {
-  const onSubmit = (values) => console.log(values);
+  const onSubmit = (values) => {
+    console.log(values);
+
+    // gtag.event({
+    //   action: 'submit_form',
+    //   category: 'Contact',
+    //   label: values,
+    // });
+  };
   const {
     values, errors, handleChange, handleSubmit,
   } = useForm(onSubmit, validate);

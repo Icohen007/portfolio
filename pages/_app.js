@@ -1,10 +1,12 @@
 import App from 'next/app';
+import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../components/_App/Global.style';
 import ResponsiveNavBar from '../components/ResponsiveNavBar/ResponsiveNavBar';
 import Layout from '../components/_App/Layout';
 import ScrollProvider from '../hooks/ScrollProvider';
 import ScrollButton from '../components/Shared/ScrollButton';
+import * as gtag from '../lib/gtag';
 import 'rodal/lib/rodal.css';
 
 const theme = {
@@ -25,7 +27,19 @@ const theme = {
   },
 };
 
+const handleRouteChange = (url) => {
+  gtag.pageview(url);
+};
+
 export default class MyApp extends App {
+  componentDidMount() {
+    Router.events.on('routeChangeComplete', handleRouteChange);
+  }
+
+  componentWillUnmount() {
+    Router.events.off('routeChangeComplete', handleRouteChange);
+  }
+
   render() {
     const { Component, pageProps } = this.props;
 
