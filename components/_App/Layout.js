@@ -10,6 +10,7 @@ function Layout({ children }) {
         <link href="https://fonts.googleapis.com/css?family=Inter|Roboto:400,700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet" media="only screen and (max-width: 768px)" />
         <link rel="stylesheet" type="text/css" charSet="UTF-8" media="print" onLoad="this.media='all';this.onload=null;" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" media="print" onLoad="this.media='all';this.onload=null;" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
         <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /></noscript>
