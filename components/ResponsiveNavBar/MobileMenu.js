@@ -78,7 +78,7 @@ color: ${({ theme }) => theme.font.orange}}
   transform: translate(0, 10px);
   transition: all .0s ease-in .3s;
   list-style: none;
-  font-family: impact,sans-serif;
+  font-family: Impact,sans-serif;
   cursor: pointer;
   font-weight: 400;
 }
