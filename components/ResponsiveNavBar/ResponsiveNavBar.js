@@ -117,7 +117,7 @@ const ResponsiveNavBar = () => {
                 </a>
                 <a
                   className="icon-link"
-                  href="mailto:blabla@gmail.com?subject=Hey, I visited in your Portfolio&body=Hey Itamar, "
+                  href="mailto:mail@itamardev.com?subject=Hey Itamar, I visited in your website&body=Hello, "
                   target="_blank"
                   title="Mail"
                   rel="noopener noreferrer"

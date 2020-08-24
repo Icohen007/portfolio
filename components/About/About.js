@@ -200,7 +200,7 @@ const About = () => {
                   </span>
                 </ShinyLink>
                 <ShinyLink
-                  href="mailto:blabla@gmail.com?subject=Hey, I visited in your Portfolio&body=Hey Itamar, "
+                  href="mailto:mail@itamardev.com?subject=Hey Itamar, I visited in your website&body=Hello, "
                   target="_blank"
                   rel="noopener noreferrer"
                 >
