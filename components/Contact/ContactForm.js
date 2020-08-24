@@ -174,6 +174,9 @@ function validate(values) {
 const ContactForm = () => {
   const [status, setStatus] = useState('idle');
   const onSubmit = async (values) => {
+    if (status === 'loading') {
+      return;
+    }
     setStatus('loading');
     console.log(values);
 

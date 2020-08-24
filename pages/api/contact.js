@@ -35,11 +35,11 @@ export default function handle(req, res) {
       if (err) {
         res.status(500).json({ message: 'Failed to send message, try again.' });
         res.end();
-        console.log(`Error: ${err}`);
+        console.log(`Error: ${JSON.stringify(err)}`);
       } else {
         res.status(200).json({ message: 'Message sent, thank you.' });
         res.end();
-        console.log(`Response: ${data}`);
+        console.log(`Response: ${JSON.stringify(data)}`);
       }
     },
   );
