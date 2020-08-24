@@ -89,6 +89,20 @@ text-decoration: none !important;
   }
   
 }
+
+
+.fa-spin {
+  animation: fa-spin 2s infinite linear;
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
 `;
 
 export default GlobalStyle;

@@ -1,21 +1,27 @@
-import { useEffect, useMemo, useState } from 'react';
+import {
+  useEffect, useMemo, useRef, useState,
+} from 'react';
+
+const isEmptyObject = (obj) => Object.keys(obj).length === 0 && obj.constructor === Object;
 
 const useForm = (onSubmit, validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+  const submittedOnceRef = useRef(false);
   const [submitting, setSubmitting] = useState(false);
   const hasErrors = useMemo(() => Object.keys(errors).length !== 0, [errors]);
 
   useEffect(() => {
-    if (!hasErrors && submitting) {
+    if (submitting && !hasErrors) {
       onSubmit(values);
-      setSubmitting(false);
+      setValues({});
+      submittedOnceRef.current = false;
     }
-  }, [submitted, errors]);
+    setSubmitting(false);
+  }, [submitting]);
 
   useEffect(() => {
-    if (submitted) {
+    if (submittedOnceRef.current && !isEmptyObject(values)) {
       setErrors(validate(values));
     }
   }, [setErrors, values]);
@@ -25,8 +31,8 @@ const useForm = (onSubmit, validate) => {
       event.preventDefault();
     }
     setErrors(validate(values));
-    setSubmitted(true);
     setSubmitting(true);
+    submittedOnceRef.current = true;
   };
 
   const handleChange = (event) => {

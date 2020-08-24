@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FaSpinner } from 'react-icons/fa';
 import Fade from 'react-reveal/Fade';
 import Slide from 'react-reveal/Slide';
 import InputField from './InputField';
+import * as gtag from '../../lib/gtag';
 import useForm from '../../hooks/useForm';
 
 const StyledContactForm = styled.form`
@@ -75,7 +77,9 @@ font-size: 14rem;
 
 const SubmitButton = styled.button`
    position: relative;
-   display: block;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
    max-width: 300px;
    padding: 10px 20px;
    color: #bd0038;
@@ -141,6 +145,13 @@ padding: 0;
 }
 `;
 
+const ResponseText = styled.div`
+color: ${({ success }) => (success ? '#1a861a' : '#ff0000')};
+font-size: 24rem;
+text-align: center;
+font-weight: bold;
+`;
+
 function validate(values) {
   const errors = {};
 
@@ -161,14 +172,37 @@ function validate(values) {
 }
 
 const ContactForm = () => {
-  const onSubmit = (values) => {
+  const [status, setStatus] = useState('idle');
+  const onSubmit = async (values) => {
+    setStatus('loading');
     console.log(values);
 
-    // gtag.event({
-    //   action: 'submit_form',
-    //   category: 'Contact',
-    //   label: values,
-    // });
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    });
+
+    if (response.status === 200) {
+      gtag.event({
+        action: 'submit_form_success',
+        category: 'Contact',
+        label: values,
+      });
+      setStatus('success');
+    } else {
+      alert('Message failed to send, please try again');
+      gtag.event({
+        action: 'submit_form_fail',
+        category: 'Contact',
+        label: values,
+      });
+      console.log('serverError');
+      setStatus('error');
+    }
   };
   const {
     values, errors, handleChange, handleSubmit,
@@ -219,7 +253,17 @@ const ContactForm = () => {
           <span className="error-label">{errors.message || 'error-placeholder'}</span>
         </Fade>
         <Fade bottom delay={700}>
-          <SubmitButton type="submit">Submit</SubmitButton>
+          <SubmitButton type="submit">
+            Submit
+            {' '}
+            {status === 'loading' && <FaSpinner className="fa-spin" size="26rem" style={{ marginLeft: '10rem' }} />}
+          </SubmitButton>
+        </Fade>
+        <Fade when={status !== 'idle'} bottom>
+          <>
+            {status === 'success' && <ResponseText success> Message sent, thank you </ResponseText>}
+            {status === 'error' && <ResponseText> Message failed to send, please try again </ResponseText>}
+          </>
         </Fade>
       </StyledContactForm>
       <Slide right delay={400}>
