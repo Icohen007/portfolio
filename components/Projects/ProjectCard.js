@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Tada from 'react-reveal/Tada';
+import Jump from 'react-reveal/Jump';
 import ProjectButton from './ProjectButton';
 
 const StyledProjectCard = styled.div`
@@ -96,13 +96,13 @@ function ProjectCard({
   return (
     <StyledProjectCard>
       <img src={previewImage} alt={title} loading="lazy" />
-      <Tada>
+      <Jump>
         <div className="content">
           <h2>{title}</h2>
           <p>{subTitle}</p>
           <ProjectButton onClick={onClick} />
         </div>
-      </Tada>
+      </Jump>
     </StyledProjectCard>
   );
 }

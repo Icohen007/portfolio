@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Bounce from 'react-reveal/Bounce';
 import Zoom from 'react-reveal/Zoom';
-import LightSpeed from 'react-reveal/LightSpeed';
 import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { animatedCards } from '../../lib/data';
@@ -90,7 +90,7 @@ const Links = styled.div`
   }
   
   @media only screen and (max-width: 768px) {
-  a:not(:first-child) {
+  .react-reveal:not(:first-child) {
   margin-left: 15rem;
   }
     
@@ -133,8 +133,8 @@ const About = () => {
             <UnderLine />
           </Bounce>
         </SectionTitle>
-        <Zoom delay={600}>
-          <AboutDetailsContainer>
+        <AboutDetailsContainer>
+          <Zoom delay={600}>
             <AboutText>
               <p>
                 I’m Itamar, a
@@ -171,14 +171,20 @@ const About = () => {
                 <a href="https://www.taboola.com/" target="_blank" rel="noopener noreferrer" title="Taboola" aria-label="Taboola"><TaboolaSvg /></a>
               </p>
             </AboutText>
-            <LinksContainer>
-              <div style={{ alignSelf: 'center' }}>
-                <SubSectionTitle>
+          </Zoom>
+          <LinksContainer>
+            <div style={{ alignSelf: 'center' }}>
+              <SubSectionTitle>
+                <Bounce left delay={200}>
                   Links
+                </Bounce>
+                <Bounce left delay={400}>
                   <UnderLine />
-                </SubSectionTitle>
-              </div>
-              <Links>
+                </Bounce>
+              </SubSectionTitle>
+            </div>
+            <Links>
+              <Fade delay={200}>
                 <ShinyLink
                   href="https://github.com/Icohen007"
                   target="_blank"
@@ -189,6 +195,8 @@ const About = () => {
                     GitHub
                   </span>
                 </ShinyLink>
+              </Fade>
+              <Fade delay={400}>
                 <ShinyLink
                   href="https://linkedin.com/in/itamar-cohen-007/"
                   target="_blank"
@@ -199,6 +207,8 @@ const About = () => {
                     Linkedin
                   </span>
                 </ShinyLink>
+              </Fade>
+              <Fade delay={600}>
                 <ShinyLink
                   href="mailto:mail@itamardev.com?subject=Hey Itamar, I visited in your website&body=Hello, "
                   target="_blank"
@@ -209,24 +219,22 @@ const About = () => {
                     Mail
                   </span>
                 </ShinyLink>
-                {/* <ShinyLink */}
-                {/*  className="icon-link" */}
-                {/*  href="https://github.com/Icohen007" */}
-                {/*  target="_blank" */}
-                {/*  rel="noopener noreferrer" */}
-                {/* > */}
-                {/*  <FaFileDownload className="icon-link" /> */}
-                {/*  <span className="text-link"> */}
-                {/*    Resume */}
-                {/*  </span> */}
-                {/* </ShinyLink> */}
-              </Links>
-            </LinksContainer>
-          </AboutDetailsContainer>
-        </Zoom>
-        <LightSpeed delay={600}>
-          <TechSection />
-        </LightSpeed>
+              </Fade>
+              {/* <ShinyLink */}
+              {/*  className="icon-link" */}
+              {/*  href="https://github.com/Icohen007" */}
+              {/*  target="_blank" */}
+              {/*  rel="noopener noreferrer" */}
+              {/* > */}
+              {/*  <FaFileDownload className="icon-link" /> */}
+              {/*  <span className="text-link"> */}
+              {/*    Resume */}
+              {/*  </span> */}
+              {/* </ShinyLink> */}
+            </Links>
+          </LinksContainer>
+        </AboutDetailsContainer>
+        <TechSection />
         <div>
           <SubSectionTitle>
             <Bounce left>

@@ -5,6 +5,7 @@ import {
   CSSGrid, enterExitStyle, layout, makeResponsive, measureItems,
 } from 'react-stonecutter';
 import styled from 'styled-components';
+import Bounce from 'react-reveal/Bounce';
 import SubSectionTitle from '../Shared/SubSectionTitle';
 import UnderLine from '../Shared/UnderLine.style';
 import { TECH_TYPE } from '../../lib/consts';
@@ -86,8 +87,12 @@ function TechSection() {
     <>
       <div>
         <SubSectionTitle>
-          My Skills
-          <UnderLine />
+          <Bounce left>
+            My Skills
+          </Bounce>
+          <Bounce left delay={200}>
+            <UnderLine />
+          </Bounce>
         </SubSectionTitle>
         <h3>
           Can you identify some of my tech stack by the logo?
