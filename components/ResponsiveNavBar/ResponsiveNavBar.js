@@ -232,6 +232,7 @@ const MainTitle = styled.div`
  text-transform: uppercase;
  padding-right: 20rem;
  cursor: pointer;
+ user-select: none;
  
  p {
  margin: 0;
