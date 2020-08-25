@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Rodal from 'rodal';
 import ProjectCard from './ProjectCard';
 import ProjectDetails from './ProjectDetails';
@@ -21,7 +21,7 @@ const customStylesMobile = {
   zIndex: 101,
 };
 
-function ProjectContainer({ projectData }) {
+const ProjectContainer = React.memo(({ projectData }) => {
   const [modalState, setModalState] = useState('close');
   const isMobile = useMobile();
   return (
@@ -47,6 +47,6 @@ function ProjectContainer({ projectData }) {
       )}
     </>
   );
-}
+});
 
 export default ProjectContainer;

@@ -1,3 +1,5 @@
+import React from 'react';
+import whyDidYouRender from '@welldone-software/why-did-you-render';
 import App from 'next/app';
 import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
@@ -8,6 +10,10 @@ import ScrollProvider from '../hooks/ScrollProvider';
 import ScrollButton from '../components/Shared/ScrollButton';
 import * as gtag from '../lib/gtag';
 import 'rodal/lib/rodal.css';
+
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+  whyDidYouRender(React, { trackAllPureComponents: true });
+}
 
 const theme = {
   primary: '#fff',
