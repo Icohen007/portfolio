@@ -9,6 +9,7 @@ import Layout from '../components/_App/Layout';
 import ScrollProvider from '../hooks/ScrollProvider';
 import ScrollButton from '../components/Shared/ScrollButton';
 import * as gtag from '../lib/gtag';
+import ErrorPage from './404';
 import 'rodal/lib/rodal.css';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
@@ -53,7 +54,7 @@ export default class MyApp extends App {
         <GlobalStyle />
         <Layout>
           <ScrollProvider>
-            {Component.name !== 'ErrorPage' && <ResponsiveNavBar />}
+            {Component !== ErrorPage && <ResponsiveNavBar />}
             <Component {...pageProps} />
             <ScrollButton />
           </ScrollProvider>
