@@ -5,12 +5,13 @@ const HeadContent = () => (
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="Itamar Cohen's Full Stack Developer portfolio. I am a detail-oriented developer that loves to research solve problems with code." />
 
-    {/* <meta property="og:url" content="https://flixtime.now.sh" /> */}
+    <meta property="og:url" content="https://itamardev.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Itamar Cohen - Full Stack Web Developer" />
-    <meta property="og:description" content="Itamar Cohen - Full Stack Web Developer" />
-    {/* <meta property="og:image" content="https://flixtime.now.sh/Flixtime-showcase200.png" /> */}
+    <meta property="og:description" content="Itamar Cohen's Full Stack Developer portfolio. I am a detail-oriented developer that loves to research solve problems with code." />
+    <meta property="og:image" content="https://itamardev.com/itamardev-showcase.jpg" />
 
+    <link rel="canonical" href="https://itamardev.com/" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
