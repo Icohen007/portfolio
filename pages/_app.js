@@ -48,13 +48,12 @@ export default class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Layout>
           <ScrollProvider>
-            <ResponsiveNavBar />
+            {Component.name !== 'ErrorPage' && <ResponsiveNavBar />}
             <Component {...pageProps} />
             <ScrollButton />
           </ScrollProvider>
