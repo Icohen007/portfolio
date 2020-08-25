@@ -2,7 +2,7 @@
 
 This the repository for https://itamardev.com
 
-[![GitHub issues](https://img.shields.io/github/issues/Icohen007/portfolio)](https://github.com/Icohen007/portfolio/issues) [![Uptime Robot](https://img.shields.io/uptimerobot/ratio/7/m784352489-f7ec45d48a0aa4ee2b70754c)](https://itamardev.com)
+[![GitHub issues](https://img.shields.io/github/issues/Icohen007/itamardev.com)](https://github.com/Icohen007/itamardev.com/issues) [![Uptime Robot](https://img.shields.io/uptimerobot/ratio/7/m784352489-f7ec45d48a0aa4ee2b70754c)](https://itamardev.com)
 
 
 ### Motivation
