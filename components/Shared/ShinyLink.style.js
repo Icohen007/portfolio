@@ -19,6 +19,10 @@ const ShinyLink = styled.a`
     
     .text-link{
     margin-left: 8px;
+    
+        @media only screen and (max-width: 768px) {
+          margin-left: 0;
+        }
     }
     
     .icon-link {
