@@ -83,6 +83,7 @@ text-align: left;
 p {
 font-weight: 500;
 padding-right: 10rem;
+white-space: pre-wrap;
 }
   @media only screen and (max-width: 768px) {
   padding: 0 15rem;
