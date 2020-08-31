@@ -221,7 +221,7 @@ function ProjectDetails({
   return (
     <ProjectDetailsContainer>
       <ShinyLink
-        href="https://flixtime.now.sh"
+        href={liveDemoLink || liveSiteLink || '#'}
         target="_blank"
         rel="noopener noreferrer"
         size="30rem"
