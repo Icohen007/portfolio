@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Rodal from 'rodal';
+import { useRouter } from 'next/router';
 import ProjectCard from './ProjectCard';
 import ProjectDetails from './ProjectDetails';
 import ClientOnlyPortal from '../Shared/ClientOnlyPortal';
@@ -24,9 +25,33 @@ const customStylesMobile = {
 const ProjectContainer = React.memo(({ projectData }) => {
   const [modalState, setModalState] = useState('close');
   const isMobile = useMobile();
+  const router = useRouter();
+
+  const onAnimationEnd = () => {
+    if (modalState === 'closing') {
+      setModalState('close');
+      router.push('/');
+    }
+  };
+
+  useEffect(() => {
+    const isMatch = router?.query?.projectId === projectData.id;
+
+    if (isMatch) {
+      setModalState('open');
+    } else {
+      setModalState('close');
+    }
+
+    return () => {
+      setModalState('close');
+    };
+  }, [router?.query?.projectId, projectData.id]);
+
   return (
     <>
       <ProjectCard
+        id={projectData.id}
         title={projectData.title}
         subTitle={projectData.subTitle}
         previewImage={projectData.previewImage}
@@ -37,7 +62,7 @@ const ProjectContainer = React.memo(({ projectData }) => {
         <Rodal
           visible={modalState === 'open'}
           onClose={() => setModalState('closing')}
-          onAnimationEnd={() => modalState === 'closing' && setModalState('close')}
+          onAnimationEnd={onAnimationEnd}
           closeOnEsc
           customStyles={isMobile ? customStylesMobile : customStylesDesktop}
         >

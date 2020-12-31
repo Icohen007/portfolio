@@ -76,6 +76,9 @@ text-decoration: none !important;
     &:hover{
       background: #c2c2c2;
     }
+     @media only screen and (max-width: 768px) {
+      position: fixed;
+      }
 }
 
 .rodal-dialog {

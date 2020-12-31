@@ -91,7 +91,7 @@ p {
 `;
 
 function ProjectCard({
-  title, subTitle, previewImage, onClick,
+  title, subTitle, previewImage, id, onClick,
 }) {
   return (
     <StyledProjectCard>
@@ -100,7 +100,7 @@ function ProjectCard({
         <div className="content">
           <h2>{title}</h2>
           <p>{subTitle}</p>
-          <ProjectButton onClick={onClick} />
+          <ProjectButton id={id} onClick={onClick} />
         </div>
       </Jump>
     </StyledProjectCard>

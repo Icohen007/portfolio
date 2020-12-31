@@ -59,7 +59,7 @@ function Projects() {
         <ProjectsContainer>
           {projects.map((projectData, index) => (
             <ProjectContainer
-              key={projectData.title + index}
+              key={`${projectData.id}-${index}`}
               projectData={projectData}
             />
           ))}

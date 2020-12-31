@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const firstBorderColor = '#fff09b';
 const secondBorderColor = '#001c53';
@@ -127,16 +128,18 @@ animation-delay: 1s;
 }
 `;
 
-function ProjectButton({ onClick }) {
+function ProjectButton({ id, onClick }) {
   return (
     <StyledProjectButton>
-      <button type="button" onClick={onClick}>
-        <span />
-        <span />
-        <span />
-        <span />
-        See More
-      </button>
+      <Link href={`/?projectId=${id}`} scroll={false} onClick={onClick}>
+        <button type="button">
+          <span />
+          <span />
+          <span />
+          <span />
+          See More
+        </button>
+      </Link>
     </StyledProjectButton>
   );
 }

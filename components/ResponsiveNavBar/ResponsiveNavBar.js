@@ -13,7 +13,7 @@ const NAVIGATION_BAR_SCROLL_HEIGHT = 15;
 
 const ResponsiveNavBar = () => {
   const [openNav, setOpenNav] = useState(false);
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px) and (orientation:portrait)' });
   const { scrollHeight } = useScrollHeight();
   const [activeNav, setActiveNav] = useState('intro');
 
@@ -124,15 +124,15 @@ const ResponsiveNavBar = () => {
                 >
                   <IoMdMail className="icon" />
                 </a>
-                {/*<a*/}
-                {/*  className="icon-link"*/}
-                {/*  href="https://github.com/Icohen007"*/}
-                {/*  target="_blank"*/}
-                {/*  title="GitHub"*/}
-                {/*  rel="noopener noreferrer"*/}
-                {/*>*/}
-                {/*  <FaFileDownload className="icon" />*/}
-                {/*</a>*/}
+                {/* <a */}
+                {/*  className="icon-link" */}
+                {/*  href="https://github.com/Icohen007" */}
+                {/*  target="_blank" */}
+                {/*  title="GitHub" */}
+                {/*  rel="noopener noreferrer" */}
+                {/* > */}
+                {/*  <FaFileDownload className="icon" /> */}
+                {/* </a> */}
               </NavLinks>
             </FlexContainer>
           </NavBar>
@@ -157,7 +157,7 @@ const NavBar = styled(({ scrolled, ...props }) => <animated.nav {...props} />)`
   transition: all 0.3s ease-in;
   transition-property: background, border-bottom;
   
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 768px) and (orientation:portrait) {
   background: rgba(0, 0, 0, 0.92);
   }
 `;
