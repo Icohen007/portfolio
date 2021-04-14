@@ -115,7 +115,7 @@ function Footer() {
           >
             <IoMdMail className="icon" />
           </a>
-          {/*<a*/ }
+          {/*<a*/}
           {/*  className="icon-link"*/}
           {/*  href="https://github.com/Icohen007"*/}
           {/*  target="_blank"*/}
