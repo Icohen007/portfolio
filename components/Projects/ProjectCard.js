@@ -79,13 +79,14 @@ padding: 20rem;
 color: #FFF;
 
 h2 {
-font-size: 24rem;
+font-size: 28rem;
 letter-spacing: 2px;
 }
 
 p {
     font-family: Inter,sans-serif;
     font-size: 16rem;
+    font-weight: 600;
 }
 }
 `;
