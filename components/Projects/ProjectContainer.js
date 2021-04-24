@@ -22,14 +22,18 @@ const customStylesMobile = {
   zIndex: 101,
 };
 
+const CLOSE = 'close';
+const CLOSING = 'closing';
+const OPEN = 'open';
+
 const ProjectContainer = React.memo(({ projectData }) => {
-  const [modalState, setModalState] = useState('close');
+  const [modalState, setModalState] = useState(CLOSE);
   const isMobile = useMobile();
   const router = useRouter();
 
   const onAnimationEnd = () => {
-    if (modalState === 'closing') {
-      setModalState('close');
+    if (modalState === CLOSING) {
+      setModalState(CLOSE);
       router.push('/');
     }
   };
@@ -38,13 +42,13 @@ const ProjectContainer = React.memo(({ projectData }) => {
     const isMatch = router?.query?.projectId === projectData.id;
 
     if (isMatch) {
-      setModalState('open');
+      setModalState(OPEN);
     } else {
-      setModalState('close');
+      setModalState(CLOSE);
     }
 
     return () => {
-      setModalState('close');
+      setModalState(CLOSE);
     };
   }, [router?.query?.projectId, projectData.id]);
 
@@ -55,20 +59,20 @@ const ProjectContainer = React.memo(({ projectData }) => {
         title={projectData.title}
         subTitle={projectData.subTitle}
         previewImage={projectData.previewImage}
-        onClick={() => setModalState('open')}
+        onClick={() => setModalState(OPEN)}
       />
-      {(modalState === 'open' || modalState === 'closing') && (
-      <ClientOnlyPortal selector="#__next">
-        <Rodal
-          visible={modalState === 'open'}
-          onClose={() => setModalState('closing')}
-          onAnimationEnd={onAnimationEnd}
-          closeOnEsc
-          customStyles={isMobile ? customStylesMobile : customStylesDesktop}
-        >
-          <ProjectDetails {...projectData} />
-        </Rodal>
-      </ClientOnlyPortal>
+      {(modalState === OPEN || modalState === CLOSING) && (
+        <ClientOnlyPortal selector="#__next">
+          <Rodal
+            visible={modalState === OPEN}
+            onClose={() => setModalState(CLOSING)}
+            onAnimationEnd={onAnimationEnd}
+            closeOnEsc
+            customStyles={isMobile ? customStylesMobile : customStylesDesktop}
+          >
+            <ProjectDetails {...projectData} />
+          </Rodal>
+        </ClientOnlyPortal>
       )}
     </>
   );
