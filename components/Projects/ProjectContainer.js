@@ -34,7 +34,7 @@ const ProjectContainer = React.memo(({ projectData }) => {
   const onAnimationEnd = () => {
     if (modalState === CLOSING) {
       setModalState(CLOSE);
-      router.push('/');
+      router.push('/', undefined, { scroll: false });
     }
   };
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const firstBorderColor = '#fff09b';
 const secondBorderColor = '#001c53';
-// #1779ff
+
 const StyledProjectButton = styled.div`
 width: 100%;
 height: 55px;
@@ -118,30 +118,27 @@ animation-delay: 1s;
  0%
  {
    transform:translateY(100%);
- 
  }
  100%
  {
    transform:translateY(-100%);
- 
+
  }
 }
 `;
 
-function ProjectButton({ id, onClick }) {
-  return (
-    <StyledProjectButton>
-      <Link href={`/?projectId=${id}`} scroll={false} onClick={onClick}>
-        <button type="button">
-          <span />
-          <span />
-          <span />
-          <span />
-          See More
-        </button>
-      </Link>
-    </StyledProjectButton>
-  );
-}
+const ProjectButton = ({ id, onClick }) => (
+  <StyledProjectButton>
+    <Link href={`/?projectId=${id}`} scroll={false} onClick={onClick}>
+      <button type="button">
+        <span />
+        <span />
+        <span />
+        <span />
+        See More
+      </button>
+    </Link>
+  </StyledProjectButton>
+);
 
 export default ProjectButton;
