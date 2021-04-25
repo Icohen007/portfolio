@@ -53,6 +53,8 @@ span{
     color: black;
     font-weight: bold;
     background: #ffa83bab;
+    margin-left: 2px;
+    margin-right: 1px;
 }
 `;
 
@@ -144,11 +146,11 @@ const About = () => {
                 based in Israel.
               </p>
               <p>
-                I have a bachelor&apos;s degree in Electrical Engineering from Tel Aviv University.
-              </p>
-              <p>
                 I have a strong passion for web development and design which
                 influences my professional work & my side projects.
+              </p>
+              <p>
+                I work closely with other developers, designers, and product managers.
               </p>
               <p>
                 I&apos;m always ready to challenge myself and explore new areas of work.

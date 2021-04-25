@@ -15,8 +15,9 @@ function Intro() {
     strings: [
       "I'm a Full Stack Developer",
       'Love to code and design',
+      'I Collaborate with developers, designers and PMs',
       'I build quality software solutions',
-      "I'm detail-oriented and mission-driven",
+      "I'm detail oriented and mission driven!",
     ],
     typeSpeed: 60,
     backSpeed: 40,

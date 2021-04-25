@@ -45,9 +45,10 @@ border-radius: 20px;
         left: 0;
         width: 100%;
         text-align: center;
-        font-size: 32rem;
-        color: rgba(255, 255, 255, 0.5);
+        font-size: 30rem;
+        color: rgba(255, 255, 255, 0.65);
         font-weight: 500;
+        padding: 5rem;
         
       @media only screen and (max-width: 768px) {
         display: none;
