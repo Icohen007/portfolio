@@ -36,7 +36,7 @@ function ScrollButton() {
 
   return (
     <StyledScrollButton className={`${scrollHeight > 2500 ? 'visible' : ''}`} onClick={() => scrollToRef(introRef)}>
-      <img src="/superhero.png" />
+      <img alt="scroll up" src="/superhero.png" />
     </StyledScrollButton>
   );
 }

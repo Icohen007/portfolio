@@ -57,9 +57,9 @@ function Projects() {
           </Bounce>
         </SectionTitle>
         <ProjectsContainer>
-          {projects.map((projectData, index) => (
+          {projects.map((projectData) => (
             <ProjectContainer
-              key={`${projectData.id}-${index}`}
+              key={projectData.id}
               projectData={projectData}
             />
           ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import whyDidYouRender from '@welldone-software/why-did-you-render';
+// import whyDidYouRender from '@welldone-software/why-did-you-render';
 import App from 'next/app';
 import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useCallback, useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { IoMdMail } from 'react-icons/io';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
@@ -151,15 +151,15 @@ function MobileMenu({ openNav, toggleNav }) {
             >
               <IoMdMail className="icon" />
             </a>
-            {/*<a*/}
-            {/*  className="icon-link"*/}
-            {/*  href="https://github.com/Icohen007"*/}
-            {/*  target="_blank"*/}
-            {/*  title="GitHub"*/}
-            {/*  rel="noopener noreferrer"*/}
-            {/*>*/}
-            {/*  <FaFileDownload className="icon" />*/}
-            {/*</a>*/}
+            {/* <a */}
+            {/*  className="icon-link" */}
+            {/*  href="https://github.com/Icohen007" */}
+            {/*  target="_blank" */}
+            {/*  title="GitHub" */}
+            {/*  rel="noopener noreferrer" */}
+            {/* > */}
+            {/*  <FaFileDownload className="icon" /> */}
+            {/* </a> */}
           </li>
         </ul>
       </div>

@@ -178,7 +178,6 @@ const ContactForm = () => {
       return;
     }
     setStatus('loading');
-    console.log(values);
 
     const response = await fetch('/api/contact', {
       method: 'POST',
