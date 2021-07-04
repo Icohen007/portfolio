@@ -1,5 +1,5 @@
 import React, {
-  useContext, useEffect, useRef, useState,
+  useContext, useRef,
 } from 'react';
 import useTyped from 'use-typed';
 import Particles from 'react-particles-js';
@@ -8,10 +8,11 @@ import { particlesConfig } from '../../lib/config';
 import AnimatedArrow from './AnimatedArrow';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 import introDynamicText from '../../lib/introDynamicText';
+import useSafari from '../../hooks/useSafari';
 
 const Intro = () => {
   const { aboutRef, introRef } = useContext(ScrollContext);
-  const [isSafari, setIsSafari] = useState(false);
+  const isSafari = useSafari();
 
   const typedRef = useRef(null);
   useTyped(typedRef, {
@@ -28,12 +29,6 @@ const Intro = () => {
     backDelay: 1500,
     smartBackspace: true,
   });
-
-  useEffect(() => {
-    const isSafariFound = navigator.userAgent.indexOf('Safari') > -1;
-    const isChromeFound = navigator.userAgent.indexOf('Chrome') > -1;
-    setIsSafari(isSafariFound && !isChromeFound);
-  }, []);
 
   return (
     <Container id="intro" ref={introRef}>

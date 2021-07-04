@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
+import useSafari from '../../hooks/useSafari';
 
-const ShinyLink = styled.a`
+const StyledShinyLink = styled.a`
     color: ${({ theme }) => theme.link.blue};
     display: inline-flex;
     align-items: center;
@@ -11,7 +13,7 @@ const ShinyLink = styled.a`
     background-image: linear-gradient(to right, ${({ theme }) => theme.link.green} ,${({ theme }) => theme.link.green} 50%, ${({ theme }) => theme.link.blue} 50%);
     background-position: 100%;
     background-size: 200% 100%;
-    -webkit-text-fill-color: transparent;
+    ${({ isSafari }) => (!isSafari ? '-webkit-text-fill-color: transparent' : '')};
     -webkit-background-clip: text;
     transition: all .5s;
     margin-bottom: 3px;
@@ -40,5 +42,10 @@ const ShinyLink = styled.a`
     flex-direction: column;
     }
 `;
+
+const ShinyLink = ({ children, ...rest }) => {
+  const isSafari = useSafari();
+  return <StyledShinyLink isSafari={isSafari} {...rest}>{children}</StyledShinyLink>;
+};
 
 export default ShinyLink;
