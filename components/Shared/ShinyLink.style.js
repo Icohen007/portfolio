@@ -11,13 +11,14 @@ const ShinyLink = styled.a`
     background-image: linear-gradient(to right, ${({ theme }) => theme.link.green} ,${({ theme }) => theme.link.green} 50%, ${({ theme }) => theme.link.blue} 50%);
     background-position: 100%;
     background-size: 200% 100%;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
     transition: all .5s;
     margin-bottom: 3px;
     text-align: center;
+    text-shadow: 0px 0px #00000000;
     
-    .text-link{
+    .text-link {
     margin-left: 8px;
     
     @media only screen and (max-width: 768px) {

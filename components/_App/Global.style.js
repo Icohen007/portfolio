@@ -77,7 +77,11 @@ text-decoration: none !important;
       background: #c2c2c2;
     }
      @media only screen and (max-width: 768px) {
-      position: fixed;
+      //z-index: 100;
+      //transform: translate3d(0,0,0);
+      //  top: 0;
+      //  height: 200px;
+        position: fixed;
       }
 }
 

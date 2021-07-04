@@ -49,20 +49,17 @@ border-right: 2px solid ${({ theme }) => theme.font.orange};
 100% {
 opacity: 0;
 transform: rotate(45deg) translate(20px, 20px);
-
 }
 }
 
 `;
 
-function AnimatedArrow({ onClick }) {
-  return (
-    <StyledAnimatedArrow onClick={onClick}>
-      <span />
-      <span />
-      <span />
-    </StyledAnimatedArrow>
-  );
-}
+const AnimatedArrow = ({ onClick }) => (
+  <StyledAnimatedArrow onClick={onClick}>
+    <span />
+    <span />
+    <span />
+  </StyledAnimatedArrow>
+);
 
 export default AnimatedArrow;

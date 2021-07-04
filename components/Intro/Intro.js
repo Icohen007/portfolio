@@ -1,4 +1,6 @@
-import React, { useContext, useRef } from 'react';
+import React, {
+  useContext, useEffect, useRef, useState,
+} from 'react';
 import useTyped from 'use-typed';
 import Particles from 'react-particles-js';
 import styled from 'styled-components';
@@ -7,8 +9,9 @@ import AnimatedArrow from './AnimatedArrow';
 import { ScrollContext, scrollToRef } from '../../hooks/ScrollProvider';
 import introDynamicText from '../../lib/introDynamicText';
 
-function Intro() {
+const Intro = () => {
   const { aboutRef, introRef } = useContext(ScrollContext);
+  const [isSafari, setIsSafari] = useState(false);
 
   const typedRef = useRef(null);
   useTyped(typedRef, {
@@ -26,11 +29,26 @@ function Intro() {
     smartBackspace: true,
   });
 
+  useEffect(() => {
+    const isSafariFound = navigator.userAgent.indexOf('Safari') > -1;
+    const isChromeFound = navigator.userAgent.indexOf('Chrome') > -1;
+    setIsSafari(isSafariFound && !isChromeFound);
+  }, []);
+
   return (
     <Container id="intro" ref={introRef}>
       <Particles className="particles" params={particlesConfig} />
       <FlexContainer>
-        <FloatingText>{introDynamicText()}</FloatingText>
+        <FloatingText>
+          {introDynamicText()}
+          {isSafari && (
+          <div className="subtext">
+            Please use Chrome
+            <img src="/chrome.svg" alt="Itamar Avatar" />
+            for best experience
+          </div>
+          )}
+        </FloatingText>
         <FloatingAvatar>
           <img src="/avatar.svg" alt="Itamar Avatar" />
         </FloatingAvatar>
@@ -47,7 +65,7 @@ function Intro() {
       <AnimatedArrow onClick={() => scrollToRef(aboutRef)} />
     </Container>
   );
-}
+};
 
 const Container = styled.section`
   height: 100vh;
@@ -172,6 +190,24 @@ padding: 0 5px;
   @media only screen and (max-width: 768px) {
       font-size: 18rem;
     }
+    
+.subtext {
+  font-size: 18rem;
+  color: #ff405a;
+  
+  @media only screen and (max-width: 768px) {
+    font-size: 14rem;
+  }
+    
+  img { 
+  margin: 0 5px;
+  width: 18px; 
+  height: auto; 
+  }
+  
+}
+
+
 
 @keyframes float-text { 
   0% {  transform: translatey(0px); } 

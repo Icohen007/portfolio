@@ -14,12 +14,11 @@ import ErrorPage from './404';
 import 'rodal/lib/rodal.css';
 
 if (typeof window !== 'undefined') {
-  console.log('call');
   smoothscroll.polyfill();
 }
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  whyDidYouRender(React, { trackAllPureComponents: true });
+  // whyDidYouRender(React, { trackAllPureComponents: true });
 }
 
 const theme = {
