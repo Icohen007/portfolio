@@ -201,7 +201,7 @@ const TechButton = styled.div`
   
   &.active-tech-button {
   background: white;
-  color: rgb(0,49,125,1);
+  color: rgba(0,49,125,1);
   }
   
   &:hover {
@@ -216,7 +216,7 @@ const TabIndicator = styled.div`
   position:absolute;
   width: 0;
   height: 5px;
-  background: rgb(0,49,125, 1);
+  background: rgba(0,49,125, 1);
   bottom: 0;
   left: 0;
   border-radius:5px;

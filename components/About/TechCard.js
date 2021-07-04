@@ -10,7 +10,7 @@ const StyledTechCard = styled.div`
   width: 100px;
   height: 100px;
   padding: 5px;
-  transition: .75s ease-in;
+  transition: all .75s ease-in;
   background: white;
   border-radius: 50%;
   box-shadow: inset 0 4px 5px 0 rgba(0,0,0,.14), inset 0 1px 10px 0 rgba(0,0,0,.12), inset 0 2px 4px -1px rgba(0,0,0,.3);
@@ -46,12 +46,13 @@ const StyledTechCard = styled.div`
     position: absolute;
     opacity: 0;
     background-color: hsla(0,0%,100%,.7);
-    transition: .75s;
+    transition: opacity .75s;
     padding: 5rem;
     font-weight: bold;
     user-select: none;
     font-family: Inter,sans-serif;
     font-size: 15rem;
+    border-radius: 50%;
       @media only screen and (max-width: 768px) {
 font-size: 12rem;
   }

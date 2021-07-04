@@ -4,7 +4,7 @@ const Switch = styled.div`
 display: inline-flex;
 justify-content: center;
 align-items: center;
-background: linear-gradient(270deg, rgb(120 0 133 / 0.7) 0%, rgb(52 1 49 / 0.7) 100%);
+background: linear-gradient(270deg, rgba(120, 0, 133, 0.7) 0%, rgba(52, 1, 49, 0.7) 100%);
 padding: 5rem 8rem;
 border-radius: 10rem;
 color: ${({ theme }) => theme.font.orange};
