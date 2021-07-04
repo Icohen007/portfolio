@@ -3,7 +3,7 @@ import React, { useMemo, useRef } from 'react';
 export const ScrollContext = React.createContext({});
 export const scrollToRef = (ref) => {
   if (ref.current) {
-    window.scrollTo(0, ref.current.offsetTop);
+    window.scroll({ top: ref.current.offsetTop, left: 0, behavior: 'smooth' });
   }
 };
 
