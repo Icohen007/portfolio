@@ -3,6 +3,7 @@ import whyDidYouRender from '@welldone-software/why-did-you-render';
 import App from 'next/app';
 import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
+import smoothscroll from 'smoothscroll-polyfill';
 import GlobalStyle from '../components/_App/Global.style';
 import ResponsiveNavBar from '../components/ResponsiveNavBar/ResponsiveNavBar';
 import Layout from '../components/_App/Layout';
@@ -11,6 +12,11 @@ import ScrollButton from '../components/Shared/ScrollButton';
 import * as gtag from '../lib/gtag';
 import ErrorPage from './404';
 import 'rodal/lib/rodal.css';
+
+if (typeof window !== 'undefined') {
+  console.log('call');
+  smoothscroll.polyfill();
+}
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   whyDidYouRender(React, { trackAllPureComponents: true });
