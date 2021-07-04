@@ -2,7 +2,7 @@ import React, {
   useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import {
-  CSSGrid, enterExitStyle, layout, makeResponsive, measureItems,
+  CSSGrid, layout, makeResponsive, measureItems,
 } from 'react-stonecutter';
 import styled from 'styled-components';
 import Bounce from 'react-reveal/Bounce';
@@ -31,6 +31,24 @@ const shuffle = (array) => {
   }
   return newArray;
 };
+
+export const enter = () => ({
+  rotate: 45,
+  scale: 0,
+  opacity: 0,
+});
+
+export const exit = () => ({
+  rotate: -45,
+  scale: 0,
+  opacity: 0,
+});
+
+export const entered = () => ({
+  rotate: 0,
+  scale: 1,
+  opacity: 1,
+});
 
 function TechSection() {
   const isMobile = useMobile();
@@ -164,10 +182,10 @@ function TechSection() {
           gutterHeight={10}
           layout={layout.pinterest}
           duration={600}
-          easing="cubic-bezier(0.95, 0.05, 0.795, 0.035)"
-          enter={enterExitStyle.skew.enter}
-          entered={enterExitStyle.skew.entered}
-          exit={enterExitStyle.skew.exit}
+          easing="cubic-bezier(0.645, 0.045, 0.355, 1)"
+          enter={enter}
+          entered={entered}
+          exit={exit}
         >
           {techCardComponents}
         </Grid>
@@ -222,7 +240,7 @@ const TabIndicator = styled.div`
   border-radius:5px;
   transition:all 600ms ease-in-out;
         @media only screen and (max-width: 768px) {
- display: none;
+        display: none;
   } 
 `;
 
@@ -237,6 +255,7 @@ transition: height 1s ease-in-out;
 
 li {
 list-style: none;
+will-change: transform;
 }
 `;
 
