@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import React from 'react';
 import { slickSettings } from '../../lib/config';
-import ShinyLink from '../Shared/ShinyLink.style';
+import ShinyLink from '../Shared/ShinyLink';
 import useLockBodyScroll from '../../hooks/useLockBodyScroll';
 import SubSectionTitle from '../Shared/SubSectionTitle';
 

@@ -9,7 +9,7 @@ import { IoMdMail } from 'react-icons/io';
 import { animatedCards } from '../../lib/data';
 import { ScrollContext } from '../../hooks/ScrollProvider';
 import { useMobile } from '../../lib/queries';
-import ShinyLink from '../Shared/ShinyLink.style';
+import ShinyLink from '../Shared/ShinyLink';
 import AnimatedCard from './AnimatedCard';
 import StyledContainer from '../Shared/Container.style';
 import Triangle from '../Intro/Triangle';
